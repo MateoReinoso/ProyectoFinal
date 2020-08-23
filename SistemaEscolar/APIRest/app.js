@@ -29,13 +29,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Rest taller WEB." });
+    res.json({ message: "Rest taller WEB." });
 });
 
-require("../cursoNode/routes/products.js")(app);
+require("./routes/aspiringRoutes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
+    console.log(`Server is running on port ${PORT}.`);
 });
