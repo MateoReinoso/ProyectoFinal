@@ -26,7 +26,7 @@ Aspiring.create = (newAspiring, result) => {
 };
 
 Aspiring.getAll = result => {
-    sql.query("SELECT * FROM aspirante", (err, res) => {
+    sql.query("SELECT a.COD_ASPIRANTE, a.CEDULA, a.APELLIDO, (a.NOMBRE) as NOMBRE_ASP, a.DIRECCION, a.TELEFONO, a.FECHA_NACIMIENTO, a.GENERO, a.CORREO_PERSONAL, cpa.CALIFICACION, cpa.ESTADO, (ne.NOMBRE) as NIVEL_EDUCATIVO  from aspirante a INNER JOIN calificacion_prueba_aspirante cpa on a.COD_ASPIRANTE=cpa.COD_ASPIRANTE INNER JOIN nivel_educativo ne on ne.COD_NIVEL_EDUCATIVO=cpa.COD_NIVEL_EDUCATIVO", (err, res) => {
         if (err) {
             console.log("error:", err);
             result(null, err);
@@ -38,7 +38,7 @@ Aspiring.getAll = result => {
 };
 
 Aspiring.findById = (aspiringId, result) => {
-    sql.query(`SELECT * FROM aspirante WHERE COD_ASPIRANTE = ${aspiringId}`, (err, res) => {
+    sql.query(`SELECT a.COD_ASPIRANTE, a.CEDULA, a.APELLIDO, (a.NOMBRE) as NOMBRE_ASP, a.DIRECCION, a.TELEFONO, a.FECHA_NACIMIENTO, a.GENERO, a.CORREO_PERSONAL, cpa.CALIFICACION, cpa.ESTADO, (ne.NOMBRE) as NIVEL, (ne.NIVEL) as SECCION  from aspirante a INNER JOIN calificacion_prueba_aspirante cpa on a.COD_ASPIRANTE=cpa.COD_ASPIRANTE INNER JOIN nivel_educativo ne on ne.COD_NIVEL_EDUCATIVO=cpa.COD_NIVEL_EDUCATIVO WHERE a.COD_ASPIRANTE = ${aspiringId}`, (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(err, null);
