@@ -3,12 +3,7 @@ const sql = require('../util/database');
 const Teacher = function(teacher) {
     this.CEDULA = teacher.CEDULA;
     this.APELLIDO = teacher.APELLIDO;
-    this.NOMBRE = teacher.NOMBRE;
-    this.DIRECCION = teacher.DIRECCION;
-    this.TELEFONO = teacher.TELEFONO;
-    this.FECHA_NACIMIENTO = teacher.FECHA_NACIMIENTO;
-    this.GENERO = teacher.GENERO;
-    this.CORREO_PERSONAL = teacher.CORREO_PERSONAL;
+    
 
 }
 
