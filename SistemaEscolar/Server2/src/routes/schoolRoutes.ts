@@ -13,6 +13,10 @@ class ShoolRoutes{
     config():void{
         this.router.get('/:id/:ids', schoolController.curso);
         this.router.put('/:id/:sdi', schoolController.updateDeberes);
+        this.router.put('/:id/:sdiT', schoolController.updateTalleres);
+        this.router.put('/:id/:sdiL', schoolController.updateLaboratorio);
+        this.router.put('/:id/:sdiP', schoolController.updatePruebas);
+        this.router.put('/:id/:sdiE', schoolController.updateExamenes);
     }
 }
 

@@ -17,6 +17,32 @@ class SchoolController{
         await db.query('UPDATE alumno_asignatura_periodo aap SET ? WHERE aap.COD_ASIGNATURA = ? AND aap.COD_ALUMNO = ?', [req.body, id, sdi]);
         res.json({message: 'Ingreso de notas'})
     }
+    public async updateTalleres(req: Request, res: Response):Promise<void> {
+        const {id} = req.params;
+        const {sdiT} = req.params;
+        await db.query('UPDATE alumno_asignatura_periodo aap SET ? WHERE aap.COD_ASIGNATURA = ? AND aap.COD_ALUMNO = ?', [req.body, id, sdiT]);
+        res.json({message: 'Ingreso de notas'})
+    }
+    public async updateLaboratorio(req: Request, res: Response):Promise<void> {
+        const {id} = req.params;
+        const {sdiL} = req.params;
+        await db.query('UPDATE alumno_asignatura_periodo aap SET ? WHERE aap.COD_ASIGNATURA = ? AND aap.COD_ALUMNO = ?', [req.body, id, sdiL]);
+        res.json({message: 'Ingreso de notas'})
+    }
+
+    public async updatePruebas(req: Request, res: Response):Promise<void> {
+        const {id} = req.params;
+        const {sdiP} = req.params;
+        await db.query('UPDATE alumno_asignatura_periodo aap SET ? WHERE aap.COD_ASIGNATURA = ? AND aap.COD_ALUMNO = ?', [req.body, id, sdiP]);
+        res.json({message: 'Ingreso de notas'})
+    }
+
+    public async updateExamenes(req: Request, res: Response):Promise<void> {
+        const {id} = req.params;
+        const {sdiE} = req.params;
+        await db.query('UPDATE alumno_asignatura_periodo aap SET ? WHERE aap.COD_ASIGNATURA = ? AND aap.COD_ALUMNO = ?', [req.body, id, sdiE]);
+        res.json({message: 'Ingreso de notas'})
+    }
 
 }
 
