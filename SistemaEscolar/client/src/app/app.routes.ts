@@ -24,12 +24,13 @@ import { HeaderComponent } from './landing/header/header.component';
 import { NavComponent } from './landing/nav/nav.component';
 import { IndexComponent } from './landing/index/index.component';
 import { InstitutionComponent } from './landing/institution/institution.component';
+import { StartComponent } from './intranet/login/start/start.component'
 
 
 export const routes: Routes = [
     {
         path:'',
-        redirectTo: '/index',
+        redirectTo: 'index',
         pathMatch: 'full'
       },
       {
@@ -65,7 +66,7 @@ export const routes: Routes = [
     {path: 'error', component: AppErrorComponent},
     {path: 'accessdenied', component: AppAccessdeniedComponent},
     {path: 'notfound', component: AppNotfoundComponent},
-    {path: 'login', component: AppLoginComponent},
+    {path: 'login', component: StartComponent},
     {path: '**', redirectTo: '/notfound'},
 
 ];

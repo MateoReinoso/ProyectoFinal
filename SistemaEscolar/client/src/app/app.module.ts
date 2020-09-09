@@ -3,7 +3,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HashLocationStrategy, LocationStrategy} from '@angular/common';
+import {PathLocationStrategy ,HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {AppRoutes} from './app.routes';
 
 // PrimeNG Components for demos
@@ -117,6 +117,8 @@ import { NavComponent } from './landing/nav/nav.component';
 import { IndexComponent } from './landing/index/index.component';
 import { AcademyComponent } from './landing/academy/academy.component';
 import { InstitutionComponent } from './landing/institution/institution.component';
+import { StartComponent } from './intranet/login/start/start.component';
+import { ForgotPasswordComponent } from './intranet/login/forgot-password/forgot-password.component';
 
 @NgModule({
     imports: [
@@ -223,10 +225,12 @@ import { InstitutionComponent } from './landing/institution/institution.componen
         NavComponent,
         IndexComponent,
         AcademyComponent,
-        InstitutionComponent
+        InstitutionComponent,
+        StartComponent,
+        ForgotPasswordComponent
     ],
     providers: [
-        {provide: LocationStrategy, useClass: HashLocationStrategy},
+        {provide: LocationStrategy, useClass: PathLocationStrategy},
         CarService, CountryService, EventService, NodeService, BreadcrumbService, MenuService
     ],
     bootstrap: [AppComponent]

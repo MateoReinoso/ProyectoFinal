@@ -8,23 +8,7 @@ import { IndexComponent } from './landing/index/index.component';
 import { InstitutionComponent } from './landing/institution/institution.component';
 
 const routes: Routes = [
-  {
-    path:'',
-    redirectTo: '/index',
-    pathMatch: 'full'
-  },
-  {
-    path: 'index',
-    component: IndexComponent
-  },
-  {
-    path: 'institution',
-    component: InstitutionComponent
-  },
-  {
-    path: 'academy',
-    component: AcademyComponent
-  },
+
   
 ];
 

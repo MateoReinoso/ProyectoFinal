@@ -33,14 +33,7 @@
                             "node_modules/primeicons/primeicons.css",
                             "node_modules/primeflex/primeflex.css",
                             "src/assets/demo/css/codehighlight.css",
-                            "src/styles.scss",
-                            "src/app/landing/css/style.css",
-                            "src/app/landing/css/font-awesome.min.css",
-                            "src/app/landing/css/normalize.css",
-                            "src/app/landing/css/bootstrap.min.css"
-
-
-
+                            "src/styles.scss"
                         ],
                         "scripts": [
                             "node_modules/chart.js/dist/Chart.js",
@@ -49,9 +42,7 @@
                             "node_modules/@fullcalendar/timegrid/main.js",
                             "node_modules/@fullcalendar/interaction/main.js",
                             "node_modules/prismjs/prism.js",
-                            "node_modules/quill/dist/quill.js",
-                            "src/app/landing/js/modernizr.js",
-                            "src/app/landing/js/main.js"
+                            "node_modules/quill/dist/quill.js"
                         ]
                     },
                     "configurations": {
