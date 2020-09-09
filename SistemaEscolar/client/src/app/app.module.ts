@@ -111,6 +111,10 @@ import {NodeService} from './demo/service/nodeservice';
 // Application services
 import {BreadcrumbService} from './breadcrumb.service';
 import {MenuService} from './app.menu.service';
+import { HeaderComponent } from './landing/header/header.component';
+import { FooterComponent } from './landing/footer/footer.component';
+import { NavComponent } from './landing/nav/nav.component';
+import { IndexComponent } from './landing/index/index.component';
 
 @NgModule({
     imports: [
@@ -211,7 +215,11 @@ import {MenuService} from './app.menu.service';
         ChartsDemoComponent,
         EmptyDemoComponent,
         FileDemoComponent,
-        DocumentationComponent
+        DocumentationComponent,
+        HeaderComponent,
+        FooterComponent,
+        NavComponent,
+        IndexComponent
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
