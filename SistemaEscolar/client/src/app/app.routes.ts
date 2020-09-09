@@ -18,9 +18,33 @@ import { AppNotfoundComponent } from './pages/app.notfound.component';
 import { AppErrorComponent } from './pages/app.error.component';
 import { AppAccessdeniedComponent } from './pages/app.accessdenied.component';
 import { AppLoginComponent } from './pages/app.login.component';
+import { AcademyComponent } from './landing/academy/academy.component';
+import { FooterComponent } from './landing/footer/footer.component';
+import { HeaderComponent } from './landing/header/header.component';
+import { NavComponent } from './landing/nav/nav.component';
+import { IndexComponent } from './landing/index/index.component';
+import { InstitutionComponent } from './landing/institution/institution.component';
+
 
 export const routes: Routes = [
-    { path: '', component: AppMainComponent,
+    {
+        path:'',
+        redirectTo: '/index',
+        pathMatch: 'full'
+      },
+      {
+        path: 'index',
+        component: IndexComponent
+      },
+      {
+        path: 'institution',
+        component: InstitutionComponent
+      },
+      {
+        path: 'academy',
+        component: AcademyComponent
+      },
+    { path: 'template', component: AppMainComponent,
         children: [
             { path: '', component: DashboardDemoComponent },
             { path: 'components/sample', component: SampleDemoComponent },
@@ -34,7 +58,8 @@ export const routes: Routes = [
             { path: 'pages/empty', component: EmptyDemoComponent },
             { path: 'components/charts', component: ChartsDemoComponent },
             { path: 'components/file', component: FileDemoComponent },
-            { path: 'documentation', component: DocumentationComponent }
+            { path: 'documentation', component: DocumentationComponent },
+            
         ]
     },
     {path: 'error', component: AppErrorComponent},

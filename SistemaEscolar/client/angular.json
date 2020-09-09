@@ -33,7 +33,14 @@
                             "node_modules/primeicons/primeicons.css",
                             "node_modules/primeflex/primeflex.css",
                             "src/assets/demo/css/codehighlight.css",
-                            "src/styles.scss"
+                            "src/styles.scss",
+                            "src/app/landing/css/style.css",
+                            "src/app/landing/css/font-awesome.min.css",
+                            "src/app/landing/css/normalize.css",
+                            "src/app/landing/css/bootstrap.min.css"
+
+
+
                         ],
                         "scripts": [
                             "node_modules/chart.js/dist/Chart.js",
@@ -42,17 +49,17 @@
                             "node_modules/@fullcalendar/timegrid/main.js",
                             "node_modules/@fullcalendar/interaction/main.js",
                             "node_modules/prismjs/prism.js",
-                            "node_modules/quill/dist/quill.js"
+                            "node_modules/quill/dist/quill.js",
+                            "src/app/landing/js/modernizr.js",
+                            "src/app/landing/js/main.js"
                         ]
                     },
                     "configurations": {
                         "production": {
-                            "fileReplacements": [
-                                {
-                                    "replace": "src/environments/environment.ts",
-                                    "with": "src/environments/environment.prod.ts"
-                                }
-                            ],
+                            "fileReplacements": [{
+                                "replace": "src/environments/environment.ts",
+                                "with": "src/environments/environment.prod.ts"
+                            }],
                             "optimization": true,
                             "outputHashing": "all",
                             "sourceMap": false,
@@ -62,13 +69,11 @@
                             "extractLicenses": true,
                             "vendorChunk": false,
                             "buildOptimizer": true,
-                            "budgets": [
-                                {
-                                    "type": "initial",
-                                    "maximumWarning": "2mb",
-                                    "maximumError": "5mb"
-                                }
-                            ]
+                            "budgets": [{
+                                "type": "initial",
+                                "maximumWarning": "2mb",
+                                "maximumError": "5mb"
+                            }]
                         }
                     }
                 },

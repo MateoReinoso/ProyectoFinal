@@ -115,6 +115,8 @@ import { HeaderComponent } from './landing/header/header.component';
 import { FooterComponent } from './landing/footer/footer.component';
 import { NavComponent } from './landing/nav/nav.component';
 import { IndexComponent } from './landing/index/index.component';
+import { AcademyComponent } from './landing/academy/academy.component';
+import { InstitutionComponent } from './landing/institution/institution.component';
 
 @NgModule({
     imports: [
@@ -219,7 +221,9 @@ import { IndexComponent } from './landing/index/index.component';
         HeaderComponent,
         FooterComponent,
         NavComponent,
-        IndexComponent
+        IndexComponent,
+        AcademyComponent,
+        InstitutionComponent
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
