@@ -25,7 +25,6 @@ class LoginController {
         INNER JOIN rol_usuario ru on u.COD_USUARIO=ru.COD_USUARIO
         INNER JOIN rol r on r.COD_ROL=ru.COD_ROL
         where u.ESTADO='ACT' AND ru.ESTADO='ACT' AND u.NOMBRE_USUARIO = ? AND u.CLAVE = ?`, [user, encriptedpass]);
-            console.log(auth);
             res.json(auth);
         });
     }
@@ -33,8 +32,7 @@ class LoginController {
         return __awaiter(this, void 0, void 0, function* () {
             const { user } = req.params;
             const date = new Date();
-            yield database_1.default.query('UPDATE usuario SET ULT_FECHA_INGRESO= ?  WHERE NOMBRE_USUARIO = ?', [req.body, date, user]);
-            console.log(res);
+            yield database_1.default.query('UPDATE usuario SET ULT_FECHA_INGRESO= ?  WHERE NOMBRE_USUARIO = ?', [date, user]);
             res.json({ message: 'actualizacion de fecha de usuario' });
         });
     }

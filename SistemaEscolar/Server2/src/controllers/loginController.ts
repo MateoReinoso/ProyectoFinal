@@ -11,15 +11,13 @@ class LoginController{
         INNER JOIN rol_usuario ru on u.COD_USUARIO=ru.COD_USUARIO
         INNER JOIN rol r on r.COD_ROL=ru.COD_ROL
         where u.ESTADO='ACT' AND ru.ESTADO='ACT' AND u.NOMBRE_USUARIO = ? AND u.CLAVE = ?`, [user, encriptedpass]);
-        console.log(auth);
         res.json(auth);
     } 
 
     public async updateLastLogin(req: Request, res: Response):Promise<void> {
         const {user} = req.params;
         const date = new Date();
-        await db.query('UPDATE usuario SET ULT_FECHA_INGRESO= ?  WHERE NOMBRE_USUARIO = ?', [req.body,date, user]);
-        console.log(res);
+        await db.query('UPDATE usuario SET ULT_FECHA_INGRESO= ?  WHERE NOMBRE_USUARIO = ?', [date, user]);
         res.json({message: 'actualizacion de fecha de usuario'});
     }
 
