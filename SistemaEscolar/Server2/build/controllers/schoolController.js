@@ -19,7 +19,15 @@ class SchoolController {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
             const { ids } = req.params;
-            const curs = yield database_1.default.query('SELECT aap.COD_NIVEL_EDUCATIVO, aap.COD_ASIGNATURA, p.APELLIDO, p.NOMBRE,  aa.MATERIA FROM alumno_asignatura_periodo aap, asignatura_periodo ap, persona p, aula a, asignatura aa WHERE aap.COD_NIVEL_EDUCATIVO = ? AND aap.COD_ASIGNATURA = ? AND aap.COD_ASIGNATURA=aa.COD_ASIGNATURA AND ap.COD_DOCENTE = aap.COD_DOCENTE AND p.COD_PERSONA = aap.COD_ALUMNO ORDER BY APELLIDO ASC', [id, ids]);
+            const curs = yield database_1.default.query('SELECT DISTINCTROW aap.COD_NIVEL_EDUCATIVO, aap.COD_ASIGNATURA, p.APELLIDO, p.NOMBRE,  aa.MATERIA FROM alumno_asignatura_periodo aap, asignatura_periodo ap, persona p, aula a, asignatura aa WHERE aap.COD_NIVEL_EDUCATIVO = ? AND aap.COD_ASIGNATURA = ? AND aap.COD_ASIGNATURA=aa.COD_ASIGNATURA AND ap.COD_DOCENTE = aap.COD_DOCENTE AND p.COD_PERSONA = aap.COD_ALUMNO ORDER BY APELLIDO ASC', [id, ids]);
+            console.log(curs);
+            res.json(curs);
+        });
+    }
+    RevisonNotasQ1(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { idQ1 } = req.params;
+            const curs = yield database_1.default.query('SELECT DISTINCTROW a.MATERIA, aap.NOTA1, aap.NOTA2, aap.NOTA3, aap.NOTA4, aap.NOTA5 FROM alumno_asignatura_periodo aap, asignatura a WHERE aap.COD_ALUMNO = ? AND aap.COD_ASIGNATURA = a.COD_ASIGNATURA', [idQ1]);
             console.log(curs);
             res.json(curs);
         });
