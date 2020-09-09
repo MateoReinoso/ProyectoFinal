@@ -1,5 +1,7 @@
 import { Router } from 'express';
 
+import { schoolController } from '../controllers/schoolController';
+
 class ShoolRoutes{
 
     public router: Router = Router();
@@ -9,7 +11,7 @@ class ShoolRoutes{
     }
 
     config():void{
-        this.router.get('/', (req, res) => res.send('Shool'));
+        this.router.get('/:id/:ids', schoolController.curso);
     }
 }
 
