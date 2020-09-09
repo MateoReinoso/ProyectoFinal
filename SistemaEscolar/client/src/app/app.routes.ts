@@ -24,7 +24,8 @@ import { HeaderComponent } from './landing/header/header.component';
 import { NavComponent } from './landing/nav/nav.component';
 import { IndexComponent } from './landing/index/index.component';
 import { InstitutionComponent } from './landing/institution/institution.component';
-import { StartComponent } from './intranet/login/start/start.component'
+import { StartComponent } from './intranet/login/start/start.component';
+import { ForgotPasswordComponent } from './intranet/login/forgot-password/forgot-password.component';
 
 
 export const routes: Routes = [
@@ -67,6 +68,7 @@ export const routes: Routes = [
     {path: 'accessdenied', component: AppAccessdeniedComponent},
     {path: 'notfound', component: AppNotfoundComponent},
     {path: 'login', component: StartComponent},
+    {path: 'forgot-password', component: ForgotPasswordComponent},
     {path: '**', redirectTo: '/notfound'},
 
 ];
