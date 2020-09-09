@@ -32,6 +32,14 @@ class SchoolController {
             res.json(curs);
         });
     }
+    RevisonNotasQ2(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { idQ2 } = req.params;
+            const curs = yield database_1.default.query('SELECT DISTINCTROW a.MATERIA, aap.NOTA6, aap.NOTA7, aap.NOTA8, aap.NOTA9, aap.NOTA10 FROM alumno_asignatura_periodo aap, asignatura a WHERE aap.COD_ALUMNO = ? AND aap.COD_ASIGNATURA = a.COD_ASIGNATURA', [idQ2]);
+            console.log(curs);
+            res.json(curs);
+        });
+    }
     updateDeberes(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;

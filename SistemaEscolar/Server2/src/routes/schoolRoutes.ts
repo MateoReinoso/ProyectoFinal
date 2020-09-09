@@ -13,7 +13,7 @@ class ShoolRoutes{
     config():void{
         this.router.get('/:id/:ids', schoolController.curso);
         this.router.get('/:idQ1', schoolController.RevisonNotasQ1);
-        
+        this.router.get('/:idQ2', schoolController.RevisonNotasQ2);
         this.router.put('/:id/:sdi', schoolController.updateDeberes);
         this.router.put('/:id/:sdiT', schoolController.updateTalleres);
         this.router.put('/:id/:sdiL', schoolController.updateLaboratorio);

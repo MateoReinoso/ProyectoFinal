@@ -18,7 +18,12 @@ class SchoolController{
         res.json(curs);
     }
     
-    
+    public async RevisonNotasQ2(req: Request, res: Response): Promise<void> {
+        const { idQ2 } = req.params;
+        const curs = await db.query('SELECT DISTINCTROW a.MATERIA, aap.NOTA6, aap.NOTA7, aap.NOTA8, aap.NOTA9, aap.NOTA10 FROM alumno_asignatura_periodo aap, asignatura a WHERE aap.COD_ALUMNO = ? AND aap.COD_ASIGNATURA = a.COD_ASIGNATURA', [idQ2]);
+        console.log(curs);
+        res.json(curs);
+    } 
 
     public async updateDeberes(req: Request, res: Response):Promise<void> {
         const {id} = req.params;
