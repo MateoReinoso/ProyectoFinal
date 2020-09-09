@@ -12,6 +12,7 @@ class ShoolRoutes{
 
     config():void{
         this.router.get('/:id/:ids', schoolController.curso);
+        this.router.put('/:id/:sdi', schoolController.updateDeberes);
     }
 }
 

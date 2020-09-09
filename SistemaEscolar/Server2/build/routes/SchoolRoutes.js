@@ -9,6 +9,7 @@ class ShoolRoutes {
     }
     config() {
         this.router.get('/:id/:ids', schoolController_1.schoolController.curso);
+        this.router.put('/:id/:sdi', schoolController_1.schoolController.updateDeberes);
     }
 }
 const schoolRoutes = new ShoolRoutes();
