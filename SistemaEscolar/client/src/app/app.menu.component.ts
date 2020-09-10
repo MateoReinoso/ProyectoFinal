@@ -15,18 +15,18 @@ export class AppMenuComponent implements OnInit {
         this.model = [
             {label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/']},
             {
-                label: 'Components', icon: 'pi pi-fw pi-star', routerLink: ['/components'],
+                label: 'Components', icon: 'pi pi-fw pi-star', routerLink: ['template/components'],
                 items: [
-                    { label: 'Sample Page', icon: 'pi pi-fw pi-th-large', routerLink: ['/components/sample']},
-                            { label: 'Forms', icon: 'pi pi-fw pi-file', routerLink: ['/components/forms'] },
-                            { label: 'Data', icon: 'pi pi-fw pi-table', routerLink: ['/components/data'] },
-                            { label: 'Panels', icon: 'pi pi-fw pi-list', routerLink: ['/components/panels'] },
-                            { label: 'Overlays', icon: 'pi pi-fw pi-clone', routerLink: ['/components/overlays'] },
-                    { label: 'Menus', icon: 'pi pi-fw pi-plus', routerLink: ['/components/menus'] },
-                    { label: 'Messages', icon: 'pi pi-fw pi-envelope', routerLink: ['/components/messages'] },
-                    { label: 'Charts', icon: 'pi pi-fw pi-chart-bar', routerLink: ['/components/charts'] },
-                    { label: 'File', icon: 'pi pi-fw pi-upload', routerLink: ['/components/file'] },
-                    { label: 'Misc', icon: 'pi pi-fw pi-spinner', routerLink: ['/components/misc'] }
+                    { label: 'Sample Page', icon: 'pi pi-fw pi-th-large', routerLink: ['template/components/sample']},
+                            { label: 'Forms', icon: 'pi pi-fw pi-file', routerLink: ['template/components/forms'] },
+                            { label: 'Data', icon: 'pi pi-fw pi-table', routerLink: ['template/components/data'] },
+                            { label: 'Panels', icon: 'pi pi-fw pi-list', routerLink: ['template/components/panels'] },
+                            { label: 'Overlays', icon: 'pi pi-fw pi-clone', routerLink: ['template/components/overlays'] },
+                    { label: 'Menus', icon: 'pi pi-fw pi-plus', routerLink: ['template/components/menus'] },
+                    { label: 'Messages', icon: 'pi pi-fw pi-envelope', routerLink: ['template/components/messages'] },
+                    { label: 'Charts', icon: 'pi pi-fw pi-chart-bar', routerLink: ['template/components/charts'] },
+                    { label: 'File', icon: 'pi pi-fw pi-upload', routerLink: ['template/components/file'] },
+                    { label: 'Misc', icon: 'pi pi-fw pi-spinner', routerLink: ['template/components/misc'] }
                 ]
             },
             {

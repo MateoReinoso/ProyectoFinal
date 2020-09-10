@@ -119,7 +119,9 @@ import { AcademyComponent } from './landing/academy/academy.component';
 import { InstitutionComponent } from './landing/institution/institution.component';
 import { StartComponent } from './intranet/login/start/start.component';
 import { ForgotPasswordComponent } from './intranet/login/forgot-password/forgot-password.component';
-
+import { HomeComponentAdministrative } from './intranet/administrative/home/home.component';
+import { HomeComponentStudent } from './intranet/student/home/home.component';
+import { HomeComponentTeacher } from './intranet/teacher/home/home.component';
 @NgModule({
     imports: [
         BrowserModule,
@@ -227,7 +229,10 @@ import { ForgotPasswordComponent } from './intranet/login/forgot-password/forgot
         AcademyComponent,
         InstitutionComponent,
         StartComponent,
-        ForgotPasswordComponent
+        ForgotPasswordComponent,
+        HomeComponentStudent,
+        HomeComponentAdministrative,
+        HomeComponentTeacher
     ],
     providers: [
         {provide: LocationStrategy, useClass: PathLocationStrategy},

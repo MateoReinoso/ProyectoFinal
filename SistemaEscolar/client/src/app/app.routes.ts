@@ -26,6 +26,9 @@ import { IndexComponent } from './landing/index/index.component';
 import { InstitutionComponent } from './landing/institution/institution.component';
 import { StartComponent } from './intranet/login/start/start.component';
 import { ForgotPasswordComponent } from './intranet/login/forgot-password/forgot-password.component';
+import { HomeComponentAdministrative } from './intranet/administrative/home/home.component';
+import { HomeComponentTeacher } from './intranet/teacher/home/home.component';
+import { HomeComponentStudent } from './intranet/student/home/home.component';
 
 
 export const routes: Routes = [
@@ -46,21 +49,33 @@ export const routes: Routes = [
         path: 'academy',
         component: AcademyComponent
       },
+      {
+        path: 'student/home',
+        component: HomeComponentStudent
+      },
+      {
+        path: 'teacher/home',
+        component: HomeComponentTeacher
+      },
+      {
+        path: 'administrative/home',
+        component: HomeComponentAdministrative
+      },
     { path: 'template', component: AppMainComponent,
         children: [
             { path: '', component: DashboardDemoComponent },
-            { path: 'components/sample', component: SampleDemoComponent },
-            { path: 'components/forms', component: FormsDemoComponent },
-            { path: 'components/data', component: DataDemoComponent },
-            { path: 'components/panels', component: PanelsDemoComponent },
-            { path: 'components/overlays', component: OverlaysDemoComponent },
-            { path: 'components/menus', component: MenusDemoComponent },
-            { path: 'components/messages', component: MessagesDemoComponent },
-            { path: 'components/misc', component: MiscDemoComponent },
-            { path: 'pages/empty', component: EmptyDemoComponent },
-            { path: 'components/charts', component: ChartsDemoComponent },
-            { path: 'components/file', component: FileDemoComponent },
-            { path: 'documentation', component: DocumentationComponent },
+            { path: 'template/components/sample', component: SampleDemoComponent },
+            { path: 'template/components/forms', component: FormsDemoComponent },
+            { path: 'template/components/data', component: DataDemoComponent },
+            { path: 'template/components/panels', component: PanelsDemoComponent },
+            { path: 'template/components/overlays', component: OverlaysDemoComponent },
+            { path: 'template/components/menus', component: MenusDemoComponent },
+            { path: 'template/components/messages', component: MessagesDemoComponent },
+            { path: 'template/components/misc', component: MiscDemoComponent },
+            { path: 'template/pages/empty', component: EmptyDemoComponent },
+            { path: 'template/components/charts', component: ChartsDemoComponent },
+            { path: 'template/components/file', component: FileDemoComponent },
+            { path: 'template/documentation', component: DocumentationComponent },
             
         ]
     },
