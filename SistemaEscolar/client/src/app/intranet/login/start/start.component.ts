@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Route, ActivatedRoute, Router } from '@angular/router'
 import { SchoolService } from '../../../services/school.service'
 import { Login} from '../../../models/School'
@@ -7,6 +7,7 @@ import { Login} from '../../../models/School'
   templateUrl: './start.component.html',
   styleUrls: ['./start.component.css']
 })
+
 export class StartComponent implements OnInit {
 
   credential: any = {
@@ -20,6 +21,9 @@ export class StartComponent implements OnInit {
     COD_ROL: 0,
     NOMBRE: ''
   };
+
+  @Output()
+  propagar = new EventEmitter<string>();
 
   constructor(private schoolService: SchoolService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
@@ -41,14 +45,18 @@ export class StartComponent implements OnInit {
 
         if(rol == 2){
           this.router.navigate(['/administrative/home']);
+          this.propagar.emit(this.credential[0].COD_PERSONA);
         }
         else if(rol == 3)
         {
           this.router.navigate(['/teacher/home']);
+          this.propagar.emit(this.credential[0].COD_PERSONA);
+
         }
         else if(rol == 4)
         {
           this.router.navigate(['/student/home']);
+          this.propagar.emit(this.credential[0].COD_PERSONA);
         }
       },
       err => console.log(err)
@@ -56,3 +64,4 @@ export class StartComponent implements OnInit {
     }
   }
 }
+

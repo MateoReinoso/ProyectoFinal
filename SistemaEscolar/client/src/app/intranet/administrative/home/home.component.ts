@@ -10,6 +10,10 @@ export class HomeComponentAdministrative implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
+  procesaPropagar(data) {
+    console.log(data);
+  }
 }
