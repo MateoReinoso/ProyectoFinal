@@ -9,10 +9,12 @@ class ShoolRoutes {
     }
     config() {
         this.router.get('/:id/:ids', schoolController_1.schoolController.curso);
-        //agregar los cursos 
-        this.router.get('/:idQ1', schoolController_1.schoolController.RevisonNotasQ1);
-        this.router.get('/:idQ2', schoolController_1.schoolController.RevisonNotasQ2);
-        this.router.get('/debere/:ca/:cn', schoolController_1.schoolController.VerDeberes);
+        //Notas por quimestre
+        this.router.get('/p/q/:idp', schoolController_1.schoolController.primero);
+        this.router.get('/s/q/c/:idqs', schoolController_1.schoolController.segundo);
+        //Ver deberes
+        this.router.get('/deberes/:ca/:cn', schoolController_1.schoolController.VerDeberes);
+        //Ingreso de notas
         this.router.put('/:id/:sdi', schoolController_1.schoolController.updateDeberes);
         this.router.put('/:id/:sdiT', schoolController_1.schoolController.updateTalleres);
         this.router.put('/:id/:sdiL', schoolController_1.schoolController.updateLaboratorio);
