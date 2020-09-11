@@ -5,6 +5,30 @@
         <button pButton type="button" label="Click"></button>
         <p-button label="Submit" icon="pi pi-check" iconPos="right"></p-button>
     </div>
-
+    <div class="p-col-9">
+        <p-table [value]="notes">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Materia</th>
+                    <th>Deberes</th>
+                    <th>Talleres</th>
+                    <th>Laboratorios</th>
+                    <th>Pruebas</th>
+                    <th>Examenes</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-note>
+                <tr>
+                    <td>{{note.MATERIA}}</td>
+                    <td>{{note.NOTA1}}</td>
+                    <td>{{note.NOTA2}}</td>
+                    <td>{{note.NOTA3}}</td>
+                    <td>{{note.NOTA4}}</td>
+                    <td>{{note.NOTA5}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
 </div>
+
 <app-footer></app-footer>
