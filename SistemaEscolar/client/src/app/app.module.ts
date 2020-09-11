@@ -6,6 +6,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {PathLocationStrategy ,HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {AppRoutes} from './app.routes';
 
+
 // PrimeNG Components for demos
 import {AccordionModule} from 'primeng/accordion';
 import {AutoCompleteModule} from 'primeng/autocomplete';
@@ -236,8 +237,7 @@ import { HomeComponentTeacher } from './intranet/teacher/home/home.component';
     ],
     providers: [
         {provide: LocationStrategy, useClass: PathLocationStrategy},
-        CarService, CountryService, EventService, NodeService, BreadcrumbService, MenuService
-    ],
+        CarService, CountryService, EventService, NodeService, BreadcrumbService, MenuService    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

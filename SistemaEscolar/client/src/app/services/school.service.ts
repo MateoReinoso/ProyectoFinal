@@ -8,14 +8,18 @@ import { Observable } from 'rxjs';
 export class SchoolService {
 
 
-  API_URI = 'http://localhost:3000'
+  API_URI = 'http://localhost:3000/system'
   constructor(private http: HttpClient) { }
 
   getCredentials( USER:string, PASS: string){
-    return this.http.get(`${this.API_URI}/system/login/${USER}/${PASS}`);
+    return this.http.get(`${this.API_URI}/login/${USER}/${PASS}`);
   }
 
   updateLoginDate(USER: string){
-    return this.http.put(`${this.API_URI}/system/login/${USER}`, null);
+    return this.http.put(`${this.API_URI}/login/${USER}`, null);
+  }
+
+  getNotes(idp: string){
+    return this.http.get(`${this.API_URI}/school/p/q/${idp}`);
   }
 }

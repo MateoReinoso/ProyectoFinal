@@ -51,7 +51,10 @@ export const routes: Routes = [
       },
       {
         path: 'student/home',
-        component: HomeComponentStudent
+        children:[
+          {path: '', component: HomeComponentStudent}
+        ]
+        
       },
       {
         path: 'teacher/home',
