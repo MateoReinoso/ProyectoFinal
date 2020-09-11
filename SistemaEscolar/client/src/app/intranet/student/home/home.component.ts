@@ -8,14 +8,18 @@ import { LoginService } from '../../../services/login.service'
 })
 export class HomeComponentStudent implements OnInit {
 
+
+
   constructor(private loginService: LoginService) { }
 
   credential: any =[];
-
+  
   ngOnInit(): void {
     this.credential=this.loginService.getsession();
     console.log(this.loginService.getsession());
-    console.log(this.credential);
+    console.log(this.credential);  
   }
+
+  
 
 }

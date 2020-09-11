@@ -1,6 +1,6 @@
 export interface Login{
-    COD_USUARIO: number;
-    COD_PERSONA: number;
+    COD_USUARIO?: number;
+    COD_PERSONA?: number;
     NOMBRE_USUARIO: string;
     CLAVE: string,
     ESTADO: string;
@@ -9,6 +9,7 @@ export interface Login{
     COD_ROL: number;
     NOMBRE: string;
 }
+
 
 export interface ISession {
     session: Object;
