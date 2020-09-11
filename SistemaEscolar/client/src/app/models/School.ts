@@ -9,3 +9,7 @@ export interface Login{
     COD_ROL: number;
     NOMBRE: string;
 }
+
+export interface ISession {
+    session: Object;
+}

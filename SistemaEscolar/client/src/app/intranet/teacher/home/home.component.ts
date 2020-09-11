@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../../../services/login.service'
 
 @Component({
   selector: 'app-home-teacher',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponentTeacher implements OnInit {
 
-  constructor() { }
+  constructor(private loginService: LoginService) { }
+
+  credential: any =[];
 
   ngOnInit(): void {
+    this.credential=this.loginService.getsession();
+    console.log(this.loginService.getsession());
+    console.log(this.credential);
   }
 
 }
