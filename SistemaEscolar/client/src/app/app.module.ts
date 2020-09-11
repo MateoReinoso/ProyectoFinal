@@ -123,6 +123,11 @@ import { ForgotPasswordComponent } from './intranet/login/forgot-password/forgot
 import { HomeComponentAdministrative } from './intranet/administrative/home/home.component';
 import { HomeComponentStudent } from './intranet/student/home/home.component';
 import { HomeComponentTeacher } from './intranet/teacher/home/home.component';
+import { CampusComponent } from './intranet/administrative/campus/campus.component';
+import { BuildingComponent } from './intranet/administrative/building/building.component';
+import { ClassroomComponent } from './intranet/administrative/classroom/classroom.component';
+import { CampusFormComponent } from './intranet/administrative/campus/campus-form/campus-form.component';
+import { CampusListComponent } from './intranet/administrative/campus/campus-list/campus-list.component';
 @NgModule({
     imports: [
         BrowserModule,
@@ -233,7 +238,12 @@ import { HomeComponentTeacher } from './intranet/teacher/home/home.component';
         ForgotPasswordComponent,
         HomeComponentStudent,
         HomeComponentAdministrative,
-        HomeComponentTeacher
+        HomeComponentTeacher,
+        CampusComponent,
+        BuildingComponent,
+        ClassroomComponent,
+        CampusFormComponent,
+        CampusListComponent
     ],
     providers: [
         {provide: LocationStrategy, useClass: PathLocationStrategy},

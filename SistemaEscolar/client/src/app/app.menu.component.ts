@@ -13,7 +13,7 @@ export class AppMenuComponent implements OnInit {
 
     ngOnInit() {
         this.model = [
-            {label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/']},
+            {label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/template']},
             {
                 label: 'Components', icon: 'pi pi-fw pi-star', routerLink: ['template/components'],
                 items: [
@@ -30,11 +30,11 @@ export class AppMenuComponent implements OnInit {
                 ]
             },
             {
-                label: 'Pages', icon: 'pi pi-fw pi-copy', routerLink: ['/pages'],
+                label: 'Pages', icon: 'pi pi-fw pi-copy', routerLink: ['template/pages'],
                 items: [
-                    { label: 'Empty', icon: 'pi pi-fw pi-clone', routerLink: ['/pages/empty'] },
-                    { label: 'Login', icon: 'pi pi-fw pi-sign-in', routerLink: ['/login'], target: '_blank' },
-                    { label: 'Landing', icon: 'pi pi-fw pi-globe', url: 'assets/pages/landing.html', target: '_blank' },
+                    { label: 'Empty', icon: 'pi pi-fw pi-clone', routerLink: ['template//pages/empty'] },
+                    { label: 'Login', icon: 'pi pi-fw pi-sign-in', routerLink: ['template//login'], target: '_blank' },
+                    { label: 'Landing', icon: 'pi pi-fw pi-globe', url: 'template/assets/pages/landing.html', target: '_blank' },
                     { label: 'Error', icon: 'pi pi-fw pi-exclamation-triangle', routerLink: ['/error'], target: '_blank' },
                     { label: '404', icon: 'pi pi-fw pi-times', routerLink: ['/404'], target: '_blank' },
                     {
@@ -86,7 +86,7 @@ export class AppMenuComponent implements OnInit {
                 ]
             },
             {
-                label: 'Documentation', icon: 'pi pi-fw pi-file', routerLink: ['/documentation']
+                label: 'Documentation', icon: 'pi pi-fw pi-file', routerLink: ['template/documentation']
             },
             {
                 label: 'Buy Now', icon: 'pi pi-fw pi-money-bill', url: ['https://www.primefaces.org/store']
