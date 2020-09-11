@@ -1,7 +1,7 @@
 <div class="layout-topbar">
     <div href="#" class="layout-topbar-logo">
         <a href="#">
-            <img class="logo" src="assets/layout/images/logo.png" alt="prestige-layout"/>
+            <img class="logo" src="./../assets/img/logo2.png" alt="prestige-layout" />
         </a>
     </div>
     <a class="layout-menu-button" href="#" (click)="app.onMenuButtonClick($event)">
@@ -74,18 +74,18 @@
         <li #profile class="user-profile" role="menuitem" [ngClass]="{'active-topmenuitem':app.activeTopbarItem === profile}">
             <a href="#" (click)="app.onTopbarItemClick($event,profile)">
                 <div class="user-profile-info profile-link">
-                    <span class="user-profile-name">Ava Gregoraci</span>
-                    <span class="user-profile-role">Design Ops</span>
+                    <span class="user-profile-name">{{ credentials.NOMBRE_USUARIO }}</span>
+                    <span class="user-profile-role">{{ credentials.NOMBRE }}</span>
                 </div>
-                <img class="logo" src="assets/layout/images/avatar/avatar-ava.jpg" alt="prestige-layout" />
+                <img class="logo" src="assets/layout/images/avatar/avatar.png" alt="prestige-layout" />
             </a>
             <ul class="fadeInDown">
                 <li class="profile-detail">
                     <div class="user-profile-info">
-                        <img class="logo" src="assets/layout/images/avatar/avatar-ava.jpg" alt="prestige-layout" />
+                        <img class="logo" src="assets/layout/images/avatar/avatar.png" alt="prestige-layout" />
                         <div class="profile-info">
-                            <span class="user-profile-name">Ava Gregoraci</span>
-                            <span class="user-profile-role">Design Ops</span>
+                            <span class="user-profile-name">{{ credentials.NOMBRE_USUARIO }}</span>
+                            <span class="user-profile-role">{{ credentials.NOMBRE }}</span>
                         </div>
                         <a href="#" class="profile-detail-icon" (click)="app.onTopbarSubItemClick($event)">
                             <i class="pi pi-sign-out"></i>

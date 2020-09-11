@@ -2,7 +2,7 @@ import {Component, Renderer2} from '@angular/core';
 import { MenuService } from './app.menu.service';
 
 @Component({
-    selector: 'app-root',
+    selector: 'app-main',
     templateUrl: './app.main.component.html'
 })
 export class AppMainComponent {
