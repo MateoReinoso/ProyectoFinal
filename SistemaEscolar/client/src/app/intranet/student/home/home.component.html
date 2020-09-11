@@ -5,7 +5,7 @@
         <button pButton type="button" label="Click"></button>
         <p-button label="Submit" icon="pi pi-check" iconPos="right"></p-button>
     </div>
-    <div class="p-col-9">
+    <div class="p-col-8">
         <p-table [value]="notes">
             <ng-template pTemplate="header">
                 <tr>
@@ -30,5 +30,7 @@
         </p-table>
     </div>
 </div>
-
+<button class="btn btn-primary btn-lg btn-block" (click)="getNotes()">
+    Primer Quimestre
+</button>
 <app-footer></app-footer>
