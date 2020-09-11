@@ -19,7 +19,7 @@ export class SchoolService {
     return this.http.put(`${this.API_URI}/login/${USER}`, null);
   }
 
-  getNotes(idp: string){
+  getNotes(idp: number){
     return this.http.get(`${this.API_URI}/school/p/q/${idp}`);
   }
 }

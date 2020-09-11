@@ -15,6 +15,7 @@ export class HomeComponentStudent implements OnInit {
   constructor(private loginService: LoginService, private schoolService: SchoolService) { }
 
   credential: any = [];
+  notes: any = [];
   
   ngOnInit(): void {
     this.credential = this.loginService.getsession();
@@ -23,11 +24,13 @@ export class HomeComponentStudent implements OnInit {
   }
 
   getNotes() {
+    console.log(this.credential.COD_PERSONA);
+    
     this.schoolService.getNotes(this.credential.COD_PERSONA)
       .subscribe(
         res => {
-          console.log(res);
-          this.credential = res;
+          this.notes = res;
+          console.log(this.notes);
         },
         err => console.error(err)
       );
