@@ -1,10 +1,10 @@
-<div>
-    <p>{{ credential.NOMBRE_USUARIO }}</p>
-    <p>{{ credential.COD_PERSONA }}</p>
+<app-main></app-main>
+<div class="layout-content">
+    <div class="p-col-3">
+        <p-menu [model]="items"></p-menu>
+        <button pButton type="button" label="Click"></button>
+        <p-button label="Submit" icon="pi pi-check" iconPos="right"></p-button>
+    </div>
 
-    <button class="btn btn-danger" (click)="getNotes()">
-        mostrar
-    </button>
 </div>
-
-<!--  -->
+<app-footer></app-footer>

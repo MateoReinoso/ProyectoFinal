@@ -128,6 +128,8 @@ import { BuildingComponent } from './intranet/administrative/building/building.c
 import { ClassroomComponent } from './intranet/administrative/classroom/classroom.component';
 import { CampusFormComponent } from './intranet/administrative/campus/campus-form/campus-form.component';
 import { CampusListComponent } from './intranet/administrative/campus/campus-list/campus-list.component';
+import { HeaderComponentI } from './pages/header/header.component';
+import { FooterComponentI } from './pages/footer/footer.component';
 @NgModule({
     imports: [
         BrowserModule,
@@ -243,7 +245,10 @@ import { CampusListComponent } from './intranet/administrative/campus/campus-lis
         BuildingComponent,
         ClassroomComponent,
         CampusFormComponent,
-        CampusListComponent
+        CampusListComponent,
+        HeaderComponentI,
+        FooterComponentI
+
     ],
     providers: [
         {provide: LocationStrategy, useClass: PathLocationStrategy},
