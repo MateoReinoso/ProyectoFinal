@@ -43,4 +43,8 @@ export class SchoolService {
     return this.http.get(`${this.API_URI}/school/${mat}`);
   }
 
+  getAsignarDeber(asdb: number){
+    return this.http.get(`${this.API_URI}/school/asignar/${asdb}`)
+  }
+
 }
