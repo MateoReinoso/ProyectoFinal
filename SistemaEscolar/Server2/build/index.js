@@ -9,6 +9,8 @@ const cors_1 = __importDefault(require("cors"));
 const indexRoutes_1 = __importDefault(require("./routes/indexRoutes"));
 const schoolRoutes_1 = __importDefault(require("./routes/schoolRoutes"));
 const loginRoutes_1 = __importDefault(require("./routes/loginRoutes"));
+const campusRoutes_1 = __importDefault(require("./routes/campusRoutes"));
+const buildingRoutes_1 = __importDefault(require("./routes/buildingRoutes"));
 class Server {
     constructor() {
         this.app = express_1.default();
@@ -26,6 +28,8 @@ class Server {
         this.app.use(indexRoutes_1.default);
         this.app.use('/system/school', schoolRoutes_1.default);
         this.app.use('/system/login', loginRoutes_1.default);
+        this.app.use('/system/campus', campusRoutes_1.default);
+        this.app.use('/system/building', buildingRoutes_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

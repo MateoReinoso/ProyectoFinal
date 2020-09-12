@@ -6,6 +6,10 @@ import indexRoutes from './routes/indexRoutes';
 import shoolRoutes from './routes/schoolRoutes';
 import loginRoutes from './routes/loginRoutes';
 
+import campusRoutes from './routes/campusRoutes';
+import buildingRoutes from './routes/buildingRoutes';
+
+
 class Server {
 
     public app: Application;
@@ -27,7 +31,9 @@ class Server {
     routes(): void{
         this.app.use(indexRoutes);
         this.app.use('/system/school',shoolRoutes);
-        this.app.use('/system/login',loginRoutes)
+        this.app.use('/system/login',loginRoutes);
+        this.app.use('/system/campus',campusRoutes);
+        this.app.use('/system/building',buildingRoutes);
     }
 
     start(): void{
