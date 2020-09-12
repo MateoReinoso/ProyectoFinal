@@ -42,6 +42,7 @@ export class HomeComponentStudent implements OnInit {
           this.getNotes();
           this.notes1p = true;
           this.notes2p = false;
+          this.tablehomework=false;
         }
       },
       {
@@ -52,6 +53,7 @@ export class HomeComponentStudent implements OnInit {
           this.getNotes2();
           this.notes2p = true;
           this.notes1p = false;
+          this.tablehomework=false;
         }
       },
       {
@@ -59,6 +61,8 @@ export class HomeComponentStudent implements OnInit {
         icon: 'pi pi-briefcase',
         command: () => {
           this.tablehomework = true;
+          this.notes1p= false;
+          this.notes2p=false;
         }
       }
       ]
