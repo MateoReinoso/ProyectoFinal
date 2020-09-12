@@ -23,6 +23,8 @@ export class HomeComponentStudent implements OnInit {
   homeworks: any = [];
   subject: Subject []
 
+  matSelect:Number;
+
   public notes2p = false;
   public notes1p = false;
   public tablenotes = false;
@@ -31,12 +33,12 @@ export class HomeComponentStudent implements OnInit {
   ngOnInit(): void {
     this.subject = [
       {COD_MATERIA: 1, MATERIA: "Informatica"},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {}
+      {COD_MATERIA: 2, MATERIA: "Matematicas"},
+      {COD_MATERIA: 3, MATERIA: "Ciencias Sociales"},
+      {COD_MATERIA: 4, MATERIA: "Lenguaje"},
+      {COD_MATERIA: 5, MATERIA: "Ciencias Naturales"},
+      {COD_MATERIA: 6, MATERIA: "Dibujo Técnico"},
+      {COD_MATERIA: 7, MATERIA: "Ingles"}
     ];
     this.credentials = this.loginService.getsession();
     console.log(this.loginService.getsession());
