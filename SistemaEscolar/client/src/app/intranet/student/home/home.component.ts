@@ -61,6 +61,7 @@ export class HomeComponentStudent implements OnInit {
         icon: 'pi pi-briefcase',
         command: () => {
           this.tablehomework = true;
+          this.getHomework();
           this.notes1p= false;
           this.notes2p=false;
         }
