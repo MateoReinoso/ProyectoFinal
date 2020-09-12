@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../../services/login.service';
 import { SchoolService } from '../../../services/school.service';
 import { MenuItem, MessageService, Message } from 'primeng/api';
+import {SplitButtonModule} from 'primeng/splitbutton';
 
 @Component({
   selector: 'app-list-notes',
@@ -15,6 +16,7 @@ export class ListNotesComponent implements OnInit {
   credentials: any = [];
   subjects: any = [];
   students: any  = [];
+  items: MenuItem[];
 
 
 
@@ -24,6 +26,14 @@ export class ListNotesComponent implements OnInit {
     console.log(this.credentials);
     console.log(this.credentials.COD_PERSONA);
     this.getMaterias();
+    this.items = [
+      {label: 'Primer Parcial', icon: 'pi pi-list', command: () => {
+          this.update();
+      }},
+      {label: 'Segundo Parcial', icon: 'pi pi-list', command: () => {
+          this.delete();
+      }}
+  ];
   }
 
   getListStudent(cap: number){
@@ -54,5 +64,17 @@ export class ListNotesComponent implements OnInit {
     this.getListStudent(selectedSubject);
     //this.get(selectedSubject);
   }
+
+  save(severity: string) {
+    this.messageService.add({severity:severity, summary:'Success', detail:'Data Saved'});
+}
+
+update() {
+    this.messageService.add({severity:'success', summary:'Success', detail:'Data Updated'});
+}
+
+delete() {
+    this.messageService.add({severity:'success', summary:'Success', detail:'Data Deleted'});
+}
 
 }
