@@ -89,5 +89,13 @@ class SchoolController {
             res.json(curs);
         });
     }
+    Materias(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { mat } = req.params;
+            const curs = yield database_1.default.query('SELECT DISTINCTROW a.MATERIA FROM persona p, asignatura a, alumno_asignatura_periodo aap WHERE p.COD_PERSONA = ? AND aap.COD_ALUMNO = p.COD_PERSONA AND aap.COD_NIVEL_EDUCATIVO = a.COD_NIVEL_EDUCATIVO', [mat]);
+            console.log(curs);
+            res.json(curs);
+        });
+    }
 }
 exports.schoolController = new SchoolController();

@@ -24,6 +24,8 @@ class ShoolRoutes{
         this.router.put('/:id/:sdiL', schoolController.updateLaboratorio);
         this.router.put('/:id/:sdiP', schoolController.updatePruebas);
         this.router.put('/:id/:sdiE', schoolController.updateExamenes);
+        //ver materias
+        this.router.get('/:mat', schoolController.Materias);
     }
 }
 

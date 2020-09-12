@@ -20,6 +20,8 @@ class ShoolRoutes {
         this.router.put('/:id/:sdiL', schoolController_1.schoolController.updateLaboratorio);
         this.router.put('/:id/:sdiP', schoolController_1.schoolController.updatePruebas);
         this.router.put('/:id/:sdiE', schoolController_1.schoolController.updateExamenes);
+        //ver materias
+        this.router.get('/:mat', schoolController_1.schoolController.Materias);
     }
 }
 const schoolRoutes = new ShoolRoutes();
