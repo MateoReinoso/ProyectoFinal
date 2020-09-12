@@ -78,10 +78,14 @@ class SchoolController{
         const curs = await db.query('SELECT DISTINCTROW a.COD_ASIGNATURA, a.MATERIA FROM alumno_asignatura_periodo aap, asignatura a WHERE aap.COD_DOCENTE = ? AND a.COD_ASIGNATURA = aap.COD_ASIGNATURA', [mp]);
         console.log(curs);
         res.json(curs);
-    } 
-
-
+    }
     
+    public async AsignacionDeberes(req: Request, res: Response): Promise<void> {
+        const { asdb } = req.params;
+        const curs = await db.query('SELECT DISTINCTROW ap.COD_ASIGNATURA, ap.COD_PERIODO_LECTIVO, ap.COD_NIVEL_EDUCATIVO, a.MATERIA FROM asignatura_periodo ap, asignatura a, alumno_asignatura_periodo aap WHERE aap.COD_DOCENTE = ? AND ap.COD_DOCENTE = aap.COD_DOCENTE AND ap.COD_ASIGNATURA = a.COD_ASIGNATURA AND a.COD_ASIGNATURA = aap.COD_ASIGNATURA', [asdb]);
+        console.log(curs);
+        res.json(curs);
+    }    
 
 }
 
