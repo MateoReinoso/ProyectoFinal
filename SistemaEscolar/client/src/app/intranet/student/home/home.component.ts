@@ -19,7 +19,7 @@ export class HomeComponentStudent implements OnInit {
   items: MenuItem[];
   credentials: any = [];
   notes: any = [];
-  homeworks: any[];
+  homeworks: any = [];
 
   public notes2p = false;
   public notes1p = false;
@@ -93,6 +93,10 @@ export class HomeComponentStudent implements OnInit {
         },
         err => console.error(err)
       );
+  }
+
+  getHomework(){
+    console.log(this.credentials.COD_PERSONA, this.homeworks.COD_ASIGNATURA)
   }
 
   update() {

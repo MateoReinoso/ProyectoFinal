@@ -27,4 +27,8 @@ export class SchoolService {
     return this.http.get(`${this.API_URI}/school/s/q/c/${idqs}`);
   }
 
+  getHomework(ca: number, cal:number){
+    return this.http.get(`${this.http}/school/deberes/${ca}/${cal}`);
+  }
+
 }
