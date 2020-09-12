@@ -27,7 +27,7 @@ export class HomeComponentTeacher implements OnInit {
       label: 'Opciones Docente',
       items: [{
         label: 'Registro de Deberes',
-        icon: 'pi pi-bars',
+        icon: 'pi pi-briefcase',
         command: () => {
           
         }
