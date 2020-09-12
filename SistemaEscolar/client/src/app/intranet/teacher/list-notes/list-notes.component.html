@@ -1,8 +1,6 @@
-<select [(ngModel)]="selectedSubject" (change)="onChange(selectedSubject)" class="form-control col-lg-8">
-    <option *ngFor="let subject of subjects" [ngValue]="subject.COD_ASIGNATURA">
-        {{ subject.MATERIA }}</option>
-</select>
-<p-table [value]="students">
+<p-dropdown [options]="subjects" [(ngModel)]="selectedSubject" placeholder="Selecciona la Asignatura..." optionLabel="MATERIA" [showClear]="true" (onChange)="onChange(selectedSubject)"></p-dropdown>
+
+<p-table [value]="students" *ngIf="optionSubject">
     <ng-template pTemplate="header">
         <tr>
             <th>Materia</th>

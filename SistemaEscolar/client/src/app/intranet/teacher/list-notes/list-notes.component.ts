@@ -3,6 +3,11 @@ import { LoginService } from '../../../services/login.service';
 import { SchoolService } from '../../../services/school.service';
 import { MenuItem, MessageService, Message } from 'primeng/api';
 import {SplitButtonModule} from 'primeng/splitbutton';
+import {DropdownModule} from 'primeng/dropdown';
+import {SelectItem} from 'primeng/api';
+
+
+
 
 @Component({
   selector: 'app-list-notes',
@@ -10,14 +15,19 @@ import {SplitButtonModule} from 'primeng/splitbutton';
   styleUrls: ['./list-notes.component.css']
 })
 export class ListNotesComponent implements OnInit {
+  subjectlist: SelectItem[];
 
-  constructor(private loginService: LoginService, private schoolService: SchoolService, private messageService: MessageService) { }
+  constructor(private loginService: LoginService, private schoolService: SchoolService, private messageService: MessageService) {
+
+   }
 
   credentials: any = [];
   subjects: any = [];
   students: any  = [];
   items: MenuItem[];
 
+  
+  public optionSubject = false;
 
 
   ngOnInit(): void {
@@ -26,14 +36,7 @@ export class ListNotesComponent implements OnInit {
     console.log(this.credentials);
     console.log(this.credentials.COD_PERSONA);
     this.getMaterias();
-    this.items = [
-      {label: 'Primer Parcial', icon: 'pi pi-list', command: () => {
-          this.update();
-      }},
-      {label: 'Segundo Parcial', icon: 'pi pi-list', command: () => {
-          this.delete();
-      }}
-  ];
+    this.items=this.subjects;
   }
 
   getListStudent(cap: number){
@@ -60,8 +63,9 @@ export class ListNotesComponent implements OnInit {
 
 
   onChange(selectedSubject){
-    console.log(selectedSubject);
-    this.getListStudent(selectedSubject);
+    console.log(selectedSubject.COD_ASIGNATURA);
+    this.getListStudent(selectedSubject.COD_ASIGNATURA);
+    this.optionSubject=true;
     //this.get(selectedSubject);
   }
 

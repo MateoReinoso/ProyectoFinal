@@ -123,7 +123,7 @@ export class HomeComponentStudent implements OnInit {
   }
 
   onChange(selectedSubject){
-    this.getHomework(selectedSubject);
+    this.getHomework(selectedSubject.COD_ASIGNATURA);
   }
 
   update() {
