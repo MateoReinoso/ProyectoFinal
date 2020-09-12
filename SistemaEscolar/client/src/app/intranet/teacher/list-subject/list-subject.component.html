@@ -1,1 +1,17 @@
-<p>list-subject works!</p>
+<p-dropdown [options]="subjects" [(ngModel)]="selectedSubject" placeholder="Selecciona la Asignatura..." optionLabel="MATERIA" [showClear]="true" (onChange)="onChange(selectedSubject)"></p-dropdown>
+
+<p-table [value]="students" *ngIf="optionSubject">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Materia</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-student>
+        <tr>
+            <td>{{student.MATERIA}}</td>
+            <td>{{student.APELLIDO}}</td>
+            <td>{{student.NOMBRE}}</td>
+        </tr>
+    </ng-template>
+    <p-splitButton *ngIf="tablestudents" label="Seleccionar Parcial" icon="pi pi-calendar-plus" (onClick)="save()" [model]="items"></p-splitButton>
+</p-table>

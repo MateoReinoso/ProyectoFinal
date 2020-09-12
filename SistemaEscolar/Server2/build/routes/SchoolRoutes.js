@@ -19,6 +19,9 @@ class ShoolRoutes {
         this.router.get('/deberes/:ca/:cal', schoolController_1.schoolController.VerDeberes);
         //Obtencion Asignacion Deberes
         this.router.get('/asignar/:asdb', schoolController_1.schoolController.AsignacionDeberes);
+        //Asignatuira solo alumno
+        this.router.get('/alumn/cod/:npa/:cae', schoolController_1.schoolController.smp);
+        this.router.get('/alumn/cod/seg/:npas/:caes', schoolController_1.schoolController.sms);
         //Ingreso de notas
         this.router.put('/:id/:sdi', schoolController_1.schoolController.updateDeberes);
         this.router.put('/:id/:sdiT', schoolController_1.schoolController.updateTalleres);

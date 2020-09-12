@@ -40,6 +40,24 @@ class SchoolController {
             res.json(cursq);
         });
     }
+    smp(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { npa } = req.params;
+            const { cae } = req.params;
+            const cursq = yield database_1.default.query('SELECT DISTINCTROW a.MATERIA, aap.NOTA1, aap.NOTA2, aap.NOTA3, aap.NOTA4, aap.NOTA5 FROM alumno_asignatura_periodo aap, asignatura a WHERE aap.COD_ALUMNO = ? AND a.COD_NIVEL_EDUCATIVO = aap.COD_NIVEL_EDUCATIVO AND aap.COD_ASIGNATURA = ? AND aap.COD_ASIGNATURA = a.COD_ASIGNATURA', [npa, cae]);
+            console.log(cursq);
+            res.json(cursq);
+        });
+    }
+    sms(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { npas } = req.params;
+            const { caes } = req.params;
+            const cursq = yield database_1.default.query('SELECT DISTINCTROW a.MATERIA, aap.NOTA6, aap.NOTA7, aap.NOTA8, aap.NOTA9, aap.NOTA10 FROM alumno_asignatura_periodo aap, asignatura a WHERE aap.COD_ALUMNO = ? AND a.COD_NIVEL_EDUCATIVO = aap.COD_NIVEL_EDUCATIVO AND aap.COD_ASIGNATURA = ? AND aap.COD_ASIGNATURA = a.COD_ASIGNATURA', [npas, caes]);
+            console.log(cursq);
+            res.json(cursq);
+        });
+    }
     updateDeberes(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;

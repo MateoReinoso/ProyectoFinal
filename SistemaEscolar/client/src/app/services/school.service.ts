@@ -47,4 +47,12 @@ export class SchoolService {
     return this.http.get(`${this.API_URI}/school/asignar/${asdb}`)
   }
 
+  getMatAlPri(npa: number,cae:number){
+    return this.http.get(`${this.API_URI}/school/alumn/cod/${npa}/${cae}`);
+  }
+
+  getMatAlSeg(npas: number, caes:number){
+    return this.http.get(`${this.API_URI}/school/alumn/seg/cod/${npas}/${caes}`);
+  }
+
 }
