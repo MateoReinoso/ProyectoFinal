@@ -19,10 +19,12 @@ export class HomeComponentStudent implements OnInit {
   items: MenuItem[];
   credentials: any = [];
   notes: any = [];
+  homeworks: any[];
 
   public notes2p = false;
   public notes1p = false;
   public tablenotes = false;
+  public tablehomework = false;
 
   ngOnInit(): void {
     this.credentials = this.loginService.getsession();
@@ -36,17 +38,17 @@ export class HomeComponentStudent implements OnInit {
         label: 'Notas Primer Quimestre',
         icon: 'pi pi-bars',
         command: () => {
-          this.tablenotes=true;
+          this.tablenotes = true;
           this.getNotes();
-          this.notes1p=true;
-          this.notes2p=false;
+          this.notes1p = true;
+          this.notes2p = false;
         }
       },
       {
         label: 'Notas Segundo Quimestre',
         icon: 'pi pi-bars',
         command: () => {
-          this.tablenotes=true;
+          this.tablenotes = true;
           this.getNotes2();
           this.notes2p = true;
           this.notes1p = false;
@@ -56,7 +58,7 @@ export class HomeComponentStudent implements OnInit {
         label: 'Ver Deberes',
         icon: 'pi pi-briefcase',
         command: () => {
-          this.tablenotes=false;
+          this.tablehomework = true;
         }
       }
       ]

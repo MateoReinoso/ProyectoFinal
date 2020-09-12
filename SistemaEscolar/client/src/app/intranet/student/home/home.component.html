@@ -36,6 +36,20 @@
                 </ng-template>
             </p-table>
         </div>
+        <div class="p-col-12 p-md-6 p-lg-9">
+            <p-table [value]="homeworks" *ngIf="tablehomework">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Materia</th>
+                        <th>Deberes</th>
+                        <th>Talleres</th>
+                        <th>Laboratorios</th>
+                        <th>Pruebas</th>
+                        <th>Examenes</th>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
     </div>
 </div>
 
