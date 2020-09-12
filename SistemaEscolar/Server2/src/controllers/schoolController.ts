@@ -61,7 +61,7 @@ class SchoolController{
     public async VerDeberes(req: Request, res: Response): Promise<void> {
         const { ca } = req.params;
         const { cal } = req.params;
-        const curs = await db.query('SELECT DISTINCT ta.COD_ASIGNATURA, ta.DETALLE_TAREA FROM tarea_asignatura ta, alumno_asignatura_periodo aap WHERE ta.COD_ASIGNATURA = ? AND aap.COD_ASIGNATURA = ta.COD_ASIGNATURA AND aap.COD_ALUMNO = ? AND ta.COD_NIVEL_EDUCATIVO = aap.COD_NIVEL_EDUCATIVO', [ca,cal]);
+        const curs = await db.query('SELECT DISTINCT a.MATERIA, ta.DETALLE_TAREA FROM tarea_asignatura ta, alumno_asignatura_periodo aap, asignatura a WHERE ta.COD_ASIGNATURA = ? AND aap.COD_ASIGNATURA = ta.COD_ASIGNATURA AND aap.COD_ALUMNO = ? AND ta.COD_NIVEL_EDUCATIVO = aap.COD_NIVEL_EDUCATIVO AND a.COD_ASIGNATURA = ta.COD_ASIGNATURA', [ca,cal]);
         console.log(curs);
         res.json(curs);
     } 

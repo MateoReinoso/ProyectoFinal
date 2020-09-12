@@ -4,6 +4,7 @@ import { SchoolService } from '../../../services/school.service';
 import { Login } from '../../../models/School';
 import { MenuItem, MessageService, Message } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
+import { Subject } from '../../../models/School';
 
 @Component({
   selector: 'app-home-student',
@@ -20,6 +21,7 @@ export class HomeComponentStudent implements OnInit {
   credentials: any = [];
   notes: any = [];
   homeworks: any = [];
+  subject: Subject []
 
   public notes2p = false;
   public notes1p = false;
@@ -27,6 +29,15 @@ export class HomeComponentStudent implements OnInit {
   public tablehomework = false;
 
   ngOnInit(): void {
+    this.subject = [
+      {COD_MATERIA: 1, MATERIA: "Informatica"},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {}
+    ];
     this.credentials = this.loginService.getsession();
     console.log(this.loginService.getsession());
     console.log(this.credentials);

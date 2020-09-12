@@ -10,6 +10,11 @@ export interface Login{
     NOMBRE: string;
 }
 
+export class Subject{
+    public COD_MATERIA?: number;
+    public MATERIA?: string;
+}
+
 
 export interface ISession {
     session: Object;
