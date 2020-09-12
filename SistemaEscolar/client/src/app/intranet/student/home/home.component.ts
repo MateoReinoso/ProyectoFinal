@@ -17,7 +17,7 @@ export class HomeComponentStudent implements OnInit {
 
 
   constructor(private loginService: LoginService, private schoolService: SchoolService, private messageService: MessageService) { }
-  selectedSubject: String;
+  selectedSubject: number;
   items: MenuItem[];
   credentials: any = [];
   notes: any = [];
@@ -36,7 +36,6 @@ export class HomeComponentStudent implements OnInit {
     console.log(this.credentials);
     console.log(this.credentials.COD_PERSONA);
     console.log(this.notes);
-    this.getMateria();
     this.items = [{
       label: 'Opciones Estudiante',
       items: [{
@@ -65,7 +64,7 @@ export class HomeComponentStudent implements OnInit {
         label: 'Ver Deberes',
         icon: 'pi pi-briefcase',
         command: () => {
-          
+          this.getMateria();
           this.tablehomework = true;
           this.getHomework();
           this.notes1p= false;
@@ -108,12 +107,11 @@ export class HomeComponentStudent implements OnInit {
   }
 
   getMateria(){
-    console.log(this.credentials.COD_PERSONA);
     this.schoolService.getMateria(this.credentials.COD_PERSONA)
       .subscribe(
         res => {
           this.subjects = res;
-          console.log(this.notes);
+          console.log(this.subjects);
         },
         err => console.error(err)
       );

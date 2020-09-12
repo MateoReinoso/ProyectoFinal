@@ -35,11 +35,11 @@
                     </tr>
                 </ng-template>
             </p-table>
-            
+
             <p-table [value]="homeworks" *ngIf="tablehomework">
                 <ng-template pTemplate="header">
                     <select [(ngModel)]="selectedSubject" (change)="onChange(selectedSubject)" class="form-control col-lg-8">
-                        <option *ngFor="let subject of subjects" [ngValue]="subject.COD_ASIGNATURA">{{ subject.Materia }}</option>
+                        <option *ngFor="let subject of subjects" [ngValue]="subject.COD_ASIGNATURA">{{ subject.MATERIA }}</option>
                     </select>
                     <tr>
                         <th>Materia</th>
