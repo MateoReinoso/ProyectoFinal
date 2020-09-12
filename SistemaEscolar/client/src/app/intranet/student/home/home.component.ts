@@ -102,8 +102,14 @@ export class HomeComponentStudent implements OnInit {
       );
   }
 
-  getHomework(){
-    console.log(this.credentials.COD_PERSONA, this.homeworks.COD_ASIGNATURA)
+  getHomework(cm){
+    // console.log(this.credentials.COD_PERSONA, this.homeworks.COD_ASIGNATURA)
+    this.schoolService.getHomework(cm,this.credentials.COD_PERSONA).subscribe(
+      res => {
+        this.homeworks = res;
+        console.log(this.homeworks);
+      }
+    )
   }
 
   getMateria(){
@@ -118,7 +124,7 @@ export class HomeComponentStudent implements OnInit {
   }
 
   onChange(selectedSubject){
-    console.log(selectedSubject);
+    this.getHomework(selectedSubject);
   }
 
   update() {
