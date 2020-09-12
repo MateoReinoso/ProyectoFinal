@@ -8,6 +8,7 @@ import loginRoutes from './routes/loginRoutes';
 
 import campusRoutes from './routes/campusRoutes';
 import buildingRoutes from './routes/buildingRoutes';
+import classroomRoutes from './routes/classroomRoutes';
 
 
 class Server {
@@ -34,6 +35,8 @@ class Server {
         this.app.use('/system/login',loginRoutes);
         this.app.use('/system/campus',campusRoutes);
         this.app.use('/system/building',buildingRoutes);
+
+        this.app.use('/system/classroom',classroomRoutes);
     }
 
     start(): void{
