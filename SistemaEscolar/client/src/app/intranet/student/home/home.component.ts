@@ -66,7 +66,6 @@ export class HomeComponentStudent implements OnInit {
         command: () => {
           this.getMateria();
           this.tablehomework = true;
-          this.getHomework();
           this.notes1p= false;
           this.notes2p=false;
           this.tablenotes = false;
@@ -102,7 +101,7 @@ export class HomeComponentStudent implements OnInit {
       );
   }
 
-  getHomework(cm){
+  getHomework(cm: number){
     // console.log(this.credentials.COD_PERSONA, this.homeworks.COD_ASIGNATURA)
     this.schoolService.getHomework(cm,this.credentials.COD_PERSONA).subscribe(
       res => {
