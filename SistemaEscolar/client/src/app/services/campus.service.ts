@@ -8,6 +8,9 @@ export class CampusService {
   API_URI = 'http://localhost:3000/system'
   constructor(private http: HttpClient) { }
 
+  getCredentials( USER:string, PASS: string){
+    return this.http.get(`${this.API_URI}/login/${USER}/${PASS}`);
+  }
   getCampus(){
     return this.http.get(`${this.API_URI}/campus/`);
   }

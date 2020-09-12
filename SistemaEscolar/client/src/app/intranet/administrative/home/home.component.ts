@@ -20,16 +20,23 @@ export class HomeComponentAdministrative implements OnInit {
     console.log(this.credentials);
     console.log(this.credentials.COD_PERSONA);
     this.items = [{
-      label: 'Opciones Docente',
+      label: 'Opciones Administrativo',
       items: [{
-        label: 'Registro de Deberes',
+        label: 'Sedes',
         icon: 'pi pi-briefcase',
         command: () => {
 
         }
       },
       {
-        label: 'Registro de Notas',
+        label: 'Edificios',
+        icon: 'pi pi-bars',
+        command: () => {
+          
+        }
+      },
+      {
+        label: 'Aulas',
         icon: 'pi pi-bars',
         command: () => {
           
