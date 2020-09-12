@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../../services/login.service'
 import { MenuItem, MessageService, Message } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
-import {DropdownModule} from 'primeng/dropdown';
+import { DropdownModule } from 'primeng/dropdown';
 import { SchoolService } from '../../../services/school.service';
 
 @Component({
@@ -15,8 +15,11 @@ export class HomeComponentTeacher implements OnInit {
 
   constructor(private loginService: LoginService, private schoolService: SchoolService, private messageService: MessageService) { }
 
-  credentials: any =[];
+  credentials: any = [];
   items: MenuItem[];
+
+
+  public tablestudents = false;
 
   ngOnInit(): void {
     this.credentials = this.loginService.getsession();
@@ -29,14 +32,14 @@ export class HomeComponentTeacher implements OnInit {
         label: 'Registro de Deberes',
         icon: 'pi pi-briefcase',
         command: () => {
-          
+
         }
       },
       {
         label: 'Registro de Notas',
         icon: 'pi pi-bars',
         command: () => {
-         
+          this.tablestudents = true;
         }
       }
       ]
