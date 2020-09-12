@@ -6,7 +6,7 @@ class SchoolController{
     public async curso(req: Request, res: Response): Promise<void> {
         const { id } = req.params;
         const { ids } = req.params;
-        const curs = await db.query('SELECT DISTINCTROW aa.MATERIA, p.APELLIDO, p.NOMBRE FROM alumno_asignatura_periodo aap, persona p, asignatura aa WHERE aap.COD_DOCENTE = ? AND aap.COD_ASIGNATURA = ? AND aa.COD_ASIGNATURA = aap.COD_ASIGNATURA AND aap.COD_ALUMNO = p.COD_PERSONA ORDER BY APELLIDO ASC', [id, ids]);
+        const curs = await db.query('SELECT DISTINCTROW aap.COD_ALUMNO, aa.MATERIA, p.APELLIDO, p.NOMBRE FROM alumno_asignatura_periodo aap, persona p, asignatura aa WHERE aap.COD_DOCENTE = ? AND aap.COD_ASIGNATURA = ? AND aa.COD_ASIGNATURA = aap.COD_ASIGNATURA AND aap.COD_ALUMNO = p.COD_PERSONA ORDER BY APELLIDO ASC', [id, ids]);
         console.log(curs);
         res.json(curs);
     } 
@@ -72,6 +72,16 @@ class SchoolController{
         console.log(curs);
         res.json(curs);
     } 
+
+    public async MateriasProfesor(req: Request, res: Response): Promise<void> {
+        const { mp } = req.params;
+        const curs = await db.query('SELECT DISTINCTROW a.COD_ASIGNATURA, a.MATERIA FROM alumno_asignatura_periodo aap, asignatura a WHERE aap.COD_DOCENTE = ? AND a.COD_ASIGNATURA = aap.COD_ASIGNATURA', [mp]);
+        console.log(curs);
+        res.json(curs);
+    } 
+
+
+    
 
 }
 

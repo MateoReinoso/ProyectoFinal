@@ -19,7 +19,7 @@ class SchoolController {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
             const { ids } = req.params;
-            const curs = yield database_1.default.query('SELECT DISTINCTROW aa.MATERIA, p.APELLIDO, p.NOMBRE FROM alumno_asignatura_periodo aap, persona p, asignatura aa WHERE aap.COD_DOCENTE = ? AND aap.COD_ASIGNATURA = ? AND aa.COD_ASIGNATURA = aap.COD_ASIGNATURA AND aap.COD_ALUMNO = p.COD_PERSONA ORDER BY APELLIDO ASC', [id, ids]);
+            const curs = yield database_1.default.query('SELECT DISTINCTROW aap.COD_ALUMNO, aa.MATERIA, p.APELLIDO, p.NOMBRE FROM alumno_asignatura_periodo aap, persona p, asignatura aa WHERE aap.COD_DOCENTE = ? AND aap.COD_ASIGNATURA = ? AND aa.COD_ASIGNATURA = aap.COD_ASIGNATURA AND aap.COD_ALUMNO = p.COD_PERSONA ORDER BY APELLIDO ASC', [id, ids]);
             console.log(curs);
             res.json(curs);
         });
@@ -93,6 +93,14 @@ class SchoolController {
         return __awaiter(this, void 0, void 0, function* () {
             const { mat } = req.params;
             const curs = yield database_1.default.query('SELECT DISTINCTROW a.COD_ASIGNATURA, a.MATERIA FROM persona p, asignatura a, alumno_asignatura_periodo aap WHERE p.COD_PERSONA = ? AND aap.COD_ALUMNO = p.COD_PERSONA AND aap.COD_NIVEL_EDUCATIVO = a.COD_NIVEL_EDUCATIVO', [mat]);
+            console.log(curs);
+            res.json(curs);
+        });
+    }
+    MateriasProfesor(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { mp } = req.params;
+            const curs = yield database_1.default.query('SELECT DISTINCTROW a.COD_ASIGNATURA, a.MATERIA FROM alumno_asignatura_periodo aap, asignatura a WHERE aap.COD_DOCENTE = ? AND a.COD_ASIGNATURA = aap.COD_ASIGNATURA', [mp]);
             console.log(curs);
             res.json(curs);
         });

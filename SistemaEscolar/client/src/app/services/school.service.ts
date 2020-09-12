@@ -31,6 +31,10 @@ export class SchoolService {
     return this.http.get(`${this.API_URI}/school/deberes/${ca}/${cal}`);
   }
 
+  getMateriasTeacher(cp: number){
+    return this.http.get(`${this.API_URI}/school/materias/${cp}`);
+  }
+
   getMateria(mat: number){
     return this.http.get(`${this.API_URI}/school/${mat}`);
   }
