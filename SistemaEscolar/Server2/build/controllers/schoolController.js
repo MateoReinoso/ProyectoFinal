@@ -27,7 +27,7 @@ class SchoolController {
     primero(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { idp } = req.params;
-            const curs = yield database_1.default.query('SELECT DISTINCTROW a.MATERIA, aap.NOTA1, aap.NOTA2, aap.NOTA3, aap.NOTA4, aap.NOTA5 FROM alumno_asignatura_periodo aap, asignatura a WHERE aap.COD_ALUMNO = ? AND aap.COD_ASIGNATURA = a.COD_ASIGNATURA', [idp]);
+            const curs = yield database_1.default.query('SELECT DISTINCTROW a.MATERIA, aap.NOTA1, aap.NOTA2, aap.NOTA3, aap.NOTA4, aap.NOTA5 FROM alumno_asignatura_periodo aap, asignatura a WHERE aap.COD_ALUMNO = ? AND a.COD_NIVEL_EDUCATIVO = aap.COD_NIVEL_EDUCATIVO AND aap.COD_ASIGNATURA = a.COD_ASIGNATURA', [idp]);
             console.log(curs);
             res.json(curs);
         });
@@ -35,7 +35,7 @@ class SchoolController {
     segundo(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { idqs } = req.params;
-            const cursq = yield database_1.default.query('SELECT DISTINCTROW a.MATERIA, aap.NOTA6, aap.NOTA7, aap.NOTA8, aap.NOTA9, aap.NOTA10 FROM alumno_asignatura_periodo aap, asignatura a WHERE aap.COD_ALUMNO = ? AND aap.COD_ASIGNATURA = a.COD_ASIGNATURA', [idqs]);
+            const cursq = yield database_1.default.query('SELECT DISTINCTROW a.MATERIA, aap.NOTA6, aap.NOTA7, aap.NOTA8, aap.NOTA9, aap.NOTA10 FROM alumno_asignatura_periodo aap, asignatura a WHERE aap.COD_ALUMNO = ? AND a.COD_NIVEL_EDUCATIVO = aap.COD_NIVEL_EDUCATIVO AND aap.COD_ASIGNATURA = a.COD_ASIGNATURA', [idqs]);
             console.log(cursq);
             res.json(cursq);
         });

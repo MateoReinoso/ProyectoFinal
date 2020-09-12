@@ -22,4 +22,9 @@ export class SchoolService {
   getNotes(idp: number){
     return this.http.get(`${this.API_URI}/school/p/q/${idp}`);
   }
+
+  getNotes2(idqs: number){
+    return this.http.get(`${this.API_URI}/school/s/q/c/${idqs}`);
+  }
+
 }

@@ -20,27 +20,28 @@ export class HomeComponentStudent implements OnInit {
   credentials: any = [];
   notes: any = [];
 
+
+
   ngOnInit(): void {
-    this.credentials=this.loginService.getsession();
-      console.log(this.loginService.getsession());
-      console.log(this.credentials);
+    this.credentials = this.loginService.getsession();
+    console.log(this.loginService.getsession());
+    console.log(this.credentials);
     console.log(this.credentials.COD_PERSONA);
     console.log(this.notes);
     this.items = [{
       label: 'Options',
       items: [{
-        
-        label: 'Ver notas Primer Quimestre',
-        icon: 'pi pi-refresh',
+        label: 'Notas Primer Quimestre',
+        icon: 'pi pi-bars',
         command: () => {
           this.getNotes();
         }
       },
       {
-        label: 'Delete',
-        icon: 'pi pi-times',
+        label: 'Notas Segundo Quimestre',
+        icon: 'pi pi-bars',
         command: () => {
-          this.delete();
+          this.getNotes2();
         }
       }
       ]
@@ -66,6 +67,18 @@ export class HomeComponentStudent implements OnInit {
     console.log(this.credentials.COD_PERSONA);
 
     this.schoolService.getNotes(this.credentials.COD_PERSONA)
+      .subscribe(
+        res => {
+          this.notes = res;
+          console.log(this.notes);
+        },
+        err => console.error(err)
+      );
+  }
+
+  getNotes2() {
+    console.log(this.credentials.COD_PERSONA);
+    this.schoolService.getNotes2(this.credentials.COD_PERSONA)
       .subscribe(
         res => {
           this.notes = res;
