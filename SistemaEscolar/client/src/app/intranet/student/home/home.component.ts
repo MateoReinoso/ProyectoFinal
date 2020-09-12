@@ -20,7 +20,9 @@ export class HomeComponentStudent implements OnInit {
   credentials: any = [];
   notes: any = [];
 
-
+  public notes2p = false;
+  public notes1p = false;
+  public tablenotes = false;
 
   ngOnInit(): void {
     this.credentials = this.loginService.getsession();
@@ -29,34 +31,33 @@ export class HomeComponentStudent implements OnInit {
     console.log(this.credentials.COD_PERSONA);
     console.log(this.notes);
     this.items = [{
-      label: 'Options',
+      label: 'Opciones Estudiante',
       items: [{
         label: 'Notas Primer Quimestre',
         icon: 'pi pi-bars',
         command: () => {
+          this.tablenotes=true;
           this.getNotes();
+          this.notes1p=true;
+          this.notes2p=false;
         }
       },
       {
         label: 'Notas Segundo Quimestre',
         icon: 'pi pi-bars',
         command: () => {
+          this.tablenotes=true;
           this.getNotes2();
+          this.notes2p = true;
+          this.notes1p = false;
         }
-      }
-      ]
-    },
-    {
-      label: 'Navigate',
-      items: [{
-        label: 'Angular Website',
-        icon: 'pi pi-external-link',
-        url: 'http://angular.io'
       },
       {
-        label: 'Router',
-        icon: 'pi pi-upload',
-        routerLink: '/fileupload'
+        label: 'Ver Deberes',
+        icon: 'pi pi-briefcase',
+        command: () => {
+          this.tablenotes=false;
+        }
       }
       ]
     }

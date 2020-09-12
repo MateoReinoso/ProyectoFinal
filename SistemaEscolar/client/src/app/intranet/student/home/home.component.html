@@ -5,7 +5,7 @@
             <p-menu [model]="items"></p-menu>
         </div>
         <div class="p-col-12 p-md-6 p-lg-9">
-            <p-table [value]="notes">
+            <p-table [value]="notes" *ngIf="tablenotes">
                 <ng-template pTemplate="header">
                     <tr>
                         <th>Materia</th>
@@ -17,7 +17,7 @@
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-note>
-                    <tr>
+                    <tr *ngIf="notes1p">
                         <td>{{note.MATERIA}}</td>
                         <td>{{note.NOTA1}}</td>
                         <td>{{note.NOTA2}}</td>
@@ -25,14 +25,14 @@
                         <td>{{note.NOTA4}}</td>
                         <td>{{note.NOTA5}}</td>
                     </tr>
-                    <!-- <tr>
+                    <tr *ngIf="notes2p">
                         <td>{{note.MATERIA}}</td>
                         <td>{{note.NOTA6}}</td>
                         <td>{{note.NOTA7}}</td>
                         <td>{{note.NOTA8}}</td>
                         <td>{{note.NOTA9}}</td>
                         <td>{{note.NOTA10}}</td>
-                    </tr> -->
+                    </tr>
                 </ng-template>
             </p-table>
         </div>
