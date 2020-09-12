@@ -20,6 +20,7 @@ export class HomeComponentTeacher implements OnInit {
 
 
   public tablestudents = false;
+  public tablessubject = false;
 
   ngOnInit(): void {
     this.credentials = this.loginService.getsession();
@@ -32,8 +33,8 @@ export class HomeComponentTeacher implements OnInit {
         label: 'Registro de Deberes',
         icon: 'pi pi-briefcase',
         command: () => {
+          this.tablessubject = true;
           this.tablestudents = false;
-
         }
       },
       {
@@ -41,6 +42,7 @@ export class HomeComponentTeacher implements OnInit {
         icon: 'pi pi-bars',
         command: () => {
           this.tablestudents = true;
+          this.tablessubject = false;
         }
       }
       ]

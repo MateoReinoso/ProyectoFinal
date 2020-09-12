@@ -131,6 +131,7 @@ import { CampusListComponent } from './intranet/administrative/campus/campus-lis
 import { HeaderComponentI } from './pages/header/header.component';
 import { FooterComponentI } from './pages/footer/footer.component';
 import { ListNotesComponent } from './intranet/teacher/list-notes/list-notes.component';
+import { ListSubjectComponent } from './intranet/teacher/list-subject/list-subject.component';
 @NgModule({
     imports: [
         BrowserModule,
@@ -249,7 +250,8 @@ import { ListNotesComponent } from './intranet/teacher/list-notes/list-notes.com
         CampusListComponent,
         HeaderComponentI,
         FooterComponentI,
-        ListNotesComponent
+        ListNotesComponent,
+        ListSubjectComponent
 
     ],
     providers: [
