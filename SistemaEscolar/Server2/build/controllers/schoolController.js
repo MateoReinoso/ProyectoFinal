@@ -83,8 +83,8 @@ class SchoolController {
     VerDeberes(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { ca } = req.params;
-            const { cn } = req.params;
-            const curs = yield database_1.default.query('SELECT DISTINCT ta.COD_ASIGNATURA, ta.DETALLE_TAREA FROM tarea_asignatura ta, alumno_asignatura_periodo aap WHERE ta.COD_ASIGNATURA = ? AND aap.COD_ASIGNATURA = ta.COD_ASIGNATURA AND ta.COD_NIVEL_EDUCATIVO = ?', [ca, cn]);
+            const { cal } = req.params;
+            const curs = yield database_1.default.query('SELECT DISTINCT ta.COD_ASIGNATURA, ta.DETALLE_TAREA FROM tarea_asignatura ta, alumno_asignatura_periodo aap WHERE ta.COD_ASIGNATURA = ? AND aap.COD_ASIGNATURA = ta.COD_ASIGNATURA AND aap.COD_ALUMNO = ? AND ta.COD_NIVEL_EDUCATIVO = aap.COD_NIVEL_EDUCATIVO', [ca, cal]);
             console.log(curs);
             res.json(curs);
         });

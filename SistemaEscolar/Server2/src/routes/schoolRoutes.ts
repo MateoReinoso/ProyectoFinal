@@ -17,7 +17,7 @@ class ShoolRoutes{
         this.router.get('/p/q/:idp', schoolController.primero);
         this.router.get('/s/q/c/:idqs', schoolController.segundo);
         //Ver deberes
-        this.router.get('/deberes/:ca/:cn', schoolController.VerDeberes);
+        this.router.get('/deberes/:ca/:cal', schoolController.VerDeberes);
         //Ingreso de notas
         this.router.put('/:id/:sdi', schoolController.updateDeberes);
         this.router.put('/:id/:sdiT', schoolController.updateTalleres);
