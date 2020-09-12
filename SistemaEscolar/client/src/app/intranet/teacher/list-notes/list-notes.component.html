@@ -1,14 +1,13 @@
+<select [(ngModel)]="selectedSubject" (change)="onChange(selectedSubject)" class="form-control col-lg-8">
+    <option *ngFor="let subject of subjects" [ngValue]="subject.COD_ASIGNATURA">
+        {{ subject.MATERIA }}</option>
+</select>
 <p-table [value]="students">
     <ng-template pTemplate="header">
-        <select [(ngModel)]="selectedSubject" (change)="onChange(selectedSubject)" class="form-control col-lg-8">
-            <option *ngFor="let subject of subjects" [ngValue]="subject.COD_ASIGNATURA">
-                {{ subject.MATERIA }}</option>
-        </select>
         <tr>
             <th>Materia</th>
             <th>Apellidos</th>
             <th>Nombres</th>
-            <th>Asignar Calificacion</th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-student>
@@ -16,9 +15,7 @@
             <td>{{student.MATERIA}}</td>
             <td>{{student.APELLIDO}}</td>
             <td>{{student.NOMBRE}}</td>
-            <td>
-                <p-splitButton label="Seleccionar Parcial" icon="pi pi-calendar-plus" (onClick)="save()" [model]="items"></p-splitButton>
-            </td>
         </tr>
     </ng-template>
+    <p-splitButton *ngIf="tablestudents" label="Seleccionar Parcial" icon="pi pi-calendar-plus" (onClick)="save()" [model]="items"></p-splitButton>
 </p-table>
