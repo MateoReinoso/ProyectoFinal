@@ -29,7 +29,7 @@ import { ForgotPasswordComponent } from './intranet/login/forgot-password/forgot
 import { HomeComponentAdministrative } from './intranet/administrative/home/home.component';
 import { HomeComponentTeacher } from './intranet/teacher/home/home.component';
 import { HomeComponentStudent } from './intranet/student/home/home.component';
-
+import { ListNotesComponent } from './intranet/teacher/list-notes/list-notes.component';
 
 export const routes: Routes = [
     {
@@ -59,6 +59,10 @@ export const routes: Routes = [
       {
         path: 'teacher/home',
         component: HomeComponentTeacher
+      },
+      {
+        path: 'teacher/list-notes',
+        component: ListNotesComponent
       },
       {
         path: 'administrative/home',

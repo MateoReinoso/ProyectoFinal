@@ -32,6 +32,7 @@ export class HomeComponentTeacher implements OnInit {
         label: 'Registro de Deberes',
         icon: 'pi pi-briefcase',
         command: () => {
+          this.tablestudents = false;
 
         }
       },

@@ -5,16 +5,7 @@
             <p-menu [model]="items"></p-menu>
         </div>
         <div class="p-col-12 p-md-6 p-lg-9">
-            <p-table [value]="notes" *ngIf="tablestudents">
-                <ng-template pTemplate="header">
-                    <tr>
-                        <th>Materia</th>
-                        <th>Apellidos</th>
-                        <th>Nombres</th>
-                        <th>Asignar Calificacion</th>
-                    </tr>
-                </ng-template>
-            </p-table>
+            <app-list-notes *ngIf="tablestudents"></app-list-notes>
         </div>
 
     </div>

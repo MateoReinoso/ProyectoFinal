@@ -130,6 +130,7 @@ import { CampusFormComponent } from './intranet/administrative/campus/campus-for
 import { CampusListComponent } from './intranet/administrative/campus/campus-list/campus-list.component';
 import { HeaderComponentI } from './pages/header/header.component';
 import { FooterComponentI } from './pages/footer/footer.component';
+import { ListNotesComponent } from './intranet/teacher/list-notes/list-notes.component';
 @NgModule({
     imports: [
         BrowserModule,
@@ -247,7 +248,8 @@ import { FooterComponentI } from './pages/footer/footer.component';
         CampusFormComponent,
         CampusListComponent,
         HeaderComponentI,
-        FooterComponentI
+        FooterComponentI,
+        ListNotesComponent
 
     ],
     providers: [
