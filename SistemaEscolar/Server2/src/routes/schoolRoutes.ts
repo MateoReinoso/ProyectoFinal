@@ -14,8 +14,8 @@ class ShoolRoutes{
 
         //Ver Materias profeso
         this.router.get('/materias/:mp', schoolController.MateriasProfesor);
-        //dfs
-        this.router.get('/:id/:ids', schoolController.curso);
+        //Listado estudiantes profesor
+        this.router.get('/liststudent/:id/:ids', schoolController.curso);
         //Notas por quimestre
         this.router.get('/p/q/:idp', schoolController.primero);
         this.router.get('/s/q/c/:idqs', schoolController.segundo);

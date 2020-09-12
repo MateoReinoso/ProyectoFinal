@@ -31,6 +31,10 @@ export class SchoolService {
     return this.http.get(`${this.API_URI}/school/deberes/${ca}/${cal}`);
   }
 
+  getListStudents(cd: number, cap:number){
+    return this.http.get(`${this.API_URI}/school/liststudent/${cd}/${cap}`);
+  }
+
   getMateriasTeacher(cp: number){
     return this.http.get(`${this.API_URI}/school/materias/${cp}`);
   }

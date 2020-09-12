@@ -14,6 +14,8 @@ export class ListNotesComponent implements OnInit {
 
   credentials: any = [];
   subjects: any = [];
+  students: any  = [];
+
 
 
   ngOnInit(): void {
@@ -22,6 +24,17 @@ export class ListNotesComponent implements OnInit {
     console.log(this.credentials);
     console.log(this.credentials.COD_PERSONA);
     this.getMaterias();
+  }
+
+  getListStudent(cap: number){
+    this.schoolService.getListStudents(this.credentials.COD_PERSONA,cap)
+    .subscribe(
+      res =>{
+        this.students = res;
+        console.log(this.students);
+      },
+      err => console.log(err)
+    );
   }
 
   getMaterias(){
@@ -38,6 +51,7 @@ export class ListNotesComponent implements OnInit {
 
   onChange(selectedSubject){
     console.log(selectedSubject);
+    this.getListStudent(selectedSubject);
     //this.get(selectedSubject);
   }
 
