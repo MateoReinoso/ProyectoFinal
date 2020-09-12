@@ -64,6 +64,7 @@ export class HomeComponentStudent implements OnInit {
           this.getHomework();
           this.notes1p= false;
           this.notes2p=false;
+          this.tablenotes = false;
         }
       }
       ]
