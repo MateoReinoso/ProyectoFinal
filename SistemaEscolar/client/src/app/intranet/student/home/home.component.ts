@@ -4,6 +4,7 @@ import { SchoolService } from '../../../services/school.service';
 import { Login } from '../../../models/School';
 import { MenuItem, MessageService, Message } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
+import {DropdownModule} from 'primeng/dropdown';
 
 @Component({
   selector: 'app-home-student',
@@ -16,11 +17,12 @@ export class HomeComponentStudent implements OnInit {
 
 
   constructor(private loginService: LoginService, private schoolService: SchoolService, private messageService: MessageService) { }
+  selectedSubject: String;
   items: MenuItem[];
   credentials: any = [];
   notes: any = [];
   homeworks: any = [];
-
+  subjects: any = [];
 
   public notes2p = false;
   public notes1p = false;
@@ -28,11 +30,13 @@ export class HomeComponentStudent implements OnInit {
   public tablehomework = false;
 
   ngOnInit(): void {
+    
     this.credentials = this.loginService.getsession();
     console.log(this.loginService.getsession());
     console.log(this.credentials);
     console.log(this.credentials.COD_PERSONA);
     console.log(this.notes);
+    this.getMateria();
     this.items = [{
       label: 'Opciones Estudiante',
       items: [{
@@ -61,6 +65,7 @@ export class HomeComponentStudent implements OnInit {
         label: 'Ver Deberes',
         icon: 'pi pi-briefcase',
         command: () => {
+          
           this.tablehomework = true;
           this.getHomework();
           this.notes1p= false;
@@ -100,6 +105,22 @@ export class HomeComponentStudent implements OnInit {
 
   getHomework(){
     console.log(this.credentials.COD_PERSONA, this.homeworks.COD_ASIGNATURA)
+  }
+
+  getMateria(){
+    console.log(this.credentials.COD_PERSONA);
+    this.schoolService.getMateria(this.credentials.COD_PERSONA)
+      .subscribe(
+        res => {
+          this.subjects = res;
+          console.log(this.notes);
+        },
+        err => console.error(err)
+      );
+  }
+
+  onChange(selectedSubject){
+    console.log(selectedSubject);
   }
 
   update() {
