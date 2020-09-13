@@ -31,7 +31,7 @@ class ShoolRoutes {
         //ver materias
         this.router.get('/:mat', schoolController_1.schoolController.Materias);
         //agregar deberes
-        this.router.get('/estudiantedeber/:eds', schoolController_1.schoolController.SubirDeberes);
+        this.router.get('/est/deb/al/q/:eds/:dse', schoolController_1.schoolController.SubirDeberes);
     }
 }
 const schoolRoutes = new ShoolRoutes();

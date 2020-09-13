@@ -105,7 +105,8 @@ class SchoolController{
 
     public async SubirDeberes(req: Request, res: Response): Promise<void> {
         const { eds } = req.params;
-        const curs = await db.query('SELECT DISTINCTROW ap.COD_ASIGNATURA, ap.COD_NIVEL_EDUCATIVO, ap.COD_PERIODO_LECTIVO FROM asignatura_periodo ap, asignatura a, alumno_asignatura_periodo aap WHERE aap.COD_DOCENTE = ? AND ap.COD_DOCENTE = aap.COD_DOCENTE AND ap.COD_ASIGNATURA = a.COD_ASIGNATURA AND a.COD_ASIGNATURA = aap.COD_ASIGNATURA', [eds]);
+        const { dse } = req.params;
+        const curs = await db.query('SELECT DISTINCTROW a.COD_ASIGNATURA, a.COD_NIVEL_EDUCATIVO, ap.COD_PERIODO_LECTIVO, ap.COD_DOCENTE FROM asignatura a, asignatura_periodo ap WHERE ap.COD_DOCENTE = ? AND a.COD_NIVEL_EDUCATIVO = ap.COD_NIVEL_EDUCATIVO AND ap.COD_ASIGNATURA = ? AND ap.COD_ASIGNATURA = a.COD_ASIGNATURA', [eds,dse]);
         console.log(curs);
         res.json(curs);
     }  
