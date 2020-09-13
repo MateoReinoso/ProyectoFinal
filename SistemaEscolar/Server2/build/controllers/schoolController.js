@@ -143,7 +143,7 @@ class SchoolController {
     ObtenerNivel(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { ob } = req.params;
-            const curs = yield database_1.default.query('SELECT DISTINCTROW ap.COD_NIVEL_EDUCATIVO FROM asignatura_periodo ap WHERE ap.COD_DOCENTE = ?', [ob]);
+            const curs = yield database_1.default.query('SELECT DISTINCTROW ne.NOMBRE FROM asignatura_periodo ap, nivel_educativo ne WHERE ap.COD_DOCENTE = ? AND ne.COD_NIVEL_EDUCATIVO = ap.COD_NIVEL_EDUCATIVO', [ob]);
             console.log(curs);
             res.json(curs);
         });
