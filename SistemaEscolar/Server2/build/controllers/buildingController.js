@@ -25,7 +25,16 @@ class BuildingController {
     buildingById(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const building = yield database_1.default.query('select * from edificio WHERE COD_EDIFICIO=?', [id]);
+            const { idB } = req.params;
+            const building = yield database_1.default.query('select * from edificio WHERE COD_SEDE=? AND COD_EDIFICIO=?', [id, idB]);
+            console.log(building);
+            res.json(building);
+        });
+    }
+    buildingByCampus(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            const building = yield database_1.default.query('SELECT * FROM edificio WHERE COD_SEDE=?', [id]);
             console.log(building);
             res.json(building);
         });

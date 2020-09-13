@@ -13,10 +13,12 @@ class ShoolRoutes{
     config():void{
 
         this.router.get('/', buildingController.building);
-        this.router.get('/:id', buildingController.buildingById);
+        this.router.get('/:id/:idB', buildingController.buildingById);
+        this.router.get('/:id', buildingController.buildingByCampus);
         this.router.post('/', buildingController.create);
         this.router.put('/:id', buildingController.update);
         this.router.delete('/:id', buildingController.delete);
+        
        
     }
 }

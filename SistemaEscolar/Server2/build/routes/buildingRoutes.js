@@ -9,7 +9,8 @@ class ShoolRoutes {
     }
     config() {
         this.router.get('/', buildingController_1.buildingController.building);
-        this.router.get('/:id', buildingController_1.buildingController.buildingById);
+        this.router.get('/:id/:idB', buildingController_1.buildingController.buildingById);
+        this.router.get('/:id', buildingController_1.buildingController.buildingByCampus);
         this.router.post('/', buildingController_1.buildingController.create);
         this.router.put('/:id', buildingController_1.buildingController.update);
         this.router.delete('/:id', buildingController_1.buildingController.delete);

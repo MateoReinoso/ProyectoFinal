@@ -67,6 +67,18 @@ export class HomeComponentAdministrative implements OnInit {
         err => console.error(err)
       );
   }
+  getBuildingByCampus() {
+    console.log(this.credentials.COD_PERSONA);
+
+    this.campusService.getCampus()
+      .subscribe(
+        res => {
+          this.campus = res;
+          console.log(this.campus);
+        },
+        err => console.error(err)
+      );
+  }
   
   
   
