@@ -15,9 +15,9 @@ export class HomeComponentAdministrative implements OnInit {
 
   credentials: any =[];
   items: MenuItem[];
-  campusList: boolean =true;
-  buildingList: boolean =true;
-  classroomList: boolean =true;
+  campusList: boolean =false;
+  buildingList: boolean =false;
+  classroomList: boolean =false;
   campus: any = [];
 
   ngOnInit(): void {
@@ -25,20 +25,23 @@ export class HomeComponentAdministrative implements OnInit {
     console.log(this.loginService.getsession());
     console.log(this.credentials);
     console.log(this.credentials.COD_PERSONA);
+    //this.getCampus();
     this.items = [{
       label: 'Opciones Administrativo',
       items: [{
         label: 'Sedes',
         icon: 'pi pi-briefcase',
         command: () => {
-
+          this.campusList=true;
+          this.buildingList=false;
+          this.classroomList=false;
+          this.getCampus();
         }
       },
       {
         label: 'Edificios',
         icon: 'pi pi-bars',
         command: () => {
-          
         }
       },
       {
@@ -52,7 +55,6 @@ export class HomeComponentAdministrative implements OnInit {
     }
     ];
   }
-  
   getCampus() {
     console.log(this.credentials.COD_PERSONA);
 
@@ -65,6 +67,7 @@ export class HomeComponentAdministrative implements OnInit {
         err => console.error(err)
       );
   }
+  
   
   
   

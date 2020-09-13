@@ -4,5 +4,27 @@
     <div class="p-col-12 p-md-6 p-lg-3">
         <p-menu [model]="items"></p-menu>
     </div>
+    <div class="p-col-12 p-md-6 p-lg-9">
+        <p-table [value]="campus" selectionMode="single" *ngIf="campusList">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Codigo de sede</th>
+                    <th>Nombre</th>
+                    <th>Direccion</th>
+                    <th>Telefono</th>
+                    <th>Codigo Postal</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-campus>
+                <tr *ngIf="campusList">
+                    <td>{{campus.COD_SEDE}}</td>
+                    <td>{{campus.NOMBRE}}</td>
+                    <td>{{campus.DIRECCION}}</td>
+                    <td>{{campus.TELEFONO}}</td>
+                    <td>{{campus.CODIGO_POSTAL}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
 </div>
 <app-footer></app-footer>
