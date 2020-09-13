@@ -1,4 +1,5 @@
 <p-dropdown [options]="subjects" [(ngModel)]="selectedSubject" placeholder="Selecciona la Asignatura..." optionLabel="MATERIA" [showClear]="true" (onChange)="onChange(selectedSubject)"></p-dropdown>
+<p-dropdown *ngIf="dropLevel" [options]="levels" [(ngModel)]="selectedLevel" placeholder="Selecciona el nivel educativo..." optionLabel="COD_NIVEL_EDUCATIVO" [showClear]="true" (onChange)="onChangeLevel(selectedLevel)"></p-dropdown>
 
 <p-table [value]="students" *ngIf="optionSubject">
     <ng-template pTemplate="header">
