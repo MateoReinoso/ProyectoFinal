@@ -23,7 +23,7 @@ class ShoolRoutes {
         this.router.get('/alumn/cod/:npa/:cae', schoolController_1.schoolController.smp);
         this.router.get('/alumn/cod/seg/:npas/:caes', schoolController_1.schoolController.sms);
         //Ingreso de notas
-        this.router.put('/deberes/:id/:sdi', schoolController_1.schoolController.updateDeberes);
+        this.router.put('/npp/:id/:sdi', schoolController_1.schoolController.updateDeberes);
         this.router.put('/talleres/:id/:sdiT', schoolController_1.schoolController.updateTalleres);
         this.router.put('/laboratorio/:id/:sdiL', schoolController_1.schoolController.updateLaboratorio);
         this.router.put('/pruebas/:id/:sdiP', schoolController_1.schoolController.updatePruebas);
