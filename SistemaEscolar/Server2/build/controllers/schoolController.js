@@ -140,5 +140,26 @@ class SchoolController {
             res.json(curs);
         });
     }
+    ObtenerNivel(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { ob } = req.params;
+            const curs = yield database_1.default.query('SELECT DISTINCTROW ap.COD_NIVEL_EDUCATIVO FROM asignatura_periodo ap WHERE ap.COD_DOCENTE = ?', [ob]);
+            console.log(curs);
+            res.json(curs);
+        });
+    }
+    DatosCreacion(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            //datos codigo docente
+            const { dcd } = req.params;
+            //datos codigo asignatura
+            const { dca } = req.params;
+            //datos codigo nivel educativo
+            const { dcne } = req.params;
+            const curs = yield database_1.default.query('SELECT DISTINCTROW ap.COD_PARALELO, ap.COD_PERIODO_LECTIVO, ap.COD_NIVEL_EDUCATIVO  FROM asignatura a, asignatura_periodo ap WHERE ap.COD_DOCENTE = ? AND ap.COD_ASIGNATURA = ? AND a.COD_ASIGNATURA = ap.COD_ASIGNATURA AND ap.COD_NIVEL_EDUCATIVO = ?', [dcd, dca, dcne]);
+            console.log(curs);
+            res.json(curs);
+        });
+    }
 }
 exports.schoolController = new SchoolController();

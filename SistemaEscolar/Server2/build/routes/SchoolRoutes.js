@@ -32,6 +32,11 @@ class ShoolRoutes {
         this.router.get('/:mat', schoolController_1.schoolController.Materias);
         //agregar deberes
         this.router.get('/est/deb/al/q/:eds/:dse', schoolController_1.schoolController.SubirDeberes);
+        //DEberes estudiantes asiganr
+        //obtener nivel
+        this.router.get('/nivel/:ob', schoolController_1.schoolController.ObtenerNivel);
+        //obtener datos inserccion
+        this.router.get('/aula/:dcd/:dca/:dcne', schoolController_1.schoolController.DatosCreacion);
     }
 }
 const schoolRoutes = new ShoolRoutes();

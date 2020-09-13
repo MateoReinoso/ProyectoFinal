@@ -64,6 +64,15 @@ export class SchoolService {
   //subir deberes alumno
   getAddHomework(eds:number, dse:number){
     return this.http.get(`${this.API_URI}/school/est/deb/al/q/${eds}/${dse}`);
-  }  
+  }
+  
+  //obtener nivel
+  getObtNivel(idProf: number){
+    return this.http.get(`${this.API_URI}/school/nivel/${idProf}`);
+  }
+  //datos inserccion
+  getEnvioDatos(dcd: number, dca:number, dcne:number){
+    return this.http.get(`${this.API_URI}/school/aula/${dcd}/${dca}/${dcne}`);
+  }
 
 }

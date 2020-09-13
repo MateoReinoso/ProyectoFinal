@@ -36,6 +36,11 @@ class ShoolRoutes{
         this.router.get('/:mat', schoolController.Materias);
         //agregar deberes
         this.router.get('/est/deb/al/q/:eds/:dse', schoolController.SubirDeberes);
+        //DEberes estudiantes asiganr
+        //obtener nivel
+        this.router.get('/nivel/:ob',schoolController.ObtenerNivel);
+        //obtener datos inserccion
+        this.router.get('/aula/:dcd/:dca/:dcne', schoolController.DatosCreacion);
     }
 }
 
