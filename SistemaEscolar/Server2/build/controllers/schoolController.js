@@ -161,5 +161,11 @@ class SchoolController {
             res.json(curs);
         });
     }
+    EntregarTarea(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield database_1.default.query('INSERT INTO tarea_asignatura set ?', [req.body]);
+            res.json({ text: 'Asignacion Materia' });
+        });
+    }
 }
 exports.schoolController = new SchoolController();

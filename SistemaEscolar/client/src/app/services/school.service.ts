@@ -75,4 +75,9 @@ export class SchoolService {
     return this.http.get(`${this.API_URI}/school/aula/${dcd}/${dca}/${dcne}`);
   }
 
+  //mandardeber
+  getMandarDeber(mandar: any){
+    return this.http.post(`${this.API_URI}/school`,mandar);
+  }
+
 }

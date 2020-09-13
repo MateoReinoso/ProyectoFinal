@@ -130,6 +130,12 @@ class SchoolController {
         res.json(curs);
     }
 
+    public async EntregarTarea(req: Request, res: Response): Promise<void>{
+        await db.query('INSERT INTO tarea_asignatura set ?',[req.body]);
+        res.json({text: 'Asignacion Materia'});
+    }
+
+
 }
 
 export const schoolController = new SchoolController();
