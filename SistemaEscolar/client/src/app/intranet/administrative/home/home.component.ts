@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../../services/login.service'
 import { MenuItem, MessageService, Message } from 'primeng/api';
 import { CampusService } from '../../../services/campus.service';
-
+import { BuildingServiceService } from '../../../services/building-service.service';
 
 @Component({
   selector: 'app-home-administrative',
@@ -11,14 +11,16 @@ import { CampusService } from '../../../services/campus.service';
 })
 export class HomeComponentAdministrative implements OnInit {
 
-  constructor(private loginService: LoginService, private campusService: CampusService) { }
+  constructor(private loginService: LoginService, private campusService: CampusService, private buildingService: BuildingServiceService) { }
 
+  selectedCampus: Number;
   credentials: any =[];
   items: MenuItem[];
   campusList: boolean =false;
   buildingList: boolean =false;
   classroomList: boolean =false;
   campus: any = [];
+  buildings: any = [];
 
   ngOnInit(): void {
     this.credentials = this.loginService.getsession();
@@ -42,6 +44,10 @@ export class HomeComponentAdministrative implements OnInit {
         label: 'Edificios',
         icon: 'pi pi-bars',
         command: () => {
+          this.campusList=false;
+          this.buildingList=true;
+          this.classroomList=false;
+          this.getCampus();
         }
       },
       {
@@ -67,17 +73,21 @@ export class HomeComponentAdministrative implements OnInit {
         err => console.error(err)
       );
   }
-  getBuildingByCampus() {
+  getBuildingByCampus(codEdificio) {
     console.log(this.credentials.COD_PERSONA);
 
-    this.campusService.getCampus()
+    this.buildingService.getBuilgingByCampus(codEdificio)
       .subscribe(
         res => {
-          this.campus = res;
-          console.log(this.campus);
+          this.buildings = res;
+          console.log(this.buildings);
         },
         err => console.error(err)
       );
+  }
+
+  onChange(selectedCampus){
+    this.getBuildingByCampus(selectedCampus.COD_ASIGNATURA);
   }
   
   

@@ -27,6 +27,7 @@ import { InstitutionComponent } from './landing/institution/institution.componen
 import { StartComponent } from './intranet/login/start/start.component';
 import { ForgotPasswordComponent } from './intranet/login/forgot-password/forgot-password.component';
 import { HomeComponentAdministrative } from './intranet/administrative/home/home.component';
+import { CampusComponent } from './intranet/administrative/campus/campus.component';
 import { HomeComponentTeacher } from './intranet/teacher/home/home.component';
 import { HomeComponentStudent } from './intranet/student/home/home.component';
 import { ListNotesComponent } from './intranet/teacher/list-notes/list-notes.component';
@@ -67,6 +68,10 @@ export const routes: Routes = [
       {
         path: 'administrative/home',
         component: HomeComponentAdministrative
+      },
+      {
+        path: 'administrative/home/campus',
+        component: CampusComponent
       },
     { path: 'template', component: AppMainComponent,
         children: [
