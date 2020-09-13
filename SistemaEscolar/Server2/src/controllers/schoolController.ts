@@ -113,7 +113,7 @@ class SchoolController {
 
     public async ObtenerNivel(req: Request, res: Response): Promise<void> {
         const { ob } = req.params;
-        const curs = await db.query('SELECT DISTINCTROW ne.NOMBRE FROM asignatura_periodo ap, nivel_educativo ne WHERE ap.COD_DOCENTE = ? AND ne.COD_NIVEL_EDUCATIVO = ap.COD_NIVEL_EDUCATIVO', [ob]);
+        const curs = await db.query('SELECT DISTINCTROW ne.COD_NIVEL_EDUCATIVO, ne.NOMBRE FROM asignatura_periodo ap, nivel_educativo ne WHERE ap.COD_DOCENTE = ? AND ne.COD_NIVEL_EDUCATIVO = ap.COD_NIVEL_EDUCATIVO', [ob]);
         console.log(curs);
         res.json(curs);
     }
