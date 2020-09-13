@@ -44,7 +44,7 @@
             </ng-template>
 
         </p-table>
-        <p-dropdown [options]="buildings" *ngIf="buildingOption" [(ngModel)]="selectedClassroom" placeholder="Selecciona el Edificio..." optionLabel="NOMBRE" [showClear]="true" (onChange)="onChange(selectedBuilding)"></p-dropdown>
+        <p-dropdown [options]="buildings" *ngIf="buildingOption" [(ngModel)]="selectedClassroom" placeholder="Selecciona el Edificio..." optionLabel="NOMBRE" [showClear]="true" (onChange)="onChange1(selectedClassroom)"></p-dropdown>
                 
         <p-table [value]="classrooms" *ngIf="classroomList">
             <ng-template pTemplate="header">

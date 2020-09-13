@@ -47,6 +47,7 @@ export class HomeComponentAdministrative implements OnInit {
           this.classroomList=false;
           this.campusOption=false;
           this.buildingOption=false;
+          this.classroomflag=false;
           this.getCampus();
         }
       },
@@ -58,6 +59,7 @@ export class HomeComponentAdministrative implements OnInit {
           this.campusOption=true;
           this.classroomList=false;
           this.buildingOption=false;
+          this.classroomflag=false;
           this.getCampus();
         }
       },
@@ -66,6 +68,7 @@ export class HomeComponentAdministrative implements OnInit {
         icon: 'pi pi-bars',
         command: () => {
           this.buildingOption=false;
+          this.buildingList=false;
           this.classroomflag=true;
           this.campusList=false;
           this.campusOption=true;
@@ -132,7 +135,7 @@ export class HomeComponentAdministrative implements OnInit {
     this.getBuildingByCampus(selectedCampus.COD_SEDE);
   }
   onChange1(selectedBuilding){
-    this.getBuildingByCampus(selectedBuilding.COD_SEDE);
+    this.getClassroomByBuilding(selectedBuilding.COD_SEDE);
   }
   
   
