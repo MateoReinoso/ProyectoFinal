@@ -13,8 +13,11 @@ export class ClassroomService {
   getClassroom(){
     return this.http.get(`${this.API_URI}/classroom/`);
   }
-  getCampusById(id: number){
-    return this.http.get(`${this.API_URI}/campus/${id}`);
+  getClassroomByBuilding(id: number){
+    return this.http.get(`${this.API_URI}/classroom/${id}`);
+  }
+  getCampusById(id: number,idB:number){
+    return this.http.get(`${this.API_URI}/campus/${id}/${idB}`);
   }
   updateLoginDate(USER: string){
     return this.http.put(`${this.API_URI}/login/${USER}`, null);

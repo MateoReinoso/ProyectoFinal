@@ -44,6 +44,29 @@
             </ng-template>
 
         </p-table>
+        <p-dropdown [options]="buildings" *ngIf="buildingOption" [(ngModel)]="selectedClassroom" placeholder="Selecciona el Edificio..." optionLabel="NOMBRE" [showClear]="true" (onChange)="onChange(selectedBuilding)"></p-dropdown>
+                
+        <p-table [value]="classrooms" *ngIf="classroomList">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Codigo Aula</th>
+                    <th>Nombre</th>
+                    <th>Capacidad</th>
+                    <th>Tipo</th>
+                    <th>Piso</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-classroom>
+                <tr>
+                    <td>{{classroom.COD_AULA}}</td>
+                    <td>{{classroom.NOMBRE}}</td>
+                    <td>{{classroom.CAPACIDAD}}</td>
+                    <td>{{classroom.TIPO}}</td>
+                    <td>{{classroom.PISO}}</td>
+                </tr>
+            </ng-template>
+
+        </p-table>
 
     </div>
 </div>

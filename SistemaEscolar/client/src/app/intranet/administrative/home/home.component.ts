@@ -3,6 +3,7 @@ import { LoginService } from '../../../services/login.service'
 import { MenuItem, MessageService, Message } from 'primeng/api';
 import { CampusService } from '../../../services/campus.service';
 import { BuildingServiceService } from '../../../services/building-service.service';
+import { ClassroomService} from '../../../services/classroom.service';
 
 @Component({
   selector: 'app-home-administrative',
@@ -11,18 +12,23 @@ import { BuildingServiceService } from '../../../services/building-service.servi
 })
 export class HomeComponentAdministrative implements OnInit {
 
-  constructor(private loginService: LoginService, private campusService: CampusService, private buildingService: BuildingServiceService) { }
+  constructor(private loginService: LoginService, private campusService: CampusService, private buildingService: BuildingServiceService,
+    private classroomService: ClassroomService) { }
 
   selectedCampus: Number;
+  selectedBuilding: Number;
   credentials: any =[];
   items: MenuItem[];
   campusList: boolean =false;
   buildingList: boolean =false;
   classroomList: boolean =false;
   campusOption: boolean =false;
+  classroomflag: boolean =false;
   campus: any = [];
   oneCampus:any =[];
   buildings: any = [];
+  classrooms: any=[];
+  buildingOption: boolean =false;
 
   ngOnInit(): void {
     this.credentials = this.loginService.getsession();
@@ -40,6 +46,7 @@ export class HomeComponentAdministrative implements OnInit {
           this.buildingList=false;
           this.classroomList=false;
           this.campusOption=false;
+          this.buildingOption=false;
           this.getCampus();
         }
       },
@@ -50,6 +57,7 @@ export class HomeComponentAdministrative implements OnInit {
           this.campusList=false;
           this.campusOption=true;
           this.classroomList=false;
+          this.buildingOption=false;
           this.getCampus();
         }
       },
@@ -57,7 +65,12 @@ export class HomeComponentAdministrative implements OnInit {
         label: 'Aulas',
         icon: 'pi pi-bars',
         command: () => {
-          
+          this.buildingOption=false;
+          this.classroomflag=true;
+          this.campusList=false;
+          this.campusOption=true;
+          this.classroomList=false;
+          this.getCampus();
         }
       }
     ]
@@ -94,7 +107,7 @@ export class HomeComponentAdministrative implements OnInit {
     this.buildingService.getBuilgingByCampus(codEdificio)
       .subscribe(
         res => {
-          this.buildingList=true;
+          this.classroomflag ? this.buildingOption=true:this.buildingList=true;
           this.buildings = res;
           console.log(this.buildings);
         },
@@ -103,20 +116,23 @@ export class HomeComponentAdministrative implements OnInit {
   }
   getClassroomByBuilding(codEdificio) {
     console.log(this.credentials.COD_PERSONA);
-    this.getCampusByID(codEdificio);
-    this.buildingService.getBuilgingByCampus(codEdificio)
+    this.classroomService.getClassroomByBuilding(codEdificio)
       .subscribe(
         res => {
-          this.buildingList=true;
-          this.buildings = res;
-          console.log(this.buildings);
+          this.classroomList=true;
+          this.classrooms = res;
+          console.log(this.classrooms);
         },
         err => console.error(err)
       );
   }
+  
 
   onChange(selectedCampus){
     this.getBuildingByCampus(selectedCampus.COD_SEDE);
+  }
+  onChange1(selectedBuilding){
+    this.getBuildingByCampus(selectedBuilding.COD_SEDE);
   }
   
   
