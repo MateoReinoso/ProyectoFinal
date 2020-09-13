@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Login} from '../models/School';
+import { Nota1 } from '../models/School';
 import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
@@ -42,17 +43,22 @@ export class SchoolService {
   getMateria(mat: number){
     return this.http.get(`${this.API_URI}/school/${mat}`);
   }
-
+  //asginar debere
   getAsignarDeber(asdb: number){
     return this.http.get(`${this.API_URI}/school/asignar/${asdb}`)
   }
-
+  //materias primer parcial
   getMatAlPri(npa: number,cae:number){
     return this.http.get(`${this.API_URI}/school/alumn/cod/${npa}/${cae}`);
   }
-
+  //materias segundo parcial
   getMatAlSeg(npas: number, caes:number){
     return this.http.get(`${this.API_URI}/school/alumn/cod/seg/${npas}/${caes}`);
   }
+
+  //actualizar nota deberes
+  updateDeber(cad: number, cde: number, updateDeber: Nota1) {
+    return this.http.put(`${this.API_URI}/school/deberes/${cad}/${cde}`,null,null);
+  }  
 
 }

@@ -10,6 +10,10 @@ export interface Login{
     NOMBRE: string;
 }
 
+export interface Nota1{
+    NOTA1?: number;
+}
+
 export interface ISession {
     session: Object;
 }

@@ -27,11 +27,11 @@ class ShoolRoutes{
         this.router.get('/alumn/cod/:npa/:cae', schoolController.smp);
         this.router.get('/alumn/cod/seg/:npas/:caes', schoolController.sms)
         //Ingreso de notas
-        this.router.put('/:id/:sdi', schoolController.updateDeberes);
-        this.router.put('/:id/:sdiT', schoolController.updateTalleres);
-        this.router.put('/:id/:sdiL', schoolController.updateLaboratorio);
-        this.router.put('/:id/:sdiP', schoolController.updatePruebas);
-        this.router.put('/:id/:sdiE', schoolController.updateExamenes);
+        this.router.put('/deberes/:id/:sdi', schoolController.updateDeberes);
+        this.router.put('/talleres/:id/:sdiT', schoolController.updateTalleres);
+        this.router.put('/laboratorio/:id/:sdiL', schoolController.updateLaboratorio);
+        this.router.put('/pruebas/:id/:sdiP', schoolController.updatePruebas);
+        this.router.put('/examenes/:id/:sdiE', schoolController.updateExamenes);
         //ver materias
         this.router.get('/:mat', schoolController.Materias);
     }
