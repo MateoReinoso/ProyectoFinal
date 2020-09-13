@@ -25,9 +25,10 @@
                 </tr>
             </ng-template>
         </p-table>
+        <p-dropdown [options]="campus" *ngIf="campusOption" [(ngModel)]="selectedCampus" placeholder="Selecciona la Sede..." optionLabel="NOMBRE" [showClear]="true" (onChange)="onChange(selectedCampus)"></p-dropdown>
+                
         <p-table [value]="buildings" *ngIf="buildingList">
             <ng-template pTemplate="header">
-                <p-dropdown [options]="campus" [(ngModel)]="selectedCampus" placeholder="Selecciona la Sede..." optionLabel="NOMBRE" [showClear]="true" (onChange)="onChange(selectedCampus)"></p-dropdown>
                 <tr>
                     <th>Codigo Edificio</th>
                     <th>Sede</th>
@@ -38,7 +39,7 @@
             <ng-template pTemplate="body" let-building>
                 <tr>
                     <td>{{building.COD_EDIFICIO}}</td>
-                    <td>{{campus.NOMBRE}}</td>
+                    <td>{{NOMBRE}}</td>
                     <td>{{building.NOMBRE}}</td>
                     <td>{{building.CANTIDAD_PISOS}}</td>
                 </tr>

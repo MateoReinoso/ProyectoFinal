@@ -19,7 +19,9 @@ export class HomeComponentAdministrative implements OnInit {
   campusList: boolean =false;
   buildingList: boolean =false;
   classroomList: boolean =false;
+  campusOption: boolean =false;
   campus: any = [];
+  oneCampus:any =[];
   buildings: any = [];
 
   ngOnInit(): void {
@@ -45,7 +47,7 @@ export class HomeComponentAdministrative implements OnInit {
         icon: 'pi pi-bars',
         command: () => {
           this.campusList=false;
-          this.buildingList=true;
+          this.campusOption=true;
           this.classroomList=false;
           this.getCampus();
         }
@@ -73,12 +75,25 @@ export class HomeComponentAdministrative implements OnInit {
         err => console.error(err)
       );
   }
-  getBuildingByCampus(codEdificio) {
+  getCampusByID(id) {
     console.log(this.credentials.COD_PERSONA);
 
+    this.campusService.getCampusById(id)
+      .subscribe(
+        res => {
+          this.oneCampus = res;
+          console.log(this.oneCampus);
+        },
+        err => console.error(err)
+      );
+  }
+  getBuildingByCampus(codEdificio) {
+    console.log(this.credentials.COD_PERSONA);
+    this.getCampusByID(codEdificio);
     this.buildingService.getBuilgingByCampus(codEdificio)
       .subscribe(
         res => {
+          this.buildingList=true;
           this.buildings = res;
           console.log(this.buildings);
         },
