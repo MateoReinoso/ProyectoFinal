@@ -143,7 +143,7 @@ class SchoolController {
     ObtenerNivel(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { ob } = req.params;
-            const curs = yield database_1.default.query('SELECT DISTINCTROW ap.COD_NIVEL_EDUCATIVO FROM asignatura_periodo ap WHERE ap.COD_DOCENTE = ?', [ob]);
+            const curs = yield database_1.default.query('SELECT DISTINCTROW ne.COD_NIVEL_EDUCATIVO, ne.NOMBRE FROM asignatura_periodo ap, nivel_educativo ne WHERE ap.COD_DOCENTE = ? AND ne.COD_NIVEL_EDUCATIVO = ap.COD_NIVEL_EDUCATIVO', [ob]);
             console.log(curs);
             res.json(curs);
         });
@@ -156,7 +156,7 @@ class SchoolController {
             const { dca } = req.params;
             //datos codigo nivel educativo
             const { dcne } = req.params;
-            const curs = yield database_1.default.query('SELECT DISTINCTROW ap.COD_PARALELO, ap.COD_PERIODO_LECTIVO, ap.COD_NIVEL_EDUCATIVO  FROM asignatura a, asignatura_periodo ap WHERE ap.COD_DOCENTE = ? AND ap.COD_ASIGNATURA = ? AND a.COD_ASIGNATURA = ap.COD_ASIGNATURA AND ap.COD_NIVEL_EDUCATIVO = ?', [dcd, dca, dcne]);
+            const curs = yield database_1.default.query('SELECT DISTINCTROW ap.COD_PARALELO, p.NOMBRE, ap.COD_PERIODO_LECTIVO, ap.COD_NIVEL_EDUCATIVO  FROM asignatura a, asignatura_periodo ap, paralelo p WHERE ap.COD_DOCENTE = ? AND ap.COD_ASIGNATURA = ? AND a.COD_ASIGNATURA = ap.COD_ASIGNATURA AND ap.COD_NIVEL_EDUCATIVO = ? AND p.COD_NIVEL_EDUCATIVO = ap.COD_NIVEL_EDUCATIVO', [dcd, dca, dcne]);
             console.log(curs);
             res.json(curs);
         });
