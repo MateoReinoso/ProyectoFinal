@@ -87,7 +87,7 @@ export class HomeComponentAdministrative implements OnInit {
   }
 
   onChange(selectedCampus){
-    this.getBuildingByCampus(selectedCampus.COD_ASIGNATURA);
+    this.getBuildingByCampus(selectedCampus.COD_SEDE);
   }
   
   

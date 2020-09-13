@@ -30,15 +30,17 @@
                 <p-dropdown [options]="campus" [(ngModel)]="selectedCampus" placeholder="Selecciona la Sede..." optionLabel="NOMBRE" [showClear]="true" (onChange)="onChange(selectedCampus)"></p-dropdown>
                 <tr>
                     <th>Codigo Edificio</th>
+                    <th>Sede</th>
                     <th>Nombre</th>
                     <th>Cantidad pisos</th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-building>
                 <tr>
-                    <td>{{building.COD_EDIFICIOS}}</td>
-                    <td>{{building.DETALLE_TAREA}}</td>
-                    <td>{{building.DETALLE_TAREA}}</td>
+                    <td>{{building.COD_EDIFICIO}}</td>
+                    <td>{{campus.NOMBRE}}</td>
+                    <td>{{building.NOMBRE}}</td>
+                    <td>{{building.CANTIDAD_PISOS}}</td>
                 </tr>
             </ng-template>
 
