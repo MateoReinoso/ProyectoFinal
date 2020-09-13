@@ -52,7 +52,7 @@ export class SchoolService {
   }
 
   getMatAlSeg(npas: number, caes:number){
-    return this.http.get(`${this.API_URI}/school/alumn/seg/cod/${npas}/${caes}`);
+    return this.http.get(`${this.API_URI}/school/alumn/cod/seg/${npas}/${caes}`);
   }
 
 }

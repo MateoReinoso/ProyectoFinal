@@ -34,6 +34,7 @@ export class ListNotesComponent implements OnInit {
    tablenotes = false;
    notes1p = false;
    notes2p = false;
+   idSubjectCode: number;
   ngOnInit(): void {
     this.credentials = this.loginService.getsession();
     console.log(this.loginService.getsession());
@@ -72,6 +73,7 @@ export class ListNotesComponent implements OnInit {
     this.notes1p=false;
       this.notes2p=false;
     console.log(selectedSubject.COD_ASIGNATURA);
+    this.idSubjectCode=selectedSubject.COD_ASIGNATURA;
     this.getListStudent(selectedSubject.COD_ASIGNATURA);
     this.optionSubject=true;
     //this.get(selectedSubject);
@@ -111,7 +113,7 @@ export class ListNotesComponent implements OnInit {
     getNotes(codAlumno) {
       console.log(codAlumno);
   
-      this.schoolService.getNotes(codAlumno)
+      this.schoolService.getMatAlPri(codAlumno, this.idSubjectCode)
         .subscribe(
           res => {
             this.notes = res;
@@ -125,7 +127,7 @@ export class ListNotesComponent implements OnInit {
   
     getNotes2(codAlumno) {
       console.log(codAlumno);
-      this.schoolService.getNotes2(codAlumno)
+      this.schoolService.getMatAlSeg(codAlumno, this.idSubjectCode)
         .subscribe(
           res => {
             this.notes = res;
