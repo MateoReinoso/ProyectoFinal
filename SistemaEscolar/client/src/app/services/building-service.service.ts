@@ -23,4 +23,5 @@ export class BuildingServiceService {
   updateLoginDate(USER: string) {
     return this.http.put(`${this.API_URI}/login/${USER}`, null);
   }
+  
 }
