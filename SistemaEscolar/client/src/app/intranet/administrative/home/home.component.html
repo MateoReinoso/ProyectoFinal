@@ -11,13 +11,13 @@
         </div>
         <div class="p-col-12 p-md-4 p-lg-8" *ngIf="campusForm" >
             <label for="name">Nombre de la cede:</label><br>
-            <input type="text" pInputText [(ngModel)]="camp.nombre"/><br>
+            <input type="text" pInputText [(ngModel)]="camp.NOMBRE"/><br>
             <label for="direccion">Direccion:</label><br>
-            <input type="text" pInputText [(ngModel)]="camp.direccion"/><br>
+            <input type="text" pInputText [(ngModel)]="camp.DIRECCION"/><br>
             <label for="telefono">Telefono:</label><br>
-            <input type="text" pInputText [(ngModel)]="camp.telefono"/><br>
+            <input type="text" pInputText [(ngModel)]="camp.TELEFONO"/><br>
             <label for="codigopostal">Codigo Postal:</label><br>
-            <input type="text" pInputText [(ngModel)]="camp.codigoPostal"/><br>
+            <input type="text" pInputText [(ngModel)]="camp.CODIGO_POSTAL"/><br>
             <button pButton type="button" label="Agregar" class="p-button-secondary" (click)="addCampus()"></button>
         </div>
         <div class="p-col-12 p-md-4 p-lg-8">

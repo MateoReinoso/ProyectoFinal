@@ -40,10 +40,10 @@ export class HomeComponentAdministrative implements OnInit {
   
   camp: Campus = {
     id: 0,
-    nombre: '',
-    direccion: '',
-    telefono: '',
-    codigoPostal: ''
+    NOMBRE: '',
+    DIRECCION: '',
+    TELEFONO: '',
+    CODIGO_POSTAL: ''
   };
   
 
@@ -170,13 +170,16 @@ export class HomeComponentAdministrative implements OnInit {
    }
    addCampus()
    {
+    delete this.camp.id;
     this.campusForm=false; 
     this.campusList=true;
-    console.log(this.camp.nombre);
-    console.log(this.camp.direccion);
-    console.log(this.camp.telefono);
-    console.log(this.camp.codigoPostal);
-    this.campusService.createCampus(this.camp);
+    console.log(this.camp);
+    
+    this.campusService.createCampus(this.camp).subscribe(
+      res => { 
+        console.log(res);
+      },
+      err => console.error(err))
    }
   
   
