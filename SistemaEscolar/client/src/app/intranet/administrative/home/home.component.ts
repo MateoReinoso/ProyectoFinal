@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../../services/login.service'
 import { MenuItem, MessageService, Message } from 'primeng/api';
+import { CampusService } from '../../../services/campus.service';
+
 
 @Component({
   selector: 'app-home-administrative',
@@ -9,12 +11,14 @@ import { MenuItem, MessageService, Message } from 'primeng/api';
 })
 export class HomeComponentAdministrative implements OnInit {
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private campusService: CampusService) { }
 
   credentials: any =[];
   items: MenuItem[];
-  campus: boolean =true;
-
+  campusList: boolean =true;
+  buildingList: boolean =true;
+  classroomList: boolean =true;
+  campus: any = [];
 
   ngOnInit(): void {
     this.credentials = this.loginService.getsession();
@@ -44,11 +48,23 @@ export class HomeComponentAdministrative implements OnInit {
           
         }
       }
-      ]
+    ]
     }
     ];
   }
+  
+  getCampus() {
+    console.log(this.credentials.COD_PERSONA);
 
+    this.campusService.getCampus()
+      .subscribe(
+        res => {
+          this.campus = res;
+          console.log(this.campus);
+        },
+        err => console.error(err)
+      );
+  }
   
   
   
