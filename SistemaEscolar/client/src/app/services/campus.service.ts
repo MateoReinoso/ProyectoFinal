@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Campus } from '../models/Campus';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class CampusService {
   updateLoginDate(USER: string){
     return this.http.put(`${this.API_URI}/login/${USER}`, null);
   }
-  createCampus(){
-    return this.http.get(`${this.API_URI}/campus/`);
+  createCampus(camp: Campus){
+    return this.http.post(`${this.API_URI}/campus/`,camp);
   }
 }

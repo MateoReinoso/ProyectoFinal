@@ -6,6 +6,7 @@ import { MenuItem, MessageService, Message } from 'primeng/api';
 import { CampusService } from '../../../services/campus.service';
 import { BuildingServiceService } from '../../../services/building-service.service';
 import { ClassroomService} from '../../../services/classroom.service';
+import { Campus } from '../../../models/Campus';
 
 @Component({
   selector: 'app-home-administrative',
@@ -36,13 +37,13 @@ export class HomeComponentAdministrative implements OnInit {
   agregarAula:boolean =false;
   agregarEdificio:boolean =false;
 
-  campusName:string ="";
-  campusDir:string ="";
-  campusCodP:string ="";
-  campusTelefono:string ="";
   
-  game: any = {
-    
+  camp: Campus = {
+    id: 0,
+    nombre: '',
+    direccion: '',
+    telefono: '',
+    codigoPostal: ''
   };
   
 
@@ -171,9 +172,11 @@ export class HomeComponentAdministrative implements OnInit {
    {
     this.campusForm=false; 
     this.campusList=true;
-    console.log(this.campusName);
-    console.log(this.campusDir);
-    console.log(this.campusCodP);
+    console.log(this.camp.nombre);
+    console.log(this.camp.direccion);
+    console.log(this.camp.telefono);
+    console.log(this.camp.codigoPostal);
+    this.campusService.createCampus(this.camp);
    }
   
   
