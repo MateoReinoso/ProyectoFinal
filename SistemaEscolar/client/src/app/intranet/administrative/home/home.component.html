@@ -6,7 +6,7 @@
             <p-menu [model]="items"></p-menu>
             <br>
             <button pButton *ngIf="campusList" label="Agregar Sede" type="button" class="p-button-info" (click)="addCampusForm()"></button>
-            <button pButton *ngIf="agregarEdificio" label="Agregar Edificio" type="button" class="p-button-info"></button>
+            <button pButton *ngIf="agregarEdificio" label="Agregar Edificio" type="button" class="p-button-info" (click)="addBuildingForm()"></button>
             <button pButton *ngIf="agregarAula" label="Agregar Aula" type="button" class="p-button-info" ></button>
         </div>
         <div class="p-col-12 p-md-4 p-lg-8" *ngIf="campusForm" >
@@ -19,6 +19,15 @@
             <label for="codigopostal">Codigo Postal:</label><br>
             <input type="text" pInputText [(ngModel)]="camp.CODIGO_POSTAL"/><br>
             <button pButton type="button" label="Agregar" class="p-button-secondary" (click)="addCampus()"></button>
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-8" *ngIf="buildingForm" >
+            <p-dropdown [options]="campus" *ngIf="campusOption" [(ngModel)]="selectedCampus" placeholder="Selecciona la Sede..." optionLabel="NOMBRE" [showClear]="true" (onChange)="onChange(selectedCampus)"></p-dropdown><br>
+            <label for="nameB">Nombre del edificio:</label><br>
+            <input type="text" pInputText /><br>
+            <label for="cantidad">Cantidad Pisos:</label><br>
+            <input type="text" pInputText /><br>
+            
+            <button pButton type="button" label="Agregar" class="p-button-secondary" (click)="addBuilding()"></button>
         </div>
         <div class="p-col-12 p-md-4 p-lg-8">
             
@@ -42,9 +51,7 @@
                     </tr>
                 </ng-template>
             </p-table>
-            <p-dropdown [options]="campus" *ngIf="campusOption" [(ngModel)]="selectedCampus"
-                placeholder="Selecciona la Sede..." optionLabel="NOMBRE" [showClear]="true"
-                (onChange)="onChange(selectedCampus)"></p-dropdown>
+            <p-dropdown [options]="campus" *ngIf="campusOption" [(ngModel)]="selectedCampus" placeholder="Selecciona la Sede..." optionLabel="NOMBRE" [showClear]="true" (onChange)="onChange(selectedCampus)"></p-dropdown>
             <br *ngIf="campusOption">
             <br *ngIf="campusOption">
             <p-table [value]="buildings" *ngIf="buildingList">

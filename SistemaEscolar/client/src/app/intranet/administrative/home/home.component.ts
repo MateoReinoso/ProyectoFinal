@@ -28,6 +28,7 @@ export class HomeComponentAdministrative implements OnInit {
   classroomList: boolean =false;
   campusOption: boolean =false;
   campusForm: boolean =false;
+  buildingForm: boolean =false;
   classroomflag: boolean =false;
   campus: any = [];
   oneCampus:any =[];
@@ -60,6 +61,7 @@ export class HomeComponentAdministrative implements OnInit {
         label: 'Sedes',
         icon: 'pi pi-briefcase',
         command: () => {
+          this.campusForm =false;
           this.campusList=true;
           this.buildingList=false;
           this.classroomList=false;
@@ -75,6 +77,7 @@ export class HomeComponentAdministrative implements OnInit {
         label: 'Edificios',
         icon: 'pi pi-bars',
         command: () => {
+          this.campusForm =false;
           this.agregarAula=false;
           this.campusList=false;
           this.campusOption=true;
@@ -89,6 +92,7 @@ export class HomeComponentAdministrative implements OnInit {
         label: 'Aulas',
         icon: 'pi pi-bars',
         command: () => {
+          this.campusForm =false;
           this.buildingOption=false;
           this.buildingList=false;
           this.classroomflag=true;
@@ -134,7 +138,7 @@ export class HomeComponentAdministrative implements OnInit {
     this.buildingService.getBuilgingByCampus(codEdificio)
       .subscribe(
         res => {
-          this.classroomflag ? this.buildingOption=true:this.buildingList=true;
+          this.classroomflag ? this.buildingOption=true : this.buildingList=true;
           this.buildings = res;
           console.log(this.buildings);
         },
@@ -168,7 +172,7 @@ export class HomeComponentAdministrative implements OnInit {
     this.campusList=false;
     console.log("Estoy llegando a metodo por lo menos")
    }
-   addCampus()
+  addCampus()
    {
     delete this.camp.id;
     this.campusForm=false; 
@@ -181,6 +185,11 @@ export class HomeComponentAdministrative implements OnInit {
       },
       err => console.error(err))
    }
-  
+   addBuildingForm()
+   {
+    this.buildingForm=true; 
+    this.buildingList=false;
+    console.log("Estoy llegando a metodo por lo menos")
+   }
   
 }
