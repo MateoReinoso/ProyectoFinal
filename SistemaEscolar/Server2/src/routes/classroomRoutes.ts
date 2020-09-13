@@ -13,7 +13,8 @@ class ShoolRoutes{
     config():void{
 
         this.router.get('/', classroomController.classroom);
-        this.router.get('/:id', classroomController.classroomById);
+        this.router.get('/:id', classroomController.classroomByBuilding);
+        this.router.get('/:id/:idB', classroomController.classroomById);
         this.router.post('/', classroomController.create);
         this.router.put('/:id', classroomController.update);
         this.router.delete('/:id', classroomController.delete);

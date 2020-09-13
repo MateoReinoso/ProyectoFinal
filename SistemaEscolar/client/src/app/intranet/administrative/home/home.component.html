@@ -31,7 +31,6 @@
             <ng-template pTemplate="header">
                 <tr>
                     <th>Codigo Edificio</th>
-                    <th>Sede</th>
                     <th>Nombre</th>
                     <th>Cantidad pisos</th>
                 </tr>
@@ -39,8 +38,7 @@
             <ng-template pTemplate="body" let-building>
                 <tr>
                     <td>{{building.COD_EDIFICIO}}</td>
-                    <td>{{NOMBRE}}</td>
-                    <td>{{building.NOMBRE}}</td>
+                     <td>{{building.NOMBRE}}</td>
                     <td>{{building.CANTIDAD_PISOS}}</td>
                 </tr>
             </ng-template>

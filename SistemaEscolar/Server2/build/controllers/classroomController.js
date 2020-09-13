@@ -25,7 +25,16 @@ class ClassroomController {
     classroomById(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const classroom = yield database_1.default.query('select * from aula WHERE COD_AULA=?', [id]);
+            const { idB } = req.params;
+            const classroom = yield database_1.default.query('select * from aula WHERE COD_EDIFICIO=? AND COD_AULA=?', [id, idB]);
+            console.log(classroom);
+            res.json(classroom);
+        });
+    }
+    classroomByBuilding(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            const classroom = yield database_1.default.query('select * from aula WHERE COD_EDIFICIO=?', [id]);
             console.log(classroom);
             res.json(classroom);
         });

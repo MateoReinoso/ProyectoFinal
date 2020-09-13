@@ -39,6 +39,7 @@ export class HomeComponentAdministrative implements OnInit {
           this.campusList=true;
           this.buildingList=false;
           this.classroomList=false;
+          this.campusOption=false;
           this.getCampus();
         }
       },
@@ -88,6 +89,19 @@ export class HomeComponentAdministrative implements OnInit {
       );
   }
   getBuildingByCampus(codEdificio) {
+    console.log(this.credentials.COD_PERSONA);
+    this.getCampusByID(codEdificio);
+    this.buildingService.getBuilgingByCampus(codEdificio)
+      .subscribe(
+        res => {
+          this.buildingList=true;
+          this.buildings = res;
+          console.log(this.buildings);
+        },
+        err => console.error(err)
+      );
+  }
+  getClassroomByBuilding(codEdificio) {
     console.log(this.credentials.COD_PERSONA);
     this.getCampusByID(codEdificio);
     this.buildingService.getBuilgingByCampus(codEdificio)

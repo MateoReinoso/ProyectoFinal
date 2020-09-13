@@ -7,10 +7,18 @@ class ClassroomController{
         const classroom = await db.query('select * from aula');
         console.log(classroom);
         res.json(classroom);
-    } 
+    }
+    
     public async classroomById(req: Request, res: Response): Promise<void> {
         const { id } = req.params;
-        const classroom = await db.query('select * from aula WHERE COD_AULA=?', [id]);
+        const { idB } = req.params;
+        const classroom = await db.query('select * from aula WHERE COD_EDIFICIO=? AND COD_AULA=?', [id,idB]);
+        console.log(classroom);
+        res.json(classroom);
+    } 
+    public async classroomByBuilding(req: Request, res: Response): Promise<void> {
+        const { id } = req.params;
+        const classroom = await db.query('select * from aula WHERE COD_EDIFICIO=?', [id]);
         console.log(classroom);
         res.json(classroom);
     } 
