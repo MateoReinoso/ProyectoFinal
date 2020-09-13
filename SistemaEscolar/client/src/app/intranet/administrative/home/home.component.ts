@@ -168,7 +168,6 @@ export class HomeComponentAdministrative implements OnInit {
     console.log(this.campusName);
     console.log(this.campusDir);
     console.log(this.campusCodP);
-    console.log("Estoy llegando a metodo por lo menos");
    }
   
   
