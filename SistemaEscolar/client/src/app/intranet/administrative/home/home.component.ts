@@ -39,6 +39,12 @@ export class HomeComponentAdministrative implements OnInit {
   campusName:string ="";
   campusDir:string ="";
   campusCodP:string ="";
+  campusTelefono:string ="";
+  
+  game: any = {
+    
+  };
+  
 
 
   ngOnInit(): void {

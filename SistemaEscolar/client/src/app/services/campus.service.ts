@@ -20,4 +20,7 @@ export class CampusService {
   updateLoginDate(USER: string){
     return this.http.put(`${this.API_URI}/login/${USER}`, null);
   }
+  createCampus(){
+    return this.http.get(`${this.API_URI}/campus/`);
+  }
 }
