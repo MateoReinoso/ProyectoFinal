@@ -13,6 +13,8 @@ export class HomeComponentAdministrative implements OnInit {
 
   credentials: any =[];
   items: MenuItem[];
+  campus: boolean =true;
+
 
   ngOnInit(): void {
     this.credentials = this.loginService.getsession();
