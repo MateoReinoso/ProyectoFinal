@@ -36,7 +36,7 @@ class SchoolController{
     public async sms(req: Request, res: Response): Promise<void> {
         const { npas } = req.params;
         const { caes } = req.params;
-        const cursq = await db.query('SELECT DISTINCTROW a.MATERIA, aap.NOTA6, aap.NOTA7, aap.NOTA8, aap.NOTA9, aap.NOTA10 FROM alumno_asignatura_periodo aap, asignatura a WHERE aap.COD_ALUMNO = ? AND a.COD_NIVEL_EDUCATIVO = aap.COD_NIVEL_EDUCATIVO AND aap.COD_ASIGNATURA = ? AND aap.COD_ASIGNATURA = a.COD_ASIGNATURA', [npas,caes]);
+        const cursq = await db.query('SELECT DISTINCTROW aap.NOTA6, aap.NOTA7, aap.NOTA8, aap.NOTA9, aap.NOTA10 FROM alumno_asignatura_periodo aap, asignatura a WHERE aap.COD_ALUMNO = ? AND a.COD_NIVEL_EDUCATIVO = aap.COD_NIVEL_EDUCATIVO AND aap.COD_ASIGNATURA = ? AND aap.COD_ASIGNATURA = a.COD_ASIGNATURA', [npas,caes]);
         console.log(cursq);
         res.json(cursq);
     }
