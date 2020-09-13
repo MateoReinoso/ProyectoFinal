@@ -36,6 +36,11 @@ export class HomeComponentAdministrative implements OnInit {
   agregarAula:boolean =false;
   agregarEdificio:boolean =false;
 
+  campusName:string ="";
+  campusDir:string ="";
+  campusCodP:string ="";
+
+
   ngOnInit(): void {
     this.credentials = this.loginService.getsession();
     console.log(this.loginService.getsession());
@@ -150,11 +155,20 @@ export class HomeComponentAdministrative implements OnInit {
     this.getClassroomByBuilding(selectedBuilding.COD_SEDE);
   }
   
-  addCampus()
+  addCampusForm()
    {
     this.campusForm=true; 
     this.campusList=false;
     console.log("Estoy llegando a metodo por lo menos")
+   }
+   addCampus()
+   {
+    this.campusForm=false; 
+    this.campusList=true;
+    console.log(this.campusName);
+    console.log(this.campusDir);
+    console.log(this.campusCodP);
+    console.log("Estoy llegando a metodo por lo menos");
    }
   
   
