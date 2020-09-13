@@ -131,5 +131,13 @@ class SchoolController {
             res.json(curs);
         });
     }
+    SubirDeberes(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { eds } = req.params;
+            const curs = yield database_1.default.query('SELECT DISTINCTROW ap.COD_ASIGNATURA, ap.COD_NIVEL_EDUCATIVO, ap.COD_PERIODO_LECTIVO FROM asignatura_periodo ap, asignatura a, alumno_asignatura_periodo aap WHERE aap.COD_DOCENTE = ? AND ap.COD_DOCENTE = aap.COD_DOCENTE AND ap.COD_ASIGNATURA = a.COD_ASIGNATURA AND a.COD_ASIGNATURA = aap.COD_ASIGNATURA', [eds]);
+            console.log(curs);
+            res.json(curs);
+        });
+    }
 }
 exports.schoolController = new SchoolController();
