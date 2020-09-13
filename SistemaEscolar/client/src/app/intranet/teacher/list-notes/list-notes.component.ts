@@ -6,7 +6,8 @@ import {SplitButtonModule} from 'primeng/splitbutton';
 import {DropdownModule} from 'primeng/dropdown';
 import {SelectItem} from 'primeng/api';
 import {TabMenuModule} from 'primeng/tabmenu';
-
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
 
 
 
@@ -27,6 +28,7 @@ export class ListNotesComponent implements OnInit {
   students: any  = [];
   items: MenuItem[];
   notes: any = [];
+  clonedNotes: any [];
   idStudentButton = false;
   partialOptions: MenuItem[];
   public optionSubject = false;
@@ -138,7 +140,9 @@ export class ListNotesComponent implements OnInit {
           err => console.error(err)
         );
     }
-  save(severity: string) {
+
+//OPCIONES DE MENSAJES DE ALERTA
+save(severity: string) {
     this.messageService.add({severity:severity, summary:'Success', detail:'Data Saved'});
 }
 
@@ -150,4 +154,21 @@ delete() {
     this.messageService.add({severity:'success', summary:'Success', detail:'Data Deleted'});
 }
 
+//OPCIONES DE EDICION
+
+onRowEditInit(note) {
+  this.clonedNotes = note;
+  console.log(this.clonedNotes);
+  console.log(this.idSubjectCode);
+  console.log(this.codAlumno);
+  this.schoolService.updateNPP(this.clonedNotes,this.idSubjectCode, this.codAlumno).subscribe(
+    res => {
+      this.messageService.add({severity:'severity', summary:'Éxito', detail:'Notas ingresadas'});
+      console.log('Notas actualizadas =D!');
+    },
+    err => console.error(err)
+  );
 }
+
+}
+

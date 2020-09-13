@@ -57,8 +57,8 @@ export class SchoolService {
   }
 
   //actualizar nota deberes
-  updateNPP(cad: number, cde: number) {
-    return this.http.put(`${this.API_URI}/school/npp/${cad}/${cde}`,null,null);
+  updateNPP(notas:any, cad: number, cde: number) {
+    return this.http.put(`${this.API_URI}/school/npp/${cad}/${cde}`,notas);
   }  
 
 }
