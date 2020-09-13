@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../../services/login.service'
+import {ButtonModule} from 'primeng/button';
+import {InputTextModule} from 'primeng/inputtext';
 import { MenuItem, MessageService, Message } from 'primeng/api';
 import { CampusService } from '../../../services/campus.service';
 import { BuildingServiceService } from '../../../services/building-service.service';
@@ -19,16 +21,20 @@ export class HomeComponentAdministrative implements OnInit {
   selectedBuilding: Number;
   credentials: any =[];
   items: MenuItem[];
+  btnAgregar: ButtonModule[];
   campusList: boolean =false;
   buildingList: boolean =false;
   classroomList: boolean =false;
   campusOption: boolean =false;
+  campusForm: boolean =false;
   classroomflag: boolean =false;
   campus: any = [];
   oneCampus:any =[];
   buildings: any = [];
   classrooms: any=[];
   buildingOption: boolean =false;
+  agregarAula:boolean =false;
+  agregarEdificio:boolean =false;
 
   ngOnInit(): void {
     this.credentials = this.loginService.getsession();
@@ -48,6 +54,8 @@ export class HomeComponentAdministrative implements OnInit {
           this.campusOption=false;
           this.buildingOption=false;
           this.classroomflag=false;
+          this.agregarAula=false;
+          this.agregarEdificio=false;
           this.getCampus();
         }
       },
@@ -55,11 +63,13 @@ export class HomeComponentAdministrative implements OnInit {
         label: 'Edificios',
         icon: 'pi pi-bars',
         command: () => {
+          this.agregarAula=false;
           this.campusList=false;
           this.campusOption=true;
           this.classroomList=false;
           this.buildingOption=false;
           this.classroomflag=false;
+          this.agregarEdificio=true;
           this.getCampus();
         }
       },
@@ -72,7 +82,9 @@ export class HomeComponentAdministrative implements OnInit {
           this.classroomflag=true;
           this.campusList=false;
           this.campusOption=true;
+          this.agregarAula=true;
           this.classroomList=false;
+          this.agregarEdificio=false;
           this.getCampus();
         }
       }
@@ -138,7 +150,12 @@ export class HomeComponentAdministrative implements OnInit {
     this.getClassroomByBuilding(selectedBuilding.COD_SEDE);
   }
   
-  
+  addCampus()
+   {
+    this.campusForm=true; 
+    this.campusList=false;
+    console.log("Estoy llegando a metodo por lo menos")
+   }
   
   
 }

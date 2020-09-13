@@ -1,73 +1,95 @@
 <app-main></app-main>
-<div class="p-grid">
-    
-    <div class="p-col-12 p-md-6 p-lg-3">
-        <p-menu [model]="items"></p-menu>
-    </div>
-    <div class="p-col-12 p-md-4 p-lg-8">
-        <p-table [value]="campus"  *ngIf="campusList">
-            <ng-template pTemplate="header">
-                <tr>
-                    <th>Codigo de sede</th>
-                    <th>Nombre</th>
-                    <th>Direccion</th>
-                    <th>Telefono</th>
-                    <th>Codigo Postal</th>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-campus>
-                <tr *ngIf="campusList">
-                    <td>{{campus.COD_SEDE}}</td>
-                    <td>{{campus.NOMBRE}}</td>
-                    <td>{{campus.DIRECCION}}</td>
-                    <td>{{campus.TELEFONO}}</td>
-                    <td>{{campus.CODIGO_POSTAL}}</td>
-                </tr>
-            </ng-template>
-        </p-table>
-        <p-dropdown [options]="campus" *ngIf="campusOption" [(ngModel)]="selectedCampus" placeholder="Selecciona la Sede..." optionLabel="NOMBRE" [showClear]="true" (onChange)="onChange(selectedCampus)"></p-dropdown>
-                
-        <p-table [value]="buildings" *ngIf="buildingList">
-            <ng-template pTemplate="header">
-                <tr>
-                    <th>Codigo Edificio</th>
-                    <th>Nombre</th>
-                    <th>Cantidad pisos</th>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-building>
-                <tr>
-                    <td>{{building.COD_EDIFICIO}}</td>
-                     <td>{{building.NOMBRE}}</td>
-                    <td>{{building.CANTIDAD_PISOS}}</td>
-                </tr>
-            </ng-template>
+<div class="layout-content">
+    <div class="p-grid">
 
-        </p-table>
-        <p-dropdown [options]="buildings" *ngIf="buildingOption" [(ngModel)]="selectedClassroom" placeholder="Selecciona el Edificio..." optionLabel="NOMBRE" [showClear]="true" (onChange)="onChange1(selectedClassroom)"></p-dropdown>
-                
-        <p-table [value]="classrooms" *ngIf="classroomList">
-            <ng-template pTemplate="header">
-                <tr>
-                    <th>Codigo Aula</th>
-                    <th>Nombre</th>
-                    <th>Capacidad</th>
-                    <th>Tipo</th>
-                    <th>Piso</th>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-classroom>
-                <tr>
-                    <td>{{classroom.COD_AULA}}</td>
-                    <td>{{classroom.NOMBRE}}</td>
-                    <td>{{classroom.CAPACIDAD}}</td>
-                    <td>{{classroom.TIPO}}</td>
-                    <td>{{classroom.PISO}}</td>
-                </tr>
-            </ng-template>
+        <div class="p-col-12 p-md-6 p-lg-3">
+            <p-menu [model]="items"></p-menu>
+            <br>
+            <button pButton *ngIf="campusList" label="Agregar Sede" type="button" class="p-button-info" (click)="addCampus()"></button>
+            <button pButton *ngIf="agregarEdificio" label="Agregar Edificio" type="button" class="p-button-info"></button>
+            <button pButton *ngIf="agregarAula" label="Agregar Aula" type="button" class="p-button-info"></button>
+        </div>
+        
+        <div class="p-col-12 p-md-4 p-lg-8">
+            <form action="" class="p-col-12 p-md-6 p-lg-3" *ngIf="campusForm" >
+                <label for="fname">Nombre de la cede:</label><br>
+                <input type="text" pInputText /><br>
+                <label for="fname">Direccion:</label><br>
+                <input type="text" pInputText /><br>
+                <label for="fname">Codigo Postal:</label><br>
+                <input type="text" pInputText /><br>
+            </form>
+            <p-table [value]="campus" *ngIf="campusList">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Codigo de sede</th>
+                        <th>Nombre</th>
+                        <th>Direccion</th>
+                        <th>Telefono</th>
+                        <th>Codigo Postal</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-campus>
+                    <tr *ngIf="campusList">
+                        <td>{{campus.COD_SEDE}}</td>
+                        <td>{{campus.NOMBRE}}</td>
+                        <td>{{campus.DIRECCION}}</td>
+                        <td>{{campus.TELEFONO}}</td>
+                        <td>{{campus.CODIGO_POSTAL}}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+            <p-dropdown [options]="campus" *ngIf="campusOption" [(ngModel)]="selectedCampus"
+                placeholder="Selecciona la Sede..." optionLabel="NOMBRE" [showClear]="true"
+                (onChange)="onChange(selectedCampus)"></p-dropdown>
+            <br *ngIf="campusOption">
+            <br *ngIf="campusOption">
+            <p-table [value]="buildings" *ngIf="buildingList">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Codigo Edificio</th>
+                        <th>Nombre</th>
+                        <th>Cantidad pisos</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-building>
+                    <tr>
+                        <td>{{building.COD_EDIFICIO}}</td>
+                        <td>{{building.NOMBRE}}</td>
+                        <td>{{building.CANTIDAD_PISOS}}</td>
+                    </tr>
+                </ng-template>
 
-        </p-table>
+            </p-table>
+            <br *ngIf="buildingOption">
+            <p-dropdown [options]="buildings" *ngIf="buildingOption" [(ngModel)]="selectedClassroom"
+                placeholder="Selecciona el Edificio..." optionLabel="NOMBRE" [showClear]="true"
+                (onChange)="onChange1(selectedClassroom)"></p-dropdown>
+            <br *ngIf="buildingOption">
+            <br *ngIf="buildingOption">
+            <p-table [value]="classrooms" *ngIf="classroomList">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Codigo Aula</th>
+                        <th>Nombre</th>
+                        <th>Capacidad</th>
+                        <th>Tipo</th>
+                        <th>Piso</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-classroom>
+                    <tr>
+                        <td>{{classroom.COD_AULA}}</td>
+                        <td>{{classroom.NOMBRE}}</td>
+                        <td>{{classroom.CAPACIDAD}}</td>
+                        <td>{{classroom.TIPO}}</td>
+                        <td>{{classroom.PISO}}</td>
+                    </tr>
+                </ng-template>
 
+            </p-table>
+
+        </div>
     </div>
 </div>
 <app-footer></app-footer>
