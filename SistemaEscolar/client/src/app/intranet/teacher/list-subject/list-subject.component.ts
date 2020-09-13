@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuItem, MessageService, Message } from 'primeng/api';
+import { MenuItem, MessageService, Message} from 'primeng/api';
 import { LoginService } from '../../../services/login.service';
 import { SchoolService } from '../../../services/school.service';
+import {PanelModule} from 'primeng/panel';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-list-subject',
@@ -20,6 +23,18 @@ export class ListSubjectComponent implements OnInit {
 dropLevel=false;
 idLevelCode: number;
 dropClassroom=false;
+idClassroomCode: number;
+idPeriodCode: number;
+dropHomeworks = false;
+
+newhomework:any ={
+  COD_NIVEL_EDUCATIVO: 0,
+  COD_ASIGNATURA: 0,
+  COD_PERIODO_LECTIVO: 0,
+  COD_PARALELO: 0,
+  COD_DOCENTE: 0,
+  DETALLE_TAREA: ''
+};
   constructor(private loginService: LoginService, private schoolService: SchoolService, private messageService: MessageService) {
 
   }
@@ -69,7 +84,8 @@ dropClassroom=false;
   }
 
   onChange(selectedSubject){
-  
+    this.dropClassroom=false;
+    this.dropHomeworks = false;
     console.log(selectedSubject.COD_ASIGNATURA);
     this.idSubjectCode=selectedSubject.COD_ASIGNATURA;
     this.getNivel(this.credentials.COD_PERSONA);
@@ -80,6 +96,7 @@ dropClassroom=false;
   }
 
   onChangeLevel(selectedLevel){
+    this.dropHomeworks = false;
     console.log(selectedLevel);
     this.idLevelCode = selectedLevel.COD_NIVEL_EDUCATIVO;
     this.getAula();
@@ -88,5 +105,28 @@ dropClassroom=false;
 
   onChangeClassroom(selectedClassroom){
     console.log(selectedClassroom);
+    this.idClassroomCode=selectedClassroom.COD_PARALELO;
+    this.idPeriodCode=selectedClassroom.COD_PERIODO_LECTIVO;
+    console.log(this.idClassroomCode);
+    console.log(this.idPeriodCode);
+    this.dropHomeworks = true;
+  }
+
+  onAddHomework(homework){
+    console.log(homework);
+    this.newhomework.COD_NIVEL_EDUCATIVO=this.idLevelCode;
+    this.newhomework.COD_ASIGNATURA=this.idSubjectCode
+    this.newhomework.COD_PERIODO_LECTIVO=this.idPeriodCode;
+    this.newhomework.COD_PARALELO=this.idClassroomCode;
+    this.newhomework.COD_DOCENTE=this.credentials.COD_PERSONA;
+    this.newhomework.DETALLE_TAREA=homework;
+    console.log(this.newhomework);
+    this.schoolService.getMandarDeber(this.newhomework)
+    .subscribe(
+      res => {
+        console.log('Tarea agregada');
+      },
+      err => console.error(err)
+    );
   }
 }
