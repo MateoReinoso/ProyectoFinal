@@ -64,7 +64,21 @@ export class HomeComponentAdministrative implements OnInit {
     NOMBRE: '',
     CANTIDAD_PISOS: ''
   };
+  clonedBuild: Building = {
+    id: 0,
+    COD_SEDE: '',
+    NOMBRE: '',
+    CANTIDAD_PISOS: ''
+  };
   class1: Classroom = {
+    id: 0,
+    COD_EDIFICIO: '',
+    NOMBRE: '',
+    CAPACIDAD: '',
+    TIPO:'',
+    PISO:0,
+  };
+  clonedClass1: Classroom = {
     id: 0,
     COD_EDIFICIO: '',
     NOMBRE: '',
@@ -270,6 +284,48 @@ export class HomeComponentAdministrative implements OnInit {
   onRowDelete(id) {
     
     this.campusService.deleteCampus(id).subscribe(
+      res => {
+        console.log(id);
+      },
+      err => console.error(err)
+    );
+  }
+  onRowEditBuilding(camp,id) {
+    this.clonedBuild = camp;
+    console.log(this.clonedBuild);
+    console.log(this.clonedBuild);
+    console.log(this.clonedBuild);
+    this.buildingService.updateBuilding(this.clonedBuild,id).subscribe(
+      res => {;
+        console.log(this.clonedBuild);
+      },
+      err => console.error(err)
+    );
+  }
+  onRowDeleteBuilding(id) {
+    
+    this.buildingService.deleteBuilding(id).subscribe(
+      res => {
+        console.log(id);
+      },
+      err => console.error(err)
+    );
+  }
+  onRowEditClassroom(camp,id) {
+    this.clonedClass1 = camp;
+    console.log(this.clonedClass1);
+    console.log(this.clonedClass1);
+    console.log(this.clonedClass1);
+    this.classroomService.updateClassroom(this.clonedClass1,id).subscribe(
+      res => {;
+        console.log(this.clonedClass1);
+      },
+      err => console.error(err)
+    );
+  }
+  onRowDeleteClassroom(id) {
+    
+    this.classroomService.deleteClassroom(id).subscribe(
       res => {
         console.log(id);
       },

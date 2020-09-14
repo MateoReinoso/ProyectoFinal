@@ -27,5 +27,11 @@ export class BuildingServiceService {
   createBuilding(camp: Building){
     return this.http.post(`${this.API_URI}/building/`,camp);
   }
+  updateBuilding(camp: Building,id:number){
+    return this.http.put(`${this.API_URI}/building/${id}`,camp);
+  }
+  deleteBuilding(id:number){
+    return this.http.delete(`${this.API_URI}/building/${id}`);
+  }
   
 }

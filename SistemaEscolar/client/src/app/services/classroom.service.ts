@@ -26,4 +26,10 @@ export class ClassroomService {
   createClassroom(camp: Classroom){
     return this.http.post(`${this.API_URI}/classroom/`,camp);
   }
+  updateClassroom(camp: Classroom,id:number){
+    return this.http.put(`${this.API_URI}/classroom/${id}`,camp);
+  }
+  deleteClassroom(id:number){
+    return this.http.delete(`${this.API_URI}/classroom/${id}`);
+  }
 }
