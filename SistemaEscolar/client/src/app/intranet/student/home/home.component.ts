@@ -28,6 +28,7 @@ export class HomeComponentStudent implements OnInit {
   public notes1p = false;
   public tablenotes = false;
   public tablehomework = false;
+  public tablehomework2 = false;
 
   ngOnInit(): void {
     
@@ -46,7 +47,9 @@ export class HomeComponentStudent implements OnInit {
           this.getNotes();
           this.notes1p = true;
           this.notes2p = false;
-          this.tablehomework=false;
+          this.tablehomework=false;    
+          this.tablehomework2 = false;
+
         }
       },
       {
@@ -58,6 +61,7 @@ export class HomeComponentStudent implements OnInit {
           this.notes2p = true;
           this.notes1p = false;
           this.tablehomework=false;
+          this.tablehomework2 = false;
         }
       },
       {
@@ -124,6 +128,8 @@ export class HomeComponentStudent implements OnInit {
 
   onChange(selectedSubject){
     this.getHomework(selectedSubject.COD_ASIGNATURA);
+    this.tablehomework2 = true;
+
   }
 
   update() {

@@ -6,6 +6,14 @@
         </div>
         <div class="p-col-12 p-md-6 p-lg-9">
             <p-table [value]="notes" *ngIf="tablenotes">
+                <ng-template pTemplate="caption">
+                    <div class="p-d-flex p-ai-center p-jc-between" *ngIf="notes1p">
+                        Notas de Primer Parcial
+                    </div>
+                    <div class="p-d-flex p-ai-center p-jc-between" *ngIf="notes2p">
+                        Notas de Segundo Parcial
+                    </div>
+                </ng-template>
                 <ng-template pTemplate="header">
                     <tr>
                         <th>Materia</th>
@@ -36,21 +44,29 @@
                 </ng-template>
             </p-table>
 
-            <p-table [value]="homeworks" *ngIf="tablehomework">
-                <ng-template pTemplate="header">
+            <div class="p-grid" *ngIf="tablehomework">
+                <div class="card">
+                    <h2>Materia:</h2>
                     <p-dropdown [options]="subjects" [(ngModel)]="selectedSubject" placeholder="Selecciona la Asignatura..." optionLabel="MATERIA" [showClear]="true" (onChange)="onChange(selectedSubject)"></p-dropdown>
-                    <tr>
-                        <th>Materia</th>
-                        <th>Deberes</th>
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="body" let-homework>
-                    <tr>
-                        <td>{{homework.MATERIA}}</td>
-                        <td>{{homework.DETALLE_TAREA}}</td>
-                    </tr>
-                </ng-template>
-            </p-table>
+                </div>
+            </div>
+            <div class="p-grid" *ngIf="tablehomework2">
+                <p-table [value]="homeworks" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} deberes" [rowsPerPageOptions]="[5,10,15]">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Materia</th>
+                            <th>Deberes</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-homework>
+                        <tr>
+                            <td>{{homework.MATERIA}}</td>
+                            <td>{{homework.DETALLE_TAREA}}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+
         </div>
 
     </div>

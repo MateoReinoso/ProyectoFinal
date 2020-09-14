@@ -8,7 +8,7 @@ import {SelectItem} from 'primeng/api';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
-
+import {PanelModule} from 'primeng/panel';
 
 
 @Component({
