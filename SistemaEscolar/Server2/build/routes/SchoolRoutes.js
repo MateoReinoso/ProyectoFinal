@@ -45,7 +45,7 @@ class ShoolRoutes {
         this.router.put('/deberactualizado/:COD_TAREA', schoolController_1.schoolController.UpdateEntrega);
         //para la toma de asistencia
         //obtencion nivel lista
-        this.router.get('/nivel', schoolController_1.schoolController.NivelEducativo);
+        this.router.get('/', schoolController_1.schoolController.NivelEducativo);
         //obtencion del paralelo
         this.router.get('/paralelo/nombre/:obe', schoolController_1.schoolController.ObtenerParalelo);
         //obtencion estudiantes por paralelo

@@ -92,14 +92,14 @@ export class SchoolService {
 
   //obtencion nivel lista
   getNivelLista(){
-    return this.http.get(`${this.API_URI}/school/nivel`);
+    return this.http.get(`${this.API_URI}/school/`);
   }
   //obtencion del paralelo
   getObtenerParalelo(COD_PARALEO: number){
     return this.http.get(`${this.API_URI}/school/paralelo/nombre/${COD_PARALEO}`);
   }
   //obtencion estudiantes por paralelo
-  getListaParalelo(COD_NIVEL: number, COD_OELARAP){
+  getListaParalelo(COD_NIVEL: number, COD_OELARAP:number){
     return this.http.get(`${this.API_URI}/school/paralelo/nombre/estudiantes/listado/${COD_NIVEL}/${COD_OELARAP}`);
   }
 

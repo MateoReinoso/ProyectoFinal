@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SchoolService } from '../../../services/school.service';
 
 @Component({
   selector: 'app-asistance',
@@ -14,34 +15,61 @@ export class AsistanceComponent implements OnInit {
   idPeriodCode:number;
   levels: any = [];
   classrooms: any = [];
-  
-  constructor() { }
+  students: any = [];
+  fechaActual:Date = new Date();
+
+  constructor(private schoolService: SchoolService) { }
 
   ngOnInit(): void {
-    this.getMaterias();
+    this.getLevel();
   }
 
-  getMaterias(){
-
+  getLevel(){
+    this.schoolService.getNivelLista()
+    .subscribe(
+      res => {
+        this.levels=res;
+        console.log(this.levels);
+      },
+      err => console.error(err)
+    );
   }
 
-  getAula(){
+  getAula(codLevel){
+    this.schoolService.getObtenerParalelo(codLevel)
+    .subscribe(
+      res => {
+        this.classrooms=res;
+        console.log(this.classrooms);
+      },
+      err => console.error(err)
+    );
+  }
 
+  getStudents(){
+    this.schoolService.getListaParalelo(this.idLevelCode, this.idClassroomCode)
+    .subscribe(
+      res => {
+        this.students=res;
+        console.log(this.students);
+      },
+      err => console.error(err)
+    );
   }
 
   onChangeLevel(selectedLevel){
     console.log(selectedLevel);
     this.idLevelCode = selectedLevel.COD_NIVEL_EDUCATIVO;
-    this.getAula();
+    this.getAula(this.idLevelCode);
     this.dropClassroom=true;
   }
 
   onChangeClassroom(selectedClassroom){
     console.log(selectedClassroom);
     this.idClassroomCode=selectedClassroom.COD_PARALELO;
-    this.idPeriodCode=selectedClassroom.COD_PERIODO_LECTIVO;
-    console.log(this.idClassroomCode);
-    console.log(this.idPeriodCode);
+    this.getStudents();
+    
+    
   }
 
 }
