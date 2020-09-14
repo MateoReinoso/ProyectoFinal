@@ -145,9 +145,15 @@ class SchoolController {
         const { odcne } = req.params;
         //datos paralelo
         const { odcp } = req.params;
-        const curs = await db.query('SELECT DISTINCTROW ta.DETALLE_TAREA FROM tarea_asignatura ta WHERE ta.COD_DOCENTE = ? AND ta.COD_ASIGNATURA = ? AND ta.COD_NIVEL_EDUCATIVO = ? AND ta.COD_PARALELO = ?', [odd,odca,odcne,odcp]);
+        const curs = await db.query('SELECT DISTINCTROW ta.COD_TAREA ,ta.DETALLE_TAREA FROM tarea_asignatura ta WHERE ta.COD_DOCENTE = ? AND ta.COD_ASIGNATURA = ? AND ta.COD_NIVEL_EDUCATIVO = ? AND ta.COD_PARALELO = ?', [odd,odca,odcne,odcp]);
         console.log(curs);
         res.json(curs);
+    }
+
+    public async UpdateEntrega(req: Request, res: Response): Promise<void> {
+        const { COD_TAREA } = req.params;
+        const oldHomework = req.body;
+        await db.query('UPDATE tarea_asignatura set ? WHERE COD_TAREA = ?', [req.body, COD_TAREA]);
     }
 
 }
