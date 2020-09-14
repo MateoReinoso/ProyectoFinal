@@ -189,5 +189,12 @@ class SchoolController {
             yield database_1.default.query('UPDATE tarea_asignatura set ? WHERE COD_TAREA = ?', [req.body, COD_TAREA]);
         });
     }
+    NivelEducativo(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const curs = yield database_1.default.query('SELECT ne.COD_NIVEL_EDUCATIVO, ne.NOMBRE FROM nivel_educativo ne');
+            console.log(curs);
+            res.json(curs);
+        });
+    }
 }
 exports.schoolController = new SchoolController();

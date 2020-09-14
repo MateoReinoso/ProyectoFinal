@@ -47,6 +47,8 @@ class ShoolRoutes{
         this.router.get('/deberes/asignados/:odd/:odca/:odcne/:odcp', schoolController.ObtencionDeberes)
         //actualizar deber
         this.router.put('/deberactualizado/:COD_TAREA', schoolController.UpdateEntrega);
+        //obtencion nivel lista
+        this.router.get('nivel', schoolController.NivelEducativo);
     }
 }
 

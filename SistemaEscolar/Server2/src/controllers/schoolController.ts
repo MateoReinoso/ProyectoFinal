@@ -156,6 +156,12 @@ class SchoolController {
         await db.query('UPDATE tarea_asignatura set ? WHERE COD_TAREA = ?', [req.body, COD_TAREA]);
     }
 
+    public async NivelEducativo(req: Request, res: Response): Promise<void> {
+        const curs = await db.query('SELECT ne.COD_NIVEL_EDUCATIVO, ne.NOMBRE FROM nivel_educativo ne');
+        console.log(curs);
+        res.json(curs);
+    }
+
 }
 
 export const schoolController = new SchoolController();
