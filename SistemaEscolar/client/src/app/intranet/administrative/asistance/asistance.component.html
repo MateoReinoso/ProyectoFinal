@@ -1,0 +1,14 @@
+<div class="p-grid">
+    <div class="p-col-4">
+        <div class="card">
+            <h2>Nivel Educativo:</h2>
+            <p-dropdown [options]="levels" [(ngModel)]="selectedLevel" placeholder="Selecciona el nivel educativo..." optionLabel="NOMBRE" [showClear]="true" (onChange)="onChangeLevel(selectedLevel)"></p-dropdown>
+        </div>
+    </div>
+    <div class="p-col-4" *ngIf="dropClassroom">
+        <div class="card">
+            <h2>Aula:</h2>
+            <p-dropdown [options]="classrooms" [(ngModel)]="selectedClassroom" placeholder="Selecciona el aula..." optionLabel="NOMBRE" [showClear]="true" (onChange)="onChangeClassroom(selectedClassroom)"></p-dropdown>
+        </div>
+    </div>
+</div>

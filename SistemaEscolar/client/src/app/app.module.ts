@@ -123,15 +123,11 @@ import { ForgotPasswordComponent } from './intranet/login/forgot-password/forgot
 import { HomeComponentAdministrative } from './intranet/administrative/home/home.component';
 import { HomeComponentStudent } from './intranet/student/home/home.component';
 import { HomeComponentTeacher } from './intranet/teacher/home/home.component';
-import { CampusComponent } from './intranet/administrative/campus/campus.component';
-import { BuildingComponent } from './intranet/administrative/building/building.component';
-import { ClassroomComponent } from './intranet/administrative/classroom/classroom.component';
-import { CampusFormComponent } from './intranet/administrative/campus/campus-form/campus-form.component';
-import { CampusListComponent } from './intranet/administrative/campus/campus-list/campus-list.component';
 import { HeaderComponentI } from './pages/header/header.component';
 import { FooterComponentI } from './pages/footer/footer.component';
 import { ListNotesComponent } from './intranet/teacher/list-notes/list-notes.component';
 import { ListSubjectComponent } from './intranet/teacher/list-subject/list-subject.component';
+import { AsistanceComponent } from './intranet/administrative/asistance/asistance.component';
 @NgModule({
     imports: [
         BrowserModule,
@@ -243,15 +239,11 @@ import { ListSubjectComponent } from './intranet/teacher/list-subject/list-subje
         HomeComponentStudent,
         HomeComponentAdministrative,
         HomeComponentTeacher,
-        CampusComponent,
-        BuildingComponent,
-        ClassroomComponent,
-        CampusFormComponent,
-        CampusListComponent,
         HeaderComponentI,
         FooterComponentI,
         ListNotesComponent,
-        ListSubjectComponent
+        ListSubjectComponent,
+        AsistanceComponent
 
     ],
     providers: [

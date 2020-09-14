@@ -42,6 +42,7 @@ export class HomeComponentAdministrative implements OnInit {
   buildingOption: boolean =false;
   agregarAula:boolean =false;
   agregarEdificio:boolean =false;
+  asistencia=false;
 
   
   camp: Campus = {
@@ -119,6 +120,7 @@ export class HomeComponentAdministrative implements OnInit {
         label: 'Edificios',
         icon: 'pi pi-bars',
         command: () => {
+          this.asistencia=false; 
           this.campusForm =false;
           this.agregarAula=false;
           this.campusList=false;
@@ -136,6 +138,7 @@ export class HomeComponentAdministrative implements OnInit {
         label: 'Aulas',
         icon: 'pi pi-bars',
         command: () => {
+          this.asistencia=false; 
           this.campusForm =false;
           this.clasroomForm=false; 
           this.buildingOption=false;
@@ -148,6 +151,24 @@ export class HomeComponentAdministrative implements OnInit {
           this.agregarEdificio=false;
           this.buildingForm=false; 
           this.getCampus();
+        }
+      },
+      {
+        label: 'Asistencia',
+        icon: 'pi pi-list',
+        command: () => {
+          this.asistencia=true; 
+          this.campusForm =false;
+          this.clasroomForm=false; 
+          this.buildingOption=false;
+          this.buildingList=false;
+          this.classroomflag=false;
+          this.campusList=false;
+          this.campusOption=false;
+          this.agregarAula=false;
+          this.classroomList=false;
+          this.agregarEdificio=false;
+          this.buildingForm=false;
         }
       }
     ]
