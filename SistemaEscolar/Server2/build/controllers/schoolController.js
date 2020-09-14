@@ -216,5 +216,12 @@ class SchoolController {
             res.json(curs);
         });
     }
+    //insertar la asistencia del alumno
+    InsertarAsistenci(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield database_1.default.query('INSERT INTO asistencia_periodo set ?', [req.body]);
+            res.json({ text: 'Asistencia tomada' });
+        });
+    }
 }
 exports.schoolController = new SchoolController();

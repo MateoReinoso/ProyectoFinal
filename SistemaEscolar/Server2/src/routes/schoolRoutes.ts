@@ -54,6 +54,8 @@ class ShoolRoutes{
         this.router.get('/paralelo/nombre/:obe', schoolController.ObtenerParalelo);
         //obtencion estudiantes por paralelo
         this.router.get('/paralelo/nombre/estudiantes/listado/:lpn/:lpp', schoolController.ListaParalelo);
+        //registrar asistencia
+        this.router.post('/asistencia',schoolController.InsertarAsistenci);
     }
 }
 

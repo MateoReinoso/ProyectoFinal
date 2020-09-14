@@ -103,4 +103,8 @@ export class SchoolService {
     return this.http.get(`${this.API_URI}/school/paralelo/nombre/estudiantes/listado/${COD_NIVEL}/${COD_OELARAP}`);
   }
 
+  postAsistencia(asitencia: any){
+    return this.http.post(`${this.API_URI}/school/asistencia`,asitencia);
+  }
+
 }

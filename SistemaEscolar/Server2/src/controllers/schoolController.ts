@@ -180,6 +180,12 @@ class SchoolController {
         res.json(curs);
     }
 
+    //insertar la asistencia del alumno
+    public async InsertarAsistenci(req: Request, res: Response): Promise<void>{
+        await db.query('INSERT INTO asistencia_periodo set ?',[req.body]);
+        res.json({text: 'Asistencia tomada'});
+    }
+
 
 }
 
