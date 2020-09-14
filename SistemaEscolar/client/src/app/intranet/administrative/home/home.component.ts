@@ -97,6 +97,7 @@ export class HomeComponentAdministrative implements OnInit {
           this.agregarAula=false;
           this.agregarEdificio=false;
           this.buildingForm=false; 
+          this.clasroomForm=false; 
           this.getCampus();
         }
       },
@@ -112,6 +113,8 @@ export class HomeComponentAdministrative implements OnInit {
           this.buildingOption=false;
           this.classroomflag=false;
           this.agregarEdificio=true;
+          this.clasroomForm=false; 
+
           this.getCampus();
         }
       },
@@ -120,6 +123,7 @@ export class HomeComponentAdministrative implements OnInit {
         icon: 'pi pi-bars',
         command: () => {
           this.campusForm =false;
+          this.clasroomForm=false; 
           this.buildingOption=false;
           this.buildingList=false;
           this.classroomflag=true;
