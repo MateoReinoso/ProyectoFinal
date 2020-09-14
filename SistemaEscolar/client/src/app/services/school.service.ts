@@ -90,4 +90,17 @@ export class SchoolService {
     return this.http.put(`${this.API_URI}/school/deberactualizado/${COD_TAREA}`, updateDeber);
   }
 
+  //obtencion nivel lista
+  getNivelLista(){
+    return this.http.get(`${this.API_URI}/school/nivel`);
+  }
+  //obtencion del paralelo
+  getObtenerParalelo(COD_PARALEO: number){
+    return this.http.get(`${this.API_URI}/school/paralelo/nombre/${COD_PARALEO}`);
+  }
+  //obtencion estudiantes por paralelo
+  getListaParalelo(COD_NIVEL: number, COD_OELARAP){
+    return this.http.get(`${this.API_URI}/school/paralelo/nombre/estudiantes/listado/${COD_NIVEL}/${COD_OELARAP}`);
+  }
+
 }

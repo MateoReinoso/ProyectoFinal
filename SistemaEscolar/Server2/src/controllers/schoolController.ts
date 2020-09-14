@@ -156,11 +156,30 @@ class SchoolController {
         await db.query('UPDATE tarea_asignatura set ? WHERE COD_TAREA = ?', [req.body, COD_TAREA]);
     }
 
+    //obtener nivel
     public async NivelEducativo(req: Request, res: Response): Promise<void> {
         const curs = await db.query('SELECT ne.COD_NIVEL_EDUCATIVO, ne.NOMBRE FROM nivel_educativo ne');
         console.log(curs);
         res.json(curs);
     }
+
+    //obtener paralelo
+    public async ObtenerParalelo(req: Request, res: Response): Promise<void> {
+        const { obe } = req.params;
+        const curs = await db.query('SELECT p.COD_PARALELO, p.NOMBRE FROM paralelo p, nivel_educativo ne WHERE ne.COD_NIVEL_EDUCATIVO = ? AND p.COD_NIVEL_EDUCATIVO = ne.COD_NIVEL_EDUCATIVO', [obe]);
+        console.log(curs);
+        res.json(curs);
+    }
+
+    //listado estudiantes paralelo
+    public async ListaParalelo(req: Request, res: Response): Promise<void> {
+        const { lpn } = req.params;
+        const { lpp } = req.params;
+        const curs = await db.query('SELECT DISTINCTROW aap.COD_ALUMNO, pe.APELLIDO, pe.NOMBRE, aap.COD_PERIODO_LECTIVO, ne.COD_NIVEL_EDUCATIVO FROM alumno_asignatura_periodo aap, persona pe, nivel_educativo ne WHERE aap.COD_NIVEL_EDUCATIVO = ? AND ne.COD_NIVEL_EDUCATIVO = aap.COD_NIVEL_EDUCATIVO AND aap.COD_PARALELO = ? AND aap.COD_ALUMNO = pe.COD_PERSONA', [lpn,lpp]);
+        console.log(curs);
+        res.json(curs);
+    }
+
 
 }
 
