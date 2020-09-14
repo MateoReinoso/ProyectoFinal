@@ -85,4 +85,9 @@ export class SchoolService {
     return this.http.get(`${this.API_URI}/school/deberes/asignados/${odd}/${odca}/${odcne}/${odcp}`);
   }
 
+  //actualizar deber
+  updateDeber(COD_TAREA: number, updateDeber: any){
+    return this.http.put(`${this.API_URI}/school/deberactualizado/${COD_TAREA}`, updateDeber);
+  }
+
 }
