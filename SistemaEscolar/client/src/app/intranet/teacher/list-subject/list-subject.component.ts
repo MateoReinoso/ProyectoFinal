@@ -20,12 +20,13 @@ export class ListSubjectComponent implements OnInit {
   classrooms: any = [];
   items: MenuItem[];
   idSubjectCode: number;
-dropLevel=false;
-idLevelCode: number;
-dropClassroom=false;
-idClassroomCode: number;
-idPeriodCode: number;
-dropHomeworks = false;
+  dropLevel=false;
+  idLevelCode: number;
+  dropClassroom=false;
+  idClassroomCode: number;
+  idPeriodCode: number;
+  dropHomeworks = false;
+  idHomeworkCode: number;
 
 newhomework:any ={
   COD_NIVEL_EDUCATIVO: 0,
@@ -35,6 +36,8 @@ newhomework:any ={
   COD_DOCENTE: 0,
   DETALLE_TAREA: ''
 };
+
+homeworks: any = [];
   constructor(private loginService: LoginService, private schoolService: SchoolService, private messageService: MessageService) {
 
   }
@@ -83,6 +86,17 @@ newhomework:any ={
     );
   }
 
+  getHomeworks(){
+    this.schoolService.getObtenerDeberes(this.credentials.COD_PERSONA, this.idSubjectCode, this.idLevelCode, this.idClassroomCode)
+    .subscribe(
+      res => {
+        this.homeworks = res;
+        console.log(this.homeworks);
+      },
+      err => console.error(err)
+    );
+  }
+
   onChange(selectedSubject){
     this.dropClassroom=false;
     this.dropHomeworks = false;
@@ -110,6 +124,7 @@ newhomework:any ={
     console.log(this.idClassroomCode);
     console.log(this.idPeriodCode);
     this.dropHomeworks = true;
+    this.getHomeworks();
   }
 
   onAddHomework(homework){
@@ -125,6 +140,21 @@ newhomework:any ={
     .subscribe(
       res => {
         console.log('Tarea agregada');
+      },
+      err => console.error(err)
+    );
+    this.getHomeworks();
+  }
+
+  onRowEditInit(homework){
+    console.log(homework);
+    this.idHomeworkCode=homework.COD_TAREA;
+    delete homework.COD_TAREA;
+    console.log(homework);
+    this.schoolService.updateDeber(this.idHomeworkCode, homework)
+    .subscribe(
+      res => {
+        console.log('Tarea Editada');
       },
       err => console.error(err)
     );

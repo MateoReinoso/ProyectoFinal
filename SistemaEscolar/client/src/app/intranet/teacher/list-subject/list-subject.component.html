@@ -32,21 +32,21 @@
     </div>
     <div class="p-col-6">
         <p-panel header="Deberes Asignados">
-            <p-table [value]="homeworks">
+            <p-table [value]="homeworks" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} deberes" [rowsPerPageOptions]="[5,10,15]">
                 <ng-template pTemplate="header">
                     <tr>
                         <th>Deberes Asignados</th>
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-homework let-editing="editing" let-ri="rowIndex">
-                    <tr *ngIf="notes1p" [pEditableRow]="homework">
+                    <tr [pEditableRow]="homework">
                         <td pEditableColumn>
                             <p-cellEditor>
                                 <ng-template pTemplate="input">
-                                    <input pInputText type="number" [(ngModel)]="homework.asignment">
+                                    <input pInputText type="text" [(ngModel)]="homework.DETALLE_TAREA">
                                 </ng-template>
                                 <ng-template pTemplate="output">
-
+                                    {{homework.DETALLE_TAREA}}
                                 </ng-template>
                             </p-cellEditor>
                         </td>
