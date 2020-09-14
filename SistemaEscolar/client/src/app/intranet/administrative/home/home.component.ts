@@ -8,6 +8,7 @@ import { BuildingServiceService } from '../../../services/building-service.servi
 import { ClassroomService} from '../../../services/classroom.service';
 import { Campus } from '../../../models/Campus';
 import { Building } from '../../../models/Building';
+import { Classroom } from '../../../models/Classroom';
 
 
 @Component({
@@ -55,6 +56,14 @@ export class HomeComponentAdministrative implements OnInit {
     COD_SEDE: '',
     NOMBRE: '',
     CANTIDAD_PISOS: ''
+  };
+  class1: Classroom = {
+    id: 0,
+    COD_EDIFICIO: '',
+    NOMBRE: '',
+    CAPACIDAD: '',
+    TIPO:'',
+    PISO:0,
   };
   
 
@@ -177,6 +186,7 @@ export class HomeComponentAdministrative implements OnInit {
   }
   onChange1(selectedBuilding){
     this.getClassroomByBuilding(selectedBuilding.COD_EDIFICIO);
+    this.class1.COD_EDIFICIO=selectedBuilding.COD_EDIFICIO;
   }
   
   addCampusForm()
@@ -221,5 +231,17 @@ export class HomeComponentAdministrative implements OnInit {
     this.clasroomForm=true; 
     this.classroomList=false;
     console.log("Estoy llegando a metodo por lo menos")
+   }
+   addClassroom()
+   {
+    delete this.class1.id;
+    this.clasroomForm=false; 
+    this.classroomList=true;
+    console.log(this.class1)
+    this.classroomService.createClassroom(this.class1).subscribe(
+      res => { 
+        console.log(res);
+      },
+      err => console.error(err))
    }
 }

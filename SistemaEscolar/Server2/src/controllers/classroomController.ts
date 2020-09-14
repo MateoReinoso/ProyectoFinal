@@ -24,7 +24,7 @@ class ClassroomController{
     } 
 
     public async create(req: Request, res: Response): Promise<void> {
-        const result = await db.query('INSERT INTO sede set ?', [req.body]);
+        const result = await db.query('INSERT INTO aula set ?', [req.body]);
         res.json({ message: 'classroom Saved' });
     }
     
