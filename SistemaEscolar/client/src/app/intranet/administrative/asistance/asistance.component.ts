@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SchoolService } from '../../../services/school.service';
+import {SplitButtonModule} from 'primeng/splitbutton';
+import { MenuItem, MessageService, Message, SelectItem } from 'primeng/api';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-asistance',
@@ -17,11 +20,22 @@ export class AsistanceComponent implements OnInit {
   classrooms: any = [];
   students: any = [];
   fechaActual:Date = new Date();
+  items: MenuItem[];
+  options: SelectItem[];
 
+  newasistance:any ={
+    COD_PERIODO_LECTIVO: 0,
+    COD_ALUMNO: 0,
+    COD_NIVEL_EDUCATIVO: 0,
+    FECHA: new Date(),
+    ESTADO:''
+    
+  };
   constructor(private schoolService: SchoolService) { }
 
   ngOnInit(): void {
     this.getLevel();
+    this.options = [{label: 'Presente', value: 'ACT'}, {label: 'Ausente', value: 'INA'}];
   }
 
   getLevel(){
@@ -70,6 +84,17 @@ export class AsistanceComponent implements OnInit {
     this.getStudents();
     
     
+  }
+
+  onRegister(student)
+  {
+    console.log(student);
+    this.newasistance.COD_PERIODO_LECTIVO = student.COD_PERIODO_LECTIVO;
+    this.newasistance.COD_ALUMNO=student.COD_ALUMNO;
+    this.newasistance.COD_NIVEL_EDUCATIVO=student.COD_NIVEL_EDUCATIVO;
+    this.newasistance.FECHA=this.fechaActual;
+    this.newasistance.ESTADO=student.ESTADO;
+    console.log(this.newasistance);
   }
 
 }
