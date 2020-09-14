@@ -7,6 +7,8 @@ import { CampusService } from '../../../services/campus.service';
 import { BuildingServiceService } from '../../../services/building-service.service';
 import { ClassroomService} from '../../../services/classroom.service';
 import { Campus } from '../../../models/Campus';
+import { Building } from '../../../models/Building';
+
 
 @Component({
   selector: 'app-home-administrative',
@@ -20,6 +22,7 @@ export class HomeComponentAdministrative implements OnInit {
 
   selectedCampus: Number;
   selectedBuilding: Number;
+  selectedClassroom: Number;
   credentials: any =[];
   items: MenuItem[];
   btnAgregar: ButtonModule[];
@@ -45,6 +48,12 @@ export class HomeComponentAdministrative implements OnInit {
     DIRECCION: '',
     TELEFONO: '',
     CODIGO_POSTAL: ''
+  };
+  build: Building = {
+    id: 0,
+    COD_SEDE: '',
+    NOMBRE: '',
+    CANTIDAD_PISOS: ''
   };
   
 
@@ -161,9 +170,10 @@ export class HomeComponentAdministrative implements OnInit {
 
   onChange(selectedCampus){
     this.getBuildingByCampus(selectedCampus.COD_SEDE);
+    this.build.COD_SEDE=selectedCampus.COD_SEDE;
   }
   onChange1(selectedBuilding){
-    this.getClassroomByBuilding(selectedBuilding.COD_SEDE);
+    this.getClassroomByBuilding(selectedBuilding.COD_EDIFICIO);
   }
   
   addCampusForm()
@@ -190,6 +200,18 @@ export class HomeComponentAdministrative implements OnInit {
     this.buildingForm=true; 
     this.buildingList=false;
     console.log("Estoy llegando a metodo por lo menos")
+   }
+   addBuilding()
+   {
+    delete this.build.id;
+    this.buildingForm=false; 
+    this.buildingList=true;
+    
+    this.buildingService.createBuilding(this.build).subscribe(
+      res => { 
+        console.log(res);
+      },
+      err => console.error(err))
    }
   
 }

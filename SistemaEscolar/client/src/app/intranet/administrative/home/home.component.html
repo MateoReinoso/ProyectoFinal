@@ -23,9 +23,9 @@
         <div class="p-col-12 p-md-4 p-lg-8" *ngIf="buildingForm" >
             <p-dropdown [options]="campus" *ngIf="campusOption" [(ngModel)]="selectedCampus" placeholder="Selecciona la Sede..." optionLabel="NOMBRE" [showClear]="true" (onChange)="onChange(selectedCampus)"></p-dropdown><br>
             <label for="nameB">Nombre del edificio:</label><br>
-            <input type="text" pInputText /><br>
+            <input type="text" pInputText [(ngModel)]="build.NOMBRE"/><br>
             <label for="cantidad">Cantidad Pisos:</label><br>
-            <input type="text" pInputText /><br>
+            <input type="text" pInputText [(ngModel)]="build.CANTIDAD_PISOS"/><br>
             
             <button pButton type="button" label="Agregar" class="p-button-secondary" (click)="addBuilding()"></button>
         </div>

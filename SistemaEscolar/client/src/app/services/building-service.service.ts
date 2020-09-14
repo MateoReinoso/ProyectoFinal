@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Building } from '../models/Building';
 
 
 @Injectable({
@@ -22,6 +23,9 @@ export class BuildingServiceService {
   }
   updateLoginDate(USER: string) {
     return this.http.put(`${this.API_URI}/login/${USER}`, null);
+  }
+  createBuilding(camp: Building){
+    return this.http.post(`${this.API_URI}/building/`,camp);
   }
   
 }
