@@ -101,7 +101,10 @@
                             </p-cellEditor>
                         </td>
                         <td style="text-align:center">
-                            <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil" (click)="onRowEditInit(note)" class="p-button-rounded p-button-text"></button>
+                            <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil" (click)="onRowEditInit(campus,campus.COD_SEDE)" class="p-button-rounded p-button-text"></button>
+                        </td>
+                        <td style="text-align:center">
+                            <button  pButton pRipple type="button"  icon="pi pi-times" (click)="onRowDelete(campus.COD_SEDE)" class="p-button-rounded p-button-warning"></button>
                         </td>
                     </tr>
                 </ng-template>

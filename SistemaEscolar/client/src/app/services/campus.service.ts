@@ -24,4 +24,10 @@ export class CampusService {
   createCampus(camp: Campus){
     return this.http.post(`${this.API_URI}/campus/`,camp);
   }
+  updateCampus(camp: Campus,id:number){
+    return this.http.put(`${this.API_URI}/campus/${id}`,camp);
+  }
+  deleteCampus(id:number){
+    return this.http.delete(`${this.API_URI}/campus/${id}`);
+  }
 }

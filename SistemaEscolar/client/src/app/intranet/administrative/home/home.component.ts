@@ -51,6 +51,13 @@ export class HomeComponentAdministrative implements OnInit {
     TELEFONO: '',
     CODIGO_POSTAL: ''
   };
+  clonedCamp: Campus = {
+    id: 0,
+    NOMBRE: '',
+    DIRECCION: '',
+    TELEFONO: '',
+    CODIGO_POSTAL: ''
+  };
   build: Building = {
     id: 0,
     COD_SEDE: '',
@@ -244,4 +251,26 @@ export class HomeComponentAdministrative implements OnInit {
       },
       err => console.error(err))
    }
+   onRowEditInit(camp,id) {
+    this.clonedCamp = camp;
+    console.log(this.clonedCamp);
+    console.log(this.clonedCamp);
+    console.log(this.clonedCamp);
+    this.campusService.updateCampus(this.clonedCamp,id).subscribe(
+      res => {;
+        console.log(this.clonedCamp);
+      },
+      err => console.error(err)
+    );
+  }
+  onRowDelete(id) {
+    
+    this.campusService.deleteCampus(id).subscribe(
+      res => {
+        console.log(id);
+      },
+      err => console.error(err)
+    );
+  }
+  
 }

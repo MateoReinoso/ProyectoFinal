@@ -30,7 +30,7 @@ class CampusController{
     }
     public async delete(req: Request, res: Response): Promise<void> {
         const { id } = req.params;
-        await db.query('DELETE FROM sede WHERE id = ?', [id]);
+        await db.query('DELETE FROM sede WHERE COD_SEDE = ?', [id]);
         res.json({ message: "The campus was deleted" });
     }
 
