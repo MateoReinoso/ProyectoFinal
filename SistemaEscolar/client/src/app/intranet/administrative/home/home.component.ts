@@ -32,6 +32,7 @@ export class HomeComponentAdministrative implements OnInit {
   campusOption: boolean =false;
   campusForm: boolean =false;
   buildingForm: boolean =false;
+  clasroomForm: boolean =false;
   classroomflag: boolean =false;
   campus: any = [];
   oneCampus:any =[];
@@ -79,6 +80,7 @@ export class HomeComponentAdministrative implements OnInit {
           this.classroomflag=false;
           this.agregarAula=false;
           this.agregarEdificio=false;
+          this.buildingForm=false; 
           this.getCampus();
         }
       },
@@ -110,6 +112,7 @@ export class HomeComponentAdministrative implements OnInit {
           this.agregarAula=true;
           this.classroomList=false;
           this.agregarEdificio=false;
+          this.buildingForm=false; 
           this.getCampus();
         }
       }
@@ -213,5 +216,10 @@ export class HomeComponentAdministrative implements OnInit {
       },
       err => console.error(err))
    }
-  
+   addClassroomForm()
+   {
+    this.clasroomForm=true; 
+    this.classroomList=false;
+    console.log("Estoy llegando a metodo por lo menos")
+   }
 }
