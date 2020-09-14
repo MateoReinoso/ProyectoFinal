@@ -53,6 +53,8 @@
                         <th>Direccion</th>
                         <th>Telefono</th>
                         <th>Codigo Postal</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-campus let-editing="editing" let-ri="rowIndex">
@@ -97,6 +99,9 @@
                                     {{campus.CODIGO_POSTAL}}
                                 </ng-template>
                             </p-cellEditor>
+                        </td>
+                        <td style="text-align:center">
+                            <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil" (click)="onRowEditInit(note)" class="p-button-rounded p-button-text"></button>
                         </td>
                     </tr>
                 </ng-template>
