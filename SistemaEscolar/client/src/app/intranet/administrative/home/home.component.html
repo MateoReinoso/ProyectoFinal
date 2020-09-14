@@ -169,15 +169,59 @@
                         <th>Capacidad</th>
                         <th>Tipo</th>
                         <th>Piso</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
                     </tr>
                 </ng-template>
-                <ng-template pTemplate="body" let-classroom>
+                <ng-template pTemplate="body" let-classroom let-editing="editing" let-ri="rowIndex">
                     <tr>
                         <td>{{classroom.COD_AULA}}</td>
-                        <td>{{classroom.NOMBRE}}</td>
-                        <td>{{classroom.CAPACIDAD}}</td>
-                        <td>{{classroom.TIPO}}</td>
-                        <td>{{classroom.PISO}}</td>
+                        <td pEditableColumn>
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input pInputText type="text" [(ngModel)]="classroom.NOMBRE">
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{classroom.NOMBRE}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td pEditableColumn>
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input pInputText type="text" [(ngModel)]="classroom.CAPACIDAD">
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{classroom.CAPACIDAD}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td pEditableColumn>
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input pInputText type="text" [(ngModel)]="classroom.TIPO">
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{classroom.TIPO}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td pEditableColumn>
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input pInputText type="text" [(ngModel)]="classroom.PISO">
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{classroom.PISO}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td style="text-align:center">
+                            <button *ngIf="!editing" pButton pRipple type="button"  icon="pi pi-pencil" (click)="onRowEditClassroom(classroom,classroom.COD_AULA)" class="p-button-rounded p-button-text"></button>
+                        </td>
+                        <td style="text-align:center">
+                            <button  pButton pRipple type="button"  icon="pi pi-times" (click)="onRowDeleteClassroom(classroom.COD_AULA)" class="p-button-rounded p-button-warning"></button>
+                        </td>
                     </tr>
                 </ng-template>
 
