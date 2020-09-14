@@ -136,6 +136,20 @@ class SchoolController {
     }
 
 
+    public async ObtencionDeberes(req: Request, res: Response): Promise<void> {
+        //datos codigo docente
+        const { odd } = req.params;
+        //datos codigo asignatura
+        const { odca } = req.params;
+        //datos codigo nivel educativo
+        const { odcne } = req.params;
+        //datos paralelo
+        const { odcp } = req.params;
+        const curs = await db.query('SELECT DISTINCTROW ta.DETALLE_TAREA FROM tarea_asignatura ta WHERE ta.COD_DOCENTE = ? AND ta.COD_ASIGNATURA = ? AND ta.COD_NIVEL_EDUCATIVO = ? AND ta.COD_PARALELO = ?', [odd,odca,odcne,odcp]);
+        console.log(curs);
+        res.json(curs);
+    }
+
 }
 
 export const schoolController = new SchoolController();

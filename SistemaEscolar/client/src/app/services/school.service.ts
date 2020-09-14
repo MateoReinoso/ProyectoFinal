@@ -80,4 +80,9 @@ export class SchoolService {
     return this.http.post(`${this.API_URI}/school`,mandar);
   }
 
+  //obtenerdeberesasigandos
+  getObtenerDeberes(odd:number, odca:number, odcne: number, odcp: number){
+    return this.http.get(`${this.API_URI}/school/deberes/asignados/${odd}/${odca}/${odcne}/${odcp}`);
+  }
+
 }

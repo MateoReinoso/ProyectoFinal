@@ -167,5 +167,20 @@ class SchoolController {
             res.json({ text: 'Asignacion Materia' });
         });
     }
+    ObtencionDeberes(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            //datos codigo docente
+            const { odd } = req.params;
+            //datos codigo asignatura
+            const { odca } = req.params;
+            //datos codigo nivel educativo
+            const { odcne } = req.params;
+            //datos paralelo
+            const { odcp } = req.params;
+            const curs = yield database_1.default.query('SELECT DISTINCTROW ta.DETALLE_TAREA FROM tarea_asignatura ta WHERE ta.COD_DOCENTE = ? AND ta.COD_ASIGNATURA = ? AND ta.COD_NIVEL_EDUCATIVO = ? AND ta.COD_PARALELO = ?', [odd, odca, odcne, odcp]);
+            console.log(curs);
+            res.json(curs);
+        });
+    }
 }
 exports.schoolController = new SchoolController();

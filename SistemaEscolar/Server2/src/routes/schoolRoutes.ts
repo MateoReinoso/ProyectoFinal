@@ -43,6 +43,8 @@ class ShoolRoutes{
         this.router.get('/aula/:dcd/:dca/:dcne', schoolController.DatosCreacion);
         //Subir Deberes
         this.router.post('/',schoolController.EntregarTarea);
+        //obtener datos mandados
+        this.router.get('/deberes/asignados/:odd/:odca/:odcne/:odcp', schoolController.ObtencionDeberes)
     }
 }
 
