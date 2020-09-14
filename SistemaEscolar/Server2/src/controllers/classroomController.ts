@@ -33,12 +33,12 @@ class ClassroomController{
     public async update(req: Request, res: Response): Promise<void> {
         const { id } = req.params;
         const oldGame = req.body;
-        await db.query('UPDATE sede set ? WHERE COD_SEDE = ?', [req.body, id]);
+        await db.query('UPDATE aula set ? WHERE COD_AULA = ?', [req.body, id]);
         res.json({ message: "The game was Updated" });
     }
     public async delete(req: Request, res: Response): Promise<void> {
         const { id } = req.params;
-        await db.query('DELETE FROM sede WHERE id = ?', [id]);
+        await db.query('DELETE FROM aula WHERE COD_AULA = ?', [id]);
         res.json({ message: "The classroom was deleted" });
     }
 

@@ -56,7 +56,7 @@ class BuildingController {
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('DELETE FROM sede WHERE id = ?', [id]);
+            yield database_1.default.query('DELETE FROM edificio WHERE COD_EDIFICIO = ?', [id]);
             res.json({ message: "The building was deleted" });
         });
     }

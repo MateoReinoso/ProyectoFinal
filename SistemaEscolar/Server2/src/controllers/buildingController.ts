@@ -37,7 +37,7 @@ class BuildingController{
     }
     public async delete(req: Request, res: Response): Promise<void> {
         const { id } = req.params;
-        await db.query('DELETE FROM sede WHERE id = ?', [id]);
+        await db.query('DELETE FROM edificio WHERE COD_EDIFICIO = ?', [id]);
         res.json({ message: "The building was deleted" });
     }
 

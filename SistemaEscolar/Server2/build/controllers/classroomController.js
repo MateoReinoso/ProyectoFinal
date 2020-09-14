@@ -49,14 +49,14 @@ class ClassroomController {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
             const oldGame = req.body;
-            yield database_1.default.query('UPDATE sede set ? WHERE COD_SEDE = ?', [req.body, id]);
+            yield database_1.default.query('UPDATE aula set ? WHERE COD_AULA = ?', [req.body, id]);
             res.json({ message: "The game was Updated" });
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('DELETE FROM sede WHERE id = ?', [id]);
+            yield database_1.default.query('DELETE FROM aula WHERE COD_AULA = ?', [id]);
             res.json({ message: "The classroom was deleted" });
         });
     }
