@@ -6,7 +6,7 @@ import { Classroom } from '../models/Classroom';
   providedIn: 'root'
 })
 export class ClassroomService {
-  API_URI = 'http://localhost:3000/system'
+  API_URI = 'http://3.236.100.191:3000/system'
   constructor(private http: HttpClient) { }
   getCredentials( USER:string, PASS: string){
     return this.http.get(`${this.API_URI}/login/${USER}/${PASS}`);

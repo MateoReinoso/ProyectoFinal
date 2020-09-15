@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class SchoolService {
 
 
-  API_URI = 'http://localhost:3000/system'
+  API_URI = 'http://3.236.100.191:3000/system'
   constructor(private http: HttpClient) { }
 
   getCredentials( USER:string, PASS: string){
