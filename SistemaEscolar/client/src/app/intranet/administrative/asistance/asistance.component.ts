@@ -3,11 +3,14 @@ import { SchoolService } from '../../../services/school.service';
 import {SplitButtonModule} from 'primeng/splitbutton';
 import { MenuItem, MessageService, Message, SelectItem } from 'primeng/api';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-asistance',
   templateUrl: './asistance.component.html',
-  styleUrls: ['./asistance.component.css']
+  styleUrls: ['./asistance.component.css'],
+  providers: [DatePipe]
+
 })
 export class AsistanceComponent implements OnInit {
   
@@ -31,7 +34,7 @@ export class AsistanceComponent implements OnInit {
     ESTADO:''
     
   };
-  constructor(private schoolService: SchoolService) { }
+  constructor(private schoolService: SchoolService, private datePipe: DatePipe) { }
 
   ngOnInit(): void {
     this.getLevel();
@@ -92,9 +95,16 @@ export class AsistanceComponent implements OnInit {
     this.newasistance.COD_PERIODO_LECTIVO = student.COD_PERIODO_LECTIVO;
     this.newasistance.COD_ALUMNO=student.COD_ALUMNO;
     this.newasistance.COD_NIVEL_EDUCATIVO=student.COD_NIVEL_EDUCATIVO;
-    this.newasistance.FECHA=this.fechaActual;
+    this.newasistance.FECHA=this.datePipe.transform(this.fechaActual, 'yyyy-MM-dd' );
     this.newasistance.ESTADO=student.ESTADO;
     console.log(this.newasistance);
+    this.schoolService.postAsistencia(this.newasistance)
+    .subscribe(
+      res => {
+        console.log('REGISTRO EXITOSO');
+      },
+      err => console.error(err)
+    );
   }
 
 }
