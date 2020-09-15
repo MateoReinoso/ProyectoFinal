@@ -123,8 +123,6 @@ import { ForgotPasswordComponent } from './intranet/login/forgot-password/forgot
 import { HomeComponentAdministrative } from './intranet/administrative/home/home.component';
 import { HomeComponentStudent } from './intranet/student/home/home.component';
 import { HomeComponentTeacher } from './intranet/teacher/home/home.component';
-import { HeaderComponentI } from './pages/header/header.component';
-import { FooterComponentI } from './pages/footer/footer.component';
 import { ListNotesComponent } from './intranet/teacher/list-notes/list-notes.component';
 import { ListSubjectComponent } from './intranet/teacher/list-subject/list-subject.component';
 import { AsistanceComponent } from './intranet/administrative/asistance/asistance.component';
@@ -239,8 +237,6 @@ import { AsistanceComponent } from './intranet/administrative/asistance/asistanc
         HomeComponentStudent,
         HomeComponentAdministrative,
         HomeComponentTeacher,
-        HeaderComponentI,
-        FooterComponentI,
         ListNotesComponent,
         ListSubjectComponent,
         AsistanceComponent
